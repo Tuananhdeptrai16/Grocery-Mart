@@ -114,13 +114,19 @@ function handleActiveMenu() {
       if (!items.length) return;
 
       removeActive(menu);
-      items[0].classList.add(activeClass);
+      if (window.innerWidth > 991) items[0].classList.add(activeClass);
 
       Array.from(items).forEach((item) => {
         item.onmouseenter = () => {
           if (window.innerWidth <= 991) return;
           removeActive(menu);
           item.classList.add(activeClass);
+        };
+        item.onclick = () => {
+          if (window.innerWidth > 991) return;
+          removeActive(menu);
+          item.classList.add(activeClass);
+          item.scrollIntoView();
         };
       });
     });
@@ -140,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const close = $(".navbar__close-btn");
   clickMenuHandle.onclick = (event) => {
     event.stopPropagation();
+    if (window.innerWidth > 991) return;
     if (navbarOverlay.classList.contains("show") && menu.classList.contains("show")) {
       navbarOverlay.classList.remove("show");
       menu.classList.remove("show");
@@ -149,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
   close.onclick = (event) => {
+    if (window.innerWidth > 991) return;
     event.stopPropagation();
     if (navbarOverlay.classList.contains("show") && menu.classList.contains("show")) {
       navbarOverlay.classList.remove("show");
@@ -156,9 +164,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
   navbarOverlay.addEventListener("click", () => {
+    if (window.innerWidth > 991) return;
     if (navbarOverlay.classList.contains("show") && menu.classList.contains("show")) {
       navbarOverlay.classList.remove("show");
       menu.classList.remove("show");
     }
+  });
+});
+window.addEventListener("template-loaded", () => {
+  const links = $$(".js-dropdown-list > li > a");
+
+  links.forEach((link) => {
+    link.onclick = () => {
+      if (window.innerWidth > 991) return;
+      const item = link.closest("li");
+      console.log(item);
+      item.classList.toggle("navbar__item--active");
+    };
   });
 });

@@ -39,14 +39,19 @@
     position: fixed;
     inset: 0 50% 0 0;
     margin-left: 0;
-    background: #fff;
+    background: var(--header-bg-color);
     z-index: 9;
     padding: 40px 0;
     // js
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
     transition: all 1s ease;
+    border-radius: 0px 20px 20px 0px;
+  }
+  @include abstracts.breakpoint(sm) {
+    inset: 0 20% 0 0;
+    padding: 10px 0;
   }
   &__close-btn {
     display: none;
@@ -54,14 +59,18 @@
       display: block;
       padding: 10px 40px;
     }
+    @include abstracts.breakpoint(sm) {
+      display: block;
+      padding: 10px 20px;
+    }
   }
   &-ovelay {
     opacity: 0;
     visibility: hidden;
     @include abstracts.breakpoint(lg) {
-      visibility: visible;
+      visibility: hidden;
       position: fixed;
-      opacity: 1;
+      opacity: 0;
       inset: 0;
       background-color: rgb($color: #000, $alpha: 0.4);
       z-index: 8;
@@ -73,7 +82,10 @@
       flex-direction: column;
       align-items: flex-start;
       overflow-y: auto;
-      height: calc(100% - 26px);
+      height: calc(100% - 30px);
+    }
+    @include abstracts.breakpoint(sm) {
+      height: calc(100% - 140px);
     }
   }
 
@@ -83,6 +95,12 @@
     }
     @include abstracts.breakpoint(lg) {
       width: 100%;
+      &:hover .dropdown {
+        display: none;
+      }
+      &--active .dropdown {
+        display: block !important;
+      }
     }
   }
 
@@ -97,6 +115,10 @@
       line-height: 2.4rem; /* 150% */
       justify-content: space-between;
     }
+    @include abstracts.breakpoint(sm) {
+      padding: 0 20px;
+      height: 44px;
+    }
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 146.667%;
@@ -104,6 +126,13 @@
 
   &__arrow {
     margin-top: 3px;
+    @include abstracts.breakpoint(lg) {
+      rotate: -90deg;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  &__item--active &__arrow {
+    rotate: 0deg;
   }
 }
 
@@ -168,4 +197,26 @@
   transform: translateX(0);
   opacity: 1;
   visibility: visible;
+  box-shadow: 0px 40px 90px 20px var(--sidebar--shadow);
+}
+.nav-btn {
+  height: 50px;
+  padding: 0 40px;
+  align-items: center;
+  @include abstracts.breakpoint(sm) {
+    padding: 0 20px;
+    height: 44px;
+  }
+  &__title,
+  &__qnt {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.2rem;
+  }
+  &__title {
+    margin-left: 16px;
+  }
+  &__qnt {
+    margin-left: auto;
+  }
 }
