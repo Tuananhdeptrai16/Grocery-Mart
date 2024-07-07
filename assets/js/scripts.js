@@ -188,11 +188,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const slideShowLength = slideShows.length;
   let width = slideShows[0].offsetWidth;
   let i = 0;
+  const numberSlideShow = $(".slideshow__num");
+  console.log(numberSlideShow);
 
   const updateWidth = () => {
     width = slideShows[0].offsetWidth;
     slideShows.forEach((item) => {
       item.style.transform = `translateX(${-width * i}px)`;
+      numberSlideShow.innerText = `${i + 1}`;
     });
   };
 
@@ -205,6 +208,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     slideShows.forEach((item) => {
       item.style.transform = `translateX(${-width * i}px)`;
+      numberSlideShow.innerText = `${i + 1}`;
     });
   }, 5000);
 });
