@@ -1,7 +1,6 @@
 @use "../abstracts";
 .slideshow {
   position: relative;
-  margin: 40px 0;
   &__inner {
     display: flex;
     overflow: hidden;
@@ -72,6 +71,24 @@
     &::before {
       left: 0;
       translate: -90% -50%;
+    }
+  }
+  &__btn {
+    width: calc(100% - 26px);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btn--icon {
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    @include abstracts.breakpoint(md) {
+      width: 30px;
+      height: 30px;
     }
   }
 }

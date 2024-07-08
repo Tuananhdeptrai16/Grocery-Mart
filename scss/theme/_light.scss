@@ -23,4 +23,11 @@ html {
   //   side bar
   --sidebar--bg: #fff;
   --sidebar--shadow: rgba(200, 200, 200, 0.4);
+  // cate -item
+  --cate--item-bg: #eee;
+  --cate--item-thumb-bg: #fff;
+  --cate--item-title-color: #000;
+  @include abstracts.breakpoint(md) {
+    --cate--item-bg: #fff;
+  }
 }

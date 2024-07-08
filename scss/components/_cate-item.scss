@@ -1,0 +1,61 @@
+@use "../abstracts";
+.cate-item {
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  padding: 20px 26px 20px 20px;
+  border-radius: 16px;
+  background: var(--cate--item-bg);
+  @include abstracts.breakpoint(xl) {
+    flex-direction: column;
+  }
+  @include abstracts.breakpoint(md) {
+    flex-direction: row;
+  }
+  &__thumb {
+    width: 116px;
+    height: 116px;
+    flex-shrink: 0;
+    object-fit: contain;
+    background: var(--cate--item-thumb-bg);
+    border-radius: 8px;
+    @include abstracts.breakpoint(xl) {
+      width: 100%;
+      height: 160px;
+      display: block;
+      margin: 0 auto;
+    }
+    @include abstracts.breakpoint(md) {
+      width: 88px;
+      height: 88px;
+      margin: 0;
+    }
+  }
+  &__infor {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: 30px;
+    @include abstracts.breakpoint(xxl) {
+      padding-right: 0;
+    }
+  }
+  &__title {
+    color: var(--cate--item-title-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 3.2rem; /* 145.455% */
+    @include abstracts.breakpoint(md) {
+      font-size: 1.8rem;
+    }
+  }
+  &__desc {
+    margin-top: 6px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.4rems; /* 150% */
+    @include abstracts.breakpoint(md) {
+      font-size: 1.4rem;
+    }
+  }
+}
