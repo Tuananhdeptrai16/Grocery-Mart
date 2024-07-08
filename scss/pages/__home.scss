@@ -12,9 +12,9 @@
     font-size: 2.4rem;
     font-weight: 700;
     line-height: 3.4rem; /* 141.667% */
-    margin-bottom: 20px;
   }
   &__cate {
+    margin-top: 20px;
     --grid-gutter-x: 51px;
     @include abstracts.breakpoint(lg) {
       --grid-gutter-x: 24px;
@@ -22,5 +22,14 @@
     @include abstracts.breakpoint(md) {
       --grid-gutter-y: 20px;
     }
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  &__product {
+    --grid-gutter-x: 40px;
   }
 }

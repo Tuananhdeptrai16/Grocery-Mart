@@ -30,4 +30,13 @@ html {
   @include abstracts.breakpoint(md) {
     --cate--item-bg: #fff;
   }
+  // buttons
+  --filter--btn-color: #6c6c72;
+  --filter--btn-bg: #fff;
+  // product
+  --product-card-bg: #fff;
+  --product-card-shadow: rgba(237, 237, 246, 0.2);
+  --product-card-brand-color: #9e9da8;
+  //like shadow
+  --like-btn-shadow: rgba(124, 124, 124, 0.2);
 }
