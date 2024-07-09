@@ -188,9 +188,9 @@
 
   &__avatar {
     display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     cursor: pointer;
     object-fit: cover;
   }
@@ -220,5 +220,97 @@
   }
   &__qnt {
     margin-left: auto;
+  }
+}
+.user {
+  &__lightmode--icon {
+    width: 24px;
+    height: 24px;
+  }
+  &__lightmode {
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
+  &__wrap {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--top-act-group-bg-color);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include abstracts.breakpoint(xxl) {
+      background: var(--header-bg-color);
+      gap: 5px;
+    }
+  }
+  &__name {
+    margin: -4px 0px 0px 10px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--p-color-1);
+    @include abstracts.breakpoint(xxl) {
+      display: none;
+    }
+  }
+  &__action {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+    width: 25%;
+    border-radius: 10px;
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    background: var(--filter-form-bg);
+    padding: 20px;
+    &--arrowUp {
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      width: 24px;
+      height: 12px;
+      filter: var(--filter-form-arrow-color);
+    }
+    @include abstracts.breakpoint(lg) {
+      width: 50%;
+    }
+    @include abstracts.breakpoint(sm) {
+      width: 60%;
+    }
+  }
+  &__logout {
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    &--icon {
+      width: 24px;
+      height: 24px;
+    }
+    &--text {
+      color: var(--text-color);
+      font-size: 1.8rem;
+      font-weight: 500;
+      @include abstracts.breakpoint(sm) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  &__seperate {
+    margin: 10px;
+    width: 100%;
+    height: 1px;
+    background-color: #eee;
+  }
+  &__lightmode--text {
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    white-space: nowrap;
+    @include abstracts.breakpoint(sm) {
+      font-size: 1.4rem;
+    }
   }
 }

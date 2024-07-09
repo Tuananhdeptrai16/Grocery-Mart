@@ -4,7 +4,6 @@ window.addEventListener("DOMContentLoaded", () => {
   let width = slideShows[0].offsetWidth;
   let i = 0;
   const numberSlideShow = document.querySelector(".slideshow__num");
-  console.log(numberSlideShow);
 
   const updateWidth = () => {
     width = slideShows[0].offsetWidth;
