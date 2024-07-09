@@ -21,4 +21,49 @@
   justify-content: center;
   border-radius: 50%;
   box-shadow: 0px 1px var(--like-btn-shadow);
+  &:not(&__liked) &__icon-liked {
+    display: none;
+  }
+  &__liked &__icons {
+    display: none;
+  }
+  &__icon-liked {
+    margin-top: 6px;
+  }
+}
+//Butons
+.btn {
+  background: #f8f8fb;
+  height: 46px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 0 20px;
+  user-select: none;
+  & + .btn {
+    margin-left: 20px;
+  }
+  &--text {
+    background: transparent;
+    color: #9e9da8;
+    font-weight: 400;
+  }
+  &--primary {
+    background: #ffb700;
+  }
+  &--outline {
+    background: #fff;
+    border: 1px solid #d2d1d6;
+  }
+  &--rounded {
+    border-radius: 99px;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+  &[disabled],
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }

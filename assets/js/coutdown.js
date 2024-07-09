@@ -19,11 +19,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const countDownValues = document.querySelectorAll(".js-countdownValue");
   const currentDate = new Date();
   const futureDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 10, 19, 10, 0);
-  endDate.innerHTML = `Offer ends on <time>${weekdays[futureDate.getDay()]}, ${futureDate.getDate()} ${
+  endDate.innerHTML = `Offer ends on <span>${weekdays[futureDate.getDay()]}, ${futureDate.getDate()} ${
     months[futureDate.getMonth()]
-  } ${futureDate.getFullYear()} ${futureDate.getHours()}:${futureDate.getMinutes()}</time>`;
+  } ${futureDate.getFullYear()} ${futureDate.getHours()}:${futureDate.getMinutes()}</span>`;
   const futureTime = futureDate.getTime();
-  console.log(futureTime);
   setInterval(() => {
     const now = new Date().getTime();
     const diff = futureTime - now;

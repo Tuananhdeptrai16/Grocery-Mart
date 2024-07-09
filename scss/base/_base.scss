@@ -1,3 +1,5 @@
+@use "../abstracts";
+
 *,
 ::before,
 ::after {
@@ -35,9 +37,18 @@ textarea,
 select {
   font-family: inherit;
   color: inherit;
+  outline: none;
   -webkit-tap-highlight-color: transparent;
 }
-
+input {
+  background: transparent;
+}
 .icon {
   filter: var(--icon-color);
+}
+.container {
+  @include abstracts.breakpoint(sm) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
 }

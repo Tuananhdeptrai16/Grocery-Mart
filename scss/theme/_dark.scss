@@ -46,4 +46,10 @@ html.dark {
   //  countdown gadient
   --countdown-bg-left: #cfd9df;
   --countdown-bg-right: #e2ebf0;
+  //filter
+  --filter-form-bg: #2f3441;
+  --filter-form-shadow: rgba(0, 0, 0, 0.4);
+  --filter-form-arrow-color: brightness(0) saturate(100%) invert(17%) sepia(27%) saturate(487%) hue-rotate(185deg)
+    brightness(89%) contrast(88%);
+  --filter-form-tag-bg: #171c28;
 }

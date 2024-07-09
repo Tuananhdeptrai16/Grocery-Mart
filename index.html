@@ -31,7 +31,7 @@
 
     <div class="container home">
       <!-- Main -->
-      <section class="home__container">
+      <div class="home__container">
         <div class="slideshow">
           <div class="slideshow__inner">
             <div class="slideshow__item">
@@ -85,54 +85,61 @@
             <img src="./assets/icons/arrow-right.svg" alt="left" class="slideshow__btn--icon slideshow__btn--right" />
           </div>
         </div>
-      </section>
+      </div>
       <!-- Brower categories -->
       <section class="home__container">
-        <h2 class="home__heading">Browse Categories</h2>
+        <div class="home__row">
+          <h2 class="home__heading">Browse Categories</h2>
+        </div>
         <div class="home__cate row row-cols-3 row-cols-md-1">
           <!-- categories item 1 -->
           <div class="col">
-            <article class="cate-item">
-              <img src="./assets/img/category-item/item1.png" alt="item1" class="cate-item__thumb" />
-              <section class="cate-item__infor">
-                <h3 class="cate-item__title">$24 - $150</h3>
-                <p class="cate-item__desc">New sumatra mandeling coffe blend</p>
-              </section>
-            </article>
+            <a href="#!">
+              <article class="cate-item">
+                <img src="./assets/img/category-item/item1.png" alt="item1" class="cate-item__thumb" />
+                <div class="cate-item__infor">
+                  <h3 class="cate-item__title">$24 - $150</h3>
+                  <p class="cate-item__desc">New sumatra mandeling coffe blend</p>
+                </div>
+              </article>
+            </a>
           </div>
           <!-- item 2 -->
           <div class="col">
-            <article class="cate-item">
-              <img src="./assets/img/category-item/item2.png" alt="item2" class="cate-item__thumb" />
-              <section class="cate-item__infor">
-                <h3 class="cate-item__title">$37 - $160</h3>
-                <p class="cate-item__desc">Espresso arabica and robusta beans</p>
-              </section>
-            </article>
+            <a href="#!">
+              <article class="cate-item">
+                <img src="./assets/img/category-item/item2.png" alt="item2" class="cate-item__thumb" />
+                <div class="cate-item__infor">
+                  <h3 class="cate-item__title">$37 - $160</h3>
+                  <p class="cate-item__desc">Espresso arabica and robusta beans</p>
+                </div>
+              </article>
+            </a>
           </div>
           <!-- item 3 -->
           <div class="col">
-            <article class="cate-item">
-              <img src="./assets/img/category-item/item3.png" alt="item2" class="cate-item__thumb" />
-              <section class="cate-item__infor">
-                <h3 class="cate-item__title">$32 - $160</h3>
-                <p class="cate-item__desc">Lavazza top class whole bean coffee blend</p>
-              </section>
-            </article>
+            <a href="#!">
+              <article class="cate-item">
+                <img src="./assets/img/category-item/item3.png" alt="item2" class="cate-item__thumb" />
+                <div class="cate-item__infor">
+                  <h3 class="cate-item__title">$32 - $160</h3>
+                  <p class="cate-item__desc">Lavazza top class whole bean coffee blend</p>
+                </div>
+              </article>
+            </a>
           </div>
         </div>
       </section>
       <!-- countdown -->
       <section class="home__container">
-        <section class="countdown section-spacing js-countdown">
+        <div class="countdown section-spacing js-countdown">
           <div class="countdown-wrapper">
             <div class="countdown__text-wrapper">
               <div class="countdown__text">
-                Get
-                <span class="countdown__text--highlighted">50% Off </span>Before It's too Late!<br />
+                <h2>Get <span class="countdown__text--highlighted">50% Off </span>Before It's too Late!<br /></h2>
               </div>
               <div class="countdown__text countdown__text--secondary js-endDate">
-                Offer ends on <time>Thursday, 7 September 2023 9:14</time>
+                Offer ends on <span>Thursday, 7 September 2023 9:14</span>
               </div>
             </div>
             <div class="countdown__box-wrapper js-countdown">
@@ -154,18 +161,103 @@
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </section>
       <!-- product -->
       <section class="home__container">
         <div class="home__row">
           <h2 class="home__heading">Total LavAzza 1320</h2>
-          <button class="filter-btn">
-            Filter
-            <img src="./assets/icons/filter.svg" alt="filter" class="filter-btn__icon icon" />
-          </button>
+          <div class="filter-wrap">
+            <button class="filter-btn">
+              Filter
+              <img src="./assets/icons/filter.svg" alt="filter" class="filter-btn__icon icon" />
+            </button>
+            <div class="filter">
+              <img src="./assets/icons/arrow-up.png" alt="" class="filter__arrow" />
+              <h3 class="filter__heading">Filter</h3>
+              <div class="filter__form">
+                <div class="filter__row filter__content">
+                  <!-- Filter column 1  -->
+                  <div class="filter__col">
+                    <lable class="filter__form-lable">Price</lable>
+                    <div class="filter__form-group">
+                      <div class="filter__form-slider" style="--min-value: 10%; --max-value: 60%"></div>
+                    </div>
+                    <div class="filter__form-group filter__form-group--inline">
+                      <div>
+                        <lable class="filter__form-lable filter__form-lable--small">Minimum</lable>
+                        <input type="text" name="" id="" value="$30.00" class="filter__form--input" />
+                      </div>
+                      <div>
+                        <lable class="filter__form-lable filter__form-lable--small">Maximum</lable>
+                        <input type="text" name="" id="" value="$100.00" class="filter__form--input" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter__separate"></div>
+                  <!-- Filter column 2  -->
+
+                  <div class="filter__col">
+                    <div class="filter__col">
+                      <lable class="filter__form-lable">Size/Weight</lable>
+                      <div class="filter__form-group">
+                        <div class="filter__form-select-wrap">
+                          <div class="filter__form-select" style="--width: 158px">
+                            500g
+                            <img
+                              src="./assets/icons/select-arrow.svg"
+                              alt="down"
+                              class="filter__form-select-arrow icon"
+                            />
+                          </div>
+                          <div class="filter__form-select">
+                            Gram
+                            <img
+                              src="./assets/icons/select-arrow.svg"
+                              alt="down"
+                              class="filter__form-select-arrow icon"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="filter__form-group">
+                        <div class="filter__form-tags">
+                          <button class="filter__form-tag">Small</button>
+                          <button class="filter__form-tag">Medium</button>
+                          <button class="filter__form-tag">Large</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter__separate"></div>
+                  <!-- Filter column 3s  -->
+
+                  <div class="filter__col">
+                    <lable class="filter__form-lable">Brand</lable>
+                    <div class="filter__form-group">
+                      <div class="filter__form-text-input">
+                        <input type="text" name="" id="" placeholder="Search brand name" class="filter__form-input" />
+                        <img src="./assets/icons/search.svg" alt="search" class="filter__form-input--icon icon" />
+                      </div>
+                    </div>
+                    <div class="filter__form-group">
+                      <div class="filter__form-tags">
+                        <button class="filter__form-tag">Lavazza</button>
+                        <button class="filter__form-tag">Nescafe</button>
+                        <button class="filter__form-tag">Starbucks</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="filter__row filter__footer">
+                  <button class="btn btn--text filter__cancle">Cancel</button>
+                  <button class="btn btn--primary filter__submit">Show Result</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="home__product row row-cols-4 row-cols-lg-2 row-cols-sm-1 g-3 gx-sm-4">
+        <div class="home__product row row-cols-4 row-cols-lg-2 row-cols-sm-1 g-3">
           <!-- Product card 1 -->
           <div class="col">
             <article class="product-card">
@@ -173,8 +265,9 @@
                 <a href="#!">
                   <img src="./assets/img/product/item1.png" alt="item1" class="product-card__thumb" />
                 </a>
-                <button class="like-btn like-btn__liked product-card__like--btn">
+                <button class="like-btn product-card__like--btn">
                   <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                  <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
                 </button>
               </div>
               <a href="#!">
@@ -195,8 +288,9 @@
                 <a href="#!">
                   <img src="./assets/img/product/item2.png" alt="item1" class="product-card__thumb" />
                 </a>
-                <button class="like-btn like-btn__liked product-card__like--btn">
-                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icon icon" />
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                  <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
                 </button>
               </div>
               <a href="#!">
@@ -217,8 +311,9 @@
                 <a href="#!">
                   <img src="./assets/img/product/item3.png" alt="item1" class="product-card__thumb" />
                 </a>
-                <button class="like-btn like-btn__liked product-card__like--btn">
-                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icon icon" />
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                  <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
                 </button>
               </div>
               <a href="#!">
@@ -239,8 +334,9 @@
                 <a href="#!">
                   <img src="./assets/img/product/item4.png" alt="item1" class="product-card__thumb" />
                 </a>
-                <button class="like-btn like-btn__liked product-card__like--btn">
-                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icon icon" />
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                  <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
                 </button>
               </div>
               <a href="#!">
@@ -264,5 +360,7 @@
     </div>
     <script src="./assets/js/slideshow.js"></script>
     <script src="./assets/js/coutdown.js"></script>
+    <script src="./assets/js/product.js"></script>
+    <script src="./assets/js/filter.js"></script>
   </body>
 </html>
