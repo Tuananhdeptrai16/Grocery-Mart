@@ -274,10 +274,8 @@
       height: 12px;
       filter: var(--filter-form-arrow-color);
     }
+
     @include abstracts.breakpoint(lg) {
-      width: 50%;
-    }
-    @include abstracts.breakpoint(sm) {
       width: 60%;
     }
   }
@@ -293,9 +291,6 @@
       color: var(--text-color);
       font-size: 1.8rem;
       font-weight: 500;
-      @include abstracts.breakpoint(sm) {
-        font-size: 1.4rem;
-      }
     }
   }
   &__seperate {
@@ -309,8 +304,5 @@
     color: var(--text-color);
     font-size: 1.8rem;
     white-space: nowrap;
-    @include abstracts.breakpoint(sm) {
-      font-size: 1.4rem;
-    }
   }
 }

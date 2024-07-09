@@ -1688,11 +1688,6 @@ html {
 }
 @media (max-width: 991.98px) {
   .user__action {
-    width: 50%;
-  }
-}
-@media (max-width: 575.98px) {
-  .user__action {
     width: 60%;
   }
 }
@@ -1710,11 +1705,6 @@ html {
   font-size: 1.8rem;
   font-weight: 500;
 }
-@media (max-width: 575.98px) {
-  .user__logout--text {
-    font-size: 1.4rem;
-  }
-}
 .user__seperate {
   margin: 10px;
   width: 100%;
@@ -1726,11 +1716,6 @@ html {
   color: var(--text-color);
   font-size: 1.8rem;
   white-space: nowrap;
-}
-@media (max-width: 575.98px) {
-  .user__lightmode--text {
-    font-size: 1.4rem;
-  }
 }
 
 #footer {
