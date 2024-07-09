@@ -52,4 +52,7 @@ html.dark {
   --filter-form-arrow-color: brightness(0) saturate(100%) invert(17%) sepia(27%) saturate(487%) hue-rotate(185deg)
     brightness(89%) contrast(88%);
   --filter-form-tag-bg: #171c28;
+  // footer
+  --footer-bg-color: var(--header-bg-color);
+  --footer-text-color: #9e9da6;
 }
