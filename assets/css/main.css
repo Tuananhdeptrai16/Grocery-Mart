@@ -2116,7 +2116,7 @@ html {
   }
 }
 .countdown__text--highlighted {
-  font-weight: var(--countdown--text-color);
+  font-weight: 700;
 }
 .countdown__text--secondary {
   font-size: 1.5rem;
