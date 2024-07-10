@@ -148,6 +148,9 @@
   &__message {
     margin-top: 30px;
   }
+  &__message--success {
+    text-decoration: underline;
+  }
 }
 .show_Singup {
   translate: 0;

@@ -3122,6 +3122,9 @@ html {
 .auth__message {
   margin-top: 30px;
 }
+.auth__message--success {
+  text-decoration: underline;
+}
 
 .show_Singup {
   translate: 0;
