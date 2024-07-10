@@ -1,6 +1,9 @@
 @use "../abstracts";
 .auth {
   min-height: 100vh;
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
   display: flex;
   &__intro,
   &__content {
