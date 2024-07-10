@@ -141,7 +141,13 @@
   @extend %flexItemsCenter;
   gap: 20px;
   margin-left: auto;
-
+  &__sign-up {
+    @include abstracts.breakpoint(md) {
+      height: 40px !important;
+      padding: 0 8px !important;
+      font-size: 1.5rem !important;
+    }
+  }
   @include abstracts.breakpoint(md) {
     margin-left: 0;
   }

@@ -33,6 +33,8 @@
 }
 //Butons
 .btn {
+  display: flex;
+  align-items: center;
   background: #f8f8fb;
   height: 46px;
   font-size: 1.8rem;
@@ -41,7 +43,9 @@
   padding: 0 20px;
   user-select: none;
   & + .btn {
-    margin-left: 20px;
+    &:not(.btn--no-margin) {
+      margin-left: 20px;
+    }
   }
   &--text {
     background: transparent;

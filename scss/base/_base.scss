@@ -42,6 +42,8 @@ select {
 }
 input {
   background: transparent;
+  outline: none;
+  border: none;
 }
 .icon {
   filter: var(--icon-color);

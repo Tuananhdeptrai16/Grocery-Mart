@@ -3061,8 +3061,45 @@
     <div class="navbar-ovelay"></div>
     <!-- Actions -->
     <div class="top-act">
-      <a href="./sign-in.html" class="btn btn--text d-md-none">Sign In</a>
-      <a href="./sign-up.html" class="top-act__sign-up btn btn--primary">Sign Up</a>
+      <div class="top-act__group d-md-none top-act__group--single">
+        <button class="top-act__btn">
+          <img src="./assets/icons/search.svg" alt="" class="icon top-act__icon" />
+        </button>
+      </div>
+
+      <div class="top-act__group d-md-none">
+        <button class="top-act__btn">
+          <img src="./assets/icons/heart.svg" alt="" class="icon top-act__icon" />
+          <span class="top-act__title">03</span>
+        </button>
+
+        <div class="top-act__separate"></div>
+
+        <button class="top-act__btn">
+          <img src="./assets/icons/buy.svg" alt="" class="icon top-act__icon" />
+          <span class="top-act__title">$65.42</span>
+        </button>
+      </div>
+
+      <div class="top-act__user">
+        <div class="user__wrap">
+          <img src="./assets/img/avatar.jpg" alt="" class="top-act__avatar" />
+          <span class="user__name">Truong Tuan Anh</span>
+          <img src="./assets/icons/arrow-down.svg" alt="arrow" class="user__name--arrow icon" />
+        </div>
+        <div class="user__action">
+          <img src="./assets/icons/arrow-up.png" alt="arrow-up" class="user__action--arrowUp icon" />
+          <div class="user__lightmode">
+            <img src="./assets/icons/lightmode.svg" alt="lightmode" class="user__lightmode--icon icon" />
+            <span class="user__lightmode--text"> <span class="user__lightmode--text-active">Bright</span> mode</span>
+          </div>
+          <div class="user__seperate"></div>
+          <div class="user__logout">
+            <img src="./assets/icons/signout.svg" alt="signout" class="user__logout--icon icon" />
+            <a href="./sign-up.html" class="user__logout--text">Log out</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
