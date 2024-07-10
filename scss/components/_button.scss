@@ -56,7 +56,9 @@
     background: #ffb700;
   }
   &--outline {
-    background: #fff;
+    color: var(--btn--outline-text) !important;
+
+    background: var(--btn--outline-bg);
     border: 1px solid #d2d1d6;
   }
   &--rounded {

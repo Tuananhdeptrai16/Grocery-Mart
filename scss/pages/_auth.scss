@@ -4,6 +4,9 @@
   @supports (-webkit-touch-callout: none) {
     min-height: -webkit-fill-available;
   }
+
+  background-color: var(--auth-intro-bg);
+
   display: flex;
   &__intro,
   &__content {
@@ -17,6 +20,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 50px;
+    background: var(--auth--intro-bg);
     &-logo,
     &-next {
       position: absolute;
@@ -74,6 +78,7 @@
     }
   }
   &__heading {
+    color: var(--auth--content--heading-color);
     margin-top: 50px;
     font-size: 3rem;
     font-style: normal;
@@ -81,14 +86,14 @@
     line-height: 146.667%; /* */
     @include abstracts.breakpoint(md) {
       margin-top: 30px;
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 700;
     }
   }
   &__desc {
     color: #9e9da8;
     margin-top: 10px;
-    padding: 0 30px;
+    padding: 0 20px;
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 146.667%; /* */
@@ -110,8 +115,7 @@
     margin-top: 50px;
     gap: 30px;
     @include abstracts.breakpoint(md) {
-      margin-top: 20px;
-      gap: 10px;
+      margin-top: 40px;
     }
   }
   &__btn {
@@ -130,7 +134,7 @@
     font-weight: 400;
     line-height: 144.444%; /*  */
     @include abstracts.breakpoint(md) {
-      margin-top: 30px;
+      margin-top: 50px;
     }
   }
 }

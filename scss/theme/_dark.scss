@@ -57,7 +57,16 @@ html.dark {
   --footer-text-color: #9e9da6;
   //sign in
   --auth-content-bg: #292e39;
-  --form--input-boder-color: #b9babe;
-  --form--input--text-color: #b9babe;
-  --form--inputCheckbox-text-color: #b9babe;
+  --form--input-boder-color: #d2d1d6;
+  --form--input--text-color: #d2d1d6;
+  --form--inputCheckbox-text-color: #9e9da6;
+  @include abstracts.breakpoint(md) {
+    --auth-intro-bg: #171c28;
+  }
+  //form
+  --btn--outline-bg: #292e39;
+  --btn--outline-text: #b9babe;
+  //auth
+  --auth--intro-bg: #171c28;
+  --auth--content--heading-color: #b9babe;
 }

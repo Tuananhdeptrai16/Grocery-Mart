@@ -59,4 +59,13 @@ html {
   --form--input--text-color: var(--form--input-boder-color);
   --form--inputCheckbox-text-color: #9e9da8;
   --form--text-btn: #000;
+  @include abstracts.breakpoint(md) {
+    --auth-intro-bg: #fff;
+  }
+  //form btn
+  --btn--outline-bg: #fff;
+  --btn--outline-text: #1a162e;
+  //auth
+  --auth--intro-bg: #fafafd;
+  --auth--content--heading-color: #1a162e;
 }
