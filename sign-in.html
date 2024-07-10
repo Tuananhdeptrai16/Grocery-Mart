@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
 
     <!-- Scripts -->
-    <script src="./assets/js/scripts.js"></script>
   </head>
   <body>
     <main class="auth">
@@ -48,14 +47,14 @@
                   type="email"
                   name=""
                   placeholder="Email"
-                  class="form__input auth__from__email"
+                  class="form__input auth__from__email--signIn"
                   required
                   autocomplete="new-password"
                 />
                 <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
                 <img src="./assets/icons/message.svg" alt="message" class="form__input--icon" />
               </div>
-              <p class="form__error">Email không đúng định dạng</p>
+              <p class="form__error form__error--confirm">Email không đúng định dạng</p>
             </div>
             <div class="form__group">
               <div class="form__text--input">
@@ -63,7 +62,7 @@
                   type="password"
                   name=""
                   placeholder="Password"
-                  class="form__input auth__from__password"
+                  class="form__input auth__from__password--signIn"
                   required
                   minlength="6"
                   autocomplete="new-password"
@@ -71,7 +70,7 @@
                 <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
                 <img src="./assets/icons/lock.svg" alt="lock" class="form__input--icon" />
               </div>
-              <p class="form__error form__error--pass">Mật khẩu ít nhât 6 ký tự</p>
+              <p class="form__error form__error--confirm">Mật khẩu ít nhât 6 ký tự</p>
             </div>
 
             <div class="form__group form__group--inline">
@@ -82,7 +81,7 @@
               <a href="#!" class="auth__link form__pull-right">Recovery Password</a>
             </div>
             <div class="form__group auth__btn-group">
-              <button class="btn btn--primary auth__btn btn--no-margin">Sign In</button>
+              <button class="btn btn--primary auth__btn btn--no-margin auth__btn--Signin">Sign In</button>
               <button class="btn btn--outline auth__btn btn--no-margin">
                 <img src="./assets/icons/google.svg" alt="google" class="btn__icon" />
                 Sign in with Gmail
@@ -96,6 +95,6 @@
         </div>
       </div>
     </main>
-    <script src="./assets/js/login.js"></script>
+    <script src="./assets/js/signin.js"></script>
   </body>
 </html>

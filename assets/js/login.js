@@ -5,9 +5,8 @@ window.addEventListener("DOMContentLoaded", () => {
     content.classList.toggle("show_Singup");
   };
 
-  const buttonSignUp = document.querySelector(".auth__btn");
+  const buttonSignUp = document.querySelector(".auth__btn--Signup");
   const textError = document.querySelector(".form__error--confirm");
-
   buttonSignUp.onclick = (event) => {
     event.preventDefault(); // Ngăn chặn hành động mặc định của nút
     let email = document.querySelector(".auth__from__email").value;
