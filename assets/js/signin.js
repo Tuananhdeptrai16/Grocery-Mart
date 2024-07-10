@@ -8,13 +8,16 @@ window.addEventListener("DOMContentLoaded", () => {
     let passWord = document.querySelector(".auth__from__password--signIn").value;
     let emailLocal = localStorage.getItem("email");
     let passLocal = localStorage.getItem("pass");
-    console.log(emailLocal, passLocal);
     if (email === "" || passWord === "") {
       textError.style.display = "block";
       textError.innerText = `Vui lòng điền đẩy đủ thông tin đăng nhập`;
       return;
     } else if (email === emailLocal && passWord === passLocal) {
       window.location.href = "index-logined.html";
+    } else if (email !== "" || passWord !== "") {
+      textError.style.display = "block";
+      textError.innerText = `User hoặc mật khẩu không đúng !!`;
+      return;
     }
   };
 });
