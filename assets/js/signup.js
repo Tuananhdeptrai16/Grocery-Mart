@@ -15,12 +15,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (email === "" || passWord === "" || confirm === "") {
       textError.style.display = "block";
-      textError.innerText = `Vui lòng điền đẩy đủ thông tin đăng ký`;
+      textError.innerText = `Please fill in complete registration information`;
 
       return;
     } else if (passWord !== confirm) {
       textError.style.display = "block";
-      textError.innerText = `Mật khẩu không khớp`;
+      textError.innerText = `password incorrect`;
       return;
     } else {
       localStorage.setItem("email", email);

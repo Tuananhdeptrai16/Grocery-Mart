@@ -42,6 +42,7 @@
     }
     &--img {
       max-width: 100%;
+      width: var(--witdh);
     }
   }
   &__content {
@@ -108,6 +109,9 @@
     @include abstracts.breakpoint(md) {
       margin-top: 10px;
     }
+    &--forgot {
+      margin-top: 10px;
+    }
   }
   &__link {
     color: #0071dc;
@@ -140,6 +144,9 @@
     @include abstracts.breakpoint(md) {
       margin-top: 50px;
     }
+  }
+  &__message {
+    margin-top: 30px;
   }
 }
 .show_Singup {

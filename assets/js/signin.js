@@ -10,13 +10,13 @@ window.addEventListener("DOMContentLoaded", () => {
     let passLocal = localStorage.getItem("pass");
     if (email === "" || passWord === "") {
       textError.style.display = "block";
-      textError.innerText = `Vui lòng điền đẩy đủ thông tin đăng nhập`;
+      textError.innerText = `Please fill in all login information`;
       return;
     } else if (email === emailLocal && passWord === passLocal) {
       window.location.href = "index-logined.html";
     } else if (email !== "" || passWord !== "") {
       textError.style.display = "block";
-      textError.innerText = `User hoặc mật khẩu không đúng !!`;
+      textError.innerText = `User or password is incorrect!!`;
       return;
     }
   };

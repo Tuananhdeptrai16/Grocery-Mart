@@ -2912,6 +2912,22 @@ html {
   top: 6px;
 }
 
+.message {
+  background: #95e3a9;
+  padding: 14px 10px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  text-align: left;
+  border-bottom: 6.5px solid #4a985e;
+  color: var(--text-color);
+  font-weight: 400;
+}
+.message--success {
+  background: #95e3a9;
+  border-bottom: 5.5px solid #4a985e;
+}
+
 .home__container {
   margin-top: 40px;
 }
@@ -2991,6 +3007,7 @@ html {
 }
 .auth__intro--img {
   max-width: 100%;
+  width: var(--witdh);
 }
 .auth__content {
   background: var(--auth-content-bg);
@@ -3063,6 +3080,9 @@ html {
     margin-top: 10px;
   }
 }
+.auth__form--forgot {
+  margin-top: 10px;
+}
 .auth__link {
   color: #0071dc;
   font-size: 1.5rem;
@@ -3098,6 +3118,9 @@ html {
   .auth__text {
     margin-top: 50px;
   }
+}
+.auth__message {
+  margin-top: 30px;
 }
 
 .show_Singup {
