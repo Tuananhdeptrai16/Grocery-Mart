@@ -1,0 +1,32 @@
+@use "../abstracts";
+.Breadcrumbs {
+  gap: 20px;
+  flex-wrap: wrap;
+  min-height: 64px;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background: var(--Breadcrumbs-bg);
+  box-shadow: 0px 20px 60px 10px var(--Breadcrumbs-shadow);
+  @include abstracts.breakpoint(md) {
+    gap: 16px;
+  }
+
+  &__link {
+    color: #9e9da8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 150%; /* */
+    white-space: nowrap;
+    &--current {
+      color: var(--text-color);
+    }
+    @include abstracts.breakpoint(md) {
+      font-size: 1.4rem;
+    }
+  }
+}

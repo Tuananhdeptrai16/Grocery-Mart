@@ -30,142 +30,6 @@
   }
   &__form {
     margin-top: 30px;
-    &-lable {
-      display: block;
-      font-size: 2.2rem;
-      font-weight: 500;
-      line-height: 145.455%; /*  */
-      &--small {
-        font-size: 1.4rem;
-        font-weight: 500;
-        line-height: 142.857%; /* 142.857% */
-        margin-bottom: 10px;
-      }
-    }
-    &--input {
-      width: 121px;
-      height: 36px;
-      padding: 0 12px;
-      border-radius: 6px;
-      border: 1px solid #d2d1d6;
-      font-size: 1.4rem;
-      font-weight: 500;
-      line-height: 142.857%; /* 142.857% */
-      @include abstracts.breakpoint(sm) {
-        width: 100%;
-      }
-    }
-    &-group {
-      margin-top: 20px;
-      &--inline {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    &-slider {
-      position: relative;
-      width: 272px;
-      height: 2px;
-      flex-shrink: 0;
-      background: #d2d1d6;
-      &::before,
-      &::after {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        content: "";
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        border: 6px solid #ffb700;
-        background: var(--filter-form-bg);
-        cursor: pointer;
-      }
-      &::before {
-        left: var(--min-value);
-      }
-      &::after {
-        left: var(--max-value);
-      }
-    }
-    &-select-wrap {
-      border-radius: 6px;
-      border: 1px solid #d2d1d6;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-    &-select {
-      display: flex;
-      align-items: center;
-      min-width: var(--width, 108px);
-      justify-content: space-between;
-      padding: 0 14px;
-      font-size: 1.4rem;
-      height: calc(100% - 10px);
-      font-weight: 500;
-      line-height: 142.857%; /* */
-      @include abstracts.breakpoint(xl) {
-        flex: 1;
-      }
-    }
-    &-select + &-select {
-      border-left: 1px solid #d2d1d6;
-    }
-    &-tags {
-      display: flex;
-      gap: 10px 20px;
-      flex-wrap: wrap;
-      @include abstracts.breakpoint(sm) {
-        gap: 10px;
-      }
-    }
-    &-tag {
-      border-radius: 6px;
-      padding: 6px 12px;
-      color: #9e9da8;
-      background: var(--filter-form-tag-bg, #f8f8fb);
-      font-size: 1.4rem;
-      font-weight: 500;
-      line-height: 142.857%; /* 142.857% */
-      transition: color 0.2s ease;
-      &:hover {
-        color: var(--text-color);
-      }
-    }
-    &-text-input {
-      width: 100%;
-      padding: 10px 16px;
-      display: flex;
-      border-radius: 6px;
-      border: 1px solid #d2d1d6;
-      gap: 133px;
-
-      @include abstracts.breakpoint(sm) {
-        width: 100%;
-        gap: 0;
-        justify-content: space-between;
-      }
-      @include abstracts.breakpoint(sm) {
-        font-size: 1.6rem;
-      }
-      &--icon {
-        position: absolute;
-        right: 0;
-      }
-    }
-    &-input {
-      position: relative;
-      border: none;
-      font-size: 1.5rem;
-      font-weight: 500;
-      line-height: 146.667%;
-      &::placeholder {
-        color: #9e9da8;
-        font-weight: 400;
-      }
-    }
   }
   &__row {
     display: flex;
@@ -204,6 +68,8 @@
   }
   &__submit {
     font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
   }
   &__arrow {
     position: absolute;

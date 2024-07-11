@@ -178,18 +178,18 @@
               <div class="filter__form">
                 <div class="filter__row filter__content">
                   <!-- Filter column 1  -->
-                  <div class="filter__col">
-                    <lable class="filter__form-lable">Price</lable>
-                    <div class="filter__form-group">
-                      <div class="filter__form-slider" style="--min-value: 10%; --max-value: 60%"></div>
+                  <div class="filter__col form__price">
+                    <lable class="form__lable">Price</lable>
+                    <div class="form-group">
+                      <div class="form__price-slider" style="--min-value: 10%; --max-value: 60%"></div>
                     </div>
-                    <div class="filter__form-group filter__form-group--inline">
+                    <div class="form-group form-group--inline">
                       <div>
-                        <lable class="filter__form-lable filter__form-lable--small">Minimum</lable>
+                        <lable class="form__lable form__lable-small">Minimum</lable>
                         <input type="text" name="" id="" value="$30.00" class="filter__form--input" />
                       </div>
                       <div>
-                        <lable class="filter__form-lable filter__form-lable--small">Maximum</lable>
+                        <lable class="form__lable form__lable-small">Maximum</lable>
                         <input type="text" name="" id="" value="$100.00" class="filter__form--input" />
                       </div>
                     </div>
@@ -197,54 +197,44 @@
                   <div class="filter__separate"></div>
                   <!-- Filter column 2  -->
 
-                  <div class="filter__col">
-                    <div class="filter__col">
-                      <lable class="filter__form-lable">Size/Weight</lable>
-                      <div class="filter__form-group">
-                        <div class="filter__form-select-wrap">
-                          <div class="filter__form-select" style="--width: 158px">
-                            500g
-                            <img
-                              src="./assets/icons/select-arrow.svg"
-                              alt="down"
-                              class="filter__form-select-arrow icon"
-                            />
-                          </div>
-                          <div class="filter__form-select">
-                            Gram
-                            <img
-                              src="./assets/icons/select-arrow.svg"
-                              alt="down"
-                              class="filter__form-select-arrow icon"
-                            />
-                          </div>
+                  <div class="filter__col form__size">
+                    <lable class="form__lable">Size/Weight</lable>
+                    <div class="form-group">
+                      <div class="form__size-select-wrap">
+                        <div class="form__size-select" style="--width: 158px">
+                          500g
+                          <img src="./assets/icons/select-arrow.svg" alt="down" class="form__size-select-arrow icon" />
+                        </div>
+                        <div class="form-select">
+                          Gram
+                          <img src="./assets/icons/select-arrow.svg" alt="down" class="form__size-select-arrow icon" />
                         </div>
                       </div>
-                      <div class="filter__form-group">
-                        <div class="filter__form-tags">
-                          <button class="filter__form-tag">Small</button>
-                          <button class="filter__form-tag">Medium</button>
-                          <button class="filter__form-tag">Large</button>
-                        </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-tags">
+                        <button class="form-tag">Small</button>
+                        <button class="form-tag">Medium</button>
+                        <button class="form-tag">Large</button>
                       </div>
                     </div>
                   </div>
                   <div class="filter__separate"></div>
                   <!-- Filter column 3s  -->
 
-                  <div class="filter__col">
-                    <lable class="filter__form-lable">Brand</lable>
-                    <div class="filter__form-group">
-                      <div class="filter__form-text-input">
-                        <input type="text" name="" id="" placeholder="Search brand name" class="filter__form-input" />
-                        <img src="./assets/icons/search.svg" alt="search" class="filter__form-input--icon icon" />
+                  <div class="filter__col form__brand">
+                    <lable class="form__lable">Brand</lable>
+                    <div class="form-group">
+                      <div class="form__brand-text-input">
+                        <input type="text" name="" id="" placeholder="Search brand name" class="form__brand-input" />
+                        <img src="./assets/icons/search.svg" alt="search" class="form__brand-input--icon icon" />
                       </div>
                     </div>
-                    <div class="filter__form-group">
-                      <div class="filter__form-tags">
-                        <button class="filter__form-tag">Lavazza</button>
-                        <button class="filter__form-tag">Nescafe</button>
-                        <button class="filter__form-tag">Starbucks</button>
+                    <div class="form-group">
+                      <div class="form-tags">
+                        <button class="form-tag">Lavazza</button>
+                        <button class="form-tag">Nescafe</button>
+                        <button class="form-tag">Starbucks</button>
                       </div>
                     </div>
                   </div>
@@ -262,7 +252,7 @@
           <div class="col">
             <article class="product-card">
               <div class="product-card__img-wrap">
-                <a href="#!">
+                <a href="./Product-detail.html">
                   <img src="./assets/img/product/item1.png" alt="item1" class="product-card__thumb" />
                 </a>
                 <button class="like-btn product-card__like--btn">
@@ -285,7 +275,7 @@
           <div class="col">
             <article class="product-card">
               <div class="product-card__img-wrap">
-                <a href="#!">
+                <a href="./Product-detail.html">
                   <img src="./assets/img/product/item2.png" alt="item1" class="product-card__thumb" />
                 </a>
                 <button class="like-btn product-card__like--btn">
@@ -308,7 +298,7 @@
           <div class="col">
             <article class="product-card">
               <div class="product-card__img-wrap">
-                <a href="#!">
+                <a href="./Product-detail.html">
                   <img src="./assets/img/product/item3.png" alt="item1" class="product-card__thumb" />
                 </a>
                 <button class="like-btn product-card__like--btn">
@@ -331,8 +321,100 @@
           <div class="col">
             <article class="product-card">
               <div class="product-card__img-wrap">
-                <a href="#!">
+                <a href="./Product-detail.html">
                   <img src="./assets/img/product/item4.png" alt="item1" class="product-card__thumb" />
+                </a>
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                  <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
+                </button>
+              </div>
+              <a href="#!">
+                <h3 class="product-card__title">Qualità Oro Mountain Grown - Espresso Coffee Beans</h3>
+              </a>
+              <p class="product-card__brand">Lavazza</p>
+              <div class="product-card__row">
+                <span class="product-card__price">$38.65</span>
+                <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                <span class="product-card__score">4.4</span>
+              </div>
+            </article>
+          </div>
+          <!-- Product card 5 -->
+          <div class="col">
+            <article class="product-card">
+              <div class="product-card__img-wrap">
+                <a href="./Product-detail.html">
+                  <img src="./assets/img/product/item1.png" alt="item1" class="product-card__thumb" />
+                </a>
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                  <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
+                </button>
+              </div>
+              <a href="#!">
+                <h3 class="product-card__title">Qualità Oro Mountain Grown - Espresso Coffee Beans</h3>
+              </a>
+              <p class="product-card__brand">Lavazza</p>
+              <div class="product-card__row">
+                <span class="product-card__price">$38.65</span>
+                <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                <span class="product-card__score">4.4</span>
+              </div>
+            </article>
+          </div>
+          <!-- Product card 6 -->
+          <div class="col">
+            <article class="product-card">
+              <div class="product-card__img-wrap">
+                <a href="./Product-detail.html">
+                  <img src="./assets/img/product/item1.png" alt="item1" class="product-card__thumb" />
+                </a>
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                  <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
+                </button>
+              </div>
+              <a href="#!">
+                <h3 class="product-card__title">Qualità Oro Mountain Grown - Espresso Coffee Beans</h3>
+              </a>
+              <p class="product-card__brand">Lavazza</p>
+              <div class="product-card__row">
+                <span class="product-card__price">$38.65</span>
+                <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                <span class="product-card__score">4.4</span>
+              </div>
+            </article>
+          </div>
+          <!-- Product card 7 -->
+          <div class="col">
+            <article class="product-card">
+              <div class="product-card__img-wrap">
+                <a href="./Product-detail.html">
+                  <img src="./assets/img/product/item1.png" alt="item1" class="product-card__thumb" />
+                </a>
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                  <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
+                </button>
+              </div>
+              <a href="#!">
+                <h3 class="product-card__title">Qualità Oro Mountain Grown - Espresso Coffee Beans</h3>
+              </a>
+              <p class="product-card__brand">Lavazza</p>
+              <div class="product-card__row">
+                <span class="product-card__price">$38.65</span>
+                <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                <span class="product-card__score">4.4</span>
+              </div>
+            </article>
+          </div>
+          <!-- Product card 8 -->
+          <div class="col">
+            <article class="product-card">
+              <div class="product-card__img-wrap">
+                <a href="./Product-detail.html">
+                  <img src="./assets/img/product/item1.png" alt="item1" class="product-card__thumb" />
                 </a>
                 <button class="like-btn product-card__like--btn">
                   <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
