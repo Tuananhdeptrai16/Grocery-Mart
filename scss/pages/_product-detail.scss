@@ -133,9 +133,9 @@
     line-height: 138.462%; /* 138.462% */
   }
   &__btn {
-    display: flex;
     justify-content: center;
-    min-width: 213px;
+    flex: 1;
+    height: 50px;
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 144.444%; /* */
