@@ -1,6 +1,11 @@
 @use "../abstracts";
 
 .form {
+  &__seperate {
+    height: calc(100% - 12px);
+    width: 1px;
+    background: #d2d1d6;
+  }
   &__group {
     margin-top: 30px;
     display: flex;

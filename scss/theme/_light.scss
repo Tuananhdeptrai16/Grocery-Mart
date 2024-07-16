@@ -73,12 +73,34 @@ html {
   --auth--intro-bg: #fafafd;
   --auth--content--heading-color: #1a162e;
   //deltail
+
   --product-detail-bg: #fff;
+  @include abstracts.breakpoint(md) {
+    --product-detail-bg: #f8f8fb;
+  }
+
   //breadcrumbs
   --Breadcrumbs-bg: #f6f6f6;
   --Breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
+  @include abstracts.breakpoint(md) {
+    --Breadcrumbs-bg: #fff;
+    --Breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
+  }
   //--prod-infor-bg
   --prod-infor-bg: #f6f6f6;
+  @include abstracts.breakpoint(md) {
+    --prod-infor-bg: #fff;
+  }
   //product
   --product-info-bg: #f6f6f6;
+  --product-container-bg: #fff;
+  --product-container-shadow: rgba(237, 237, 246, 0.2);
+  @include abstracts.breakpoint(md) {
+    --product-info-bg: #fff;
+  }
+  //search
+  --search-bar-bg: #fff;
+  --search-bar-text-color: #9e9da8;
+  //product preview
+  --review-card-bg: #fafafd;
 }
