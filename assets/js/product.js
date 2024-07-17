@@ -4,7 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateLikeCount() {
     const heartReds = document.querySelectorAll(".like-btn__liked");
-    document.querySelector(".top-act__title").innerText = `${heartReds.length}`;
+    function testLiked() {
+      if (heartReds.length < 10) {
+        document.querySelector(".top-act__title").innerText = `0${heartReds.length}`;
+      } else {
+        document.querySelector(".top-act__title").innerText = `${heartReds.length}`;
+      }
+    }
+    testLiked();
   }
   const likedButtons = $$(".like-btn");
   likedButtons.forEach((likedButton) => {

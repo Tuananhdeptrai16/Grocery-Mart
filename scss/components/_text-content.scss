@@ -56,7 +56,7 @@
     text-align: center;
   }
   a {
-    color: #ffb700;
+    color: #0071dc;
     text-decoration: underline;
   }
   blockquote {
@@ -71,6 +71,6 @@
     margin: 40px 0;
     border: none;
     height: 1px;
-    background: #ebebeb;
+    background: var(--text-content-hr-bg, #ebebeb);
   }
 }

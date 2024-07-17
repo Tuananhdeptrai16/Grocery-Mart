@@ -4,6 +4,7 @@ html {
   --text-color: #1a162e;
   --icon-color: brightness(0) saturate(100%) invert(8%) sepia(10%) saturate(4042%) hue-rotate(212deg) brightness(90%)
     contrast(95%);
+  //header
 
   --body-bg: #f6f6f6;
   --header-bg-color: #eee;
@@ -15,7 +16,8 @@ html {
     --header-bg-color: #fff;
     --header-shadow-color: rgba(237, 237, 246, 0.2);
   }
-
+  --header-act-dropdown-bg: #fff;
+  --header-act-dropdown-shadow: rgba(200, 200, 200, 0.4);
   // Dropdown
   --dropdown-bg-color: #fff;
   --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
@@ -103,4 +105,11 @@ html {
   --search-bar-text-color: #9e9da8;
   //product preview
   --review-card-bg: #fafafd;
+  @include abstracts.breakpoint(md) {
+    --review-card-bg: #fff;
+  }
+  //text- content
+  --text-content-hr-bg: #ebebeb;
+  //drop down
+  --act-dropdown-text-color: #1a162e;
 }

@@ -14,7 +14,8 @@ html.dark {
   @include abstracts.breakpoint(lg) {
     --header-shadow-color: rgba(0, 0, 0, 0.2);
   }
-
+  --header-act-dropdown-bg: #292e39;
+  --header-act-dropdown-shadow: rgba(23, 28, 40, 0.4);
   // Dropdown
   --dropdown-bg-color: #2f3441;
   --dropdown-shadow-color: rgba(23, 28, 40, 0.4);
@@ -89,4 +90,8 @@ html.dark {
   --search-bar-text-color: #b9babe;
   //product preview
   --review-card-bg: var(--product-info-bg);
+  //text- content
+  --text-content-hr-bg: #7a7a7e;
+  //drop down
+  --act-dropdown-text-color: #b9babe;
 }

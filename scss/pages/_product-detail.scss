@@ -266,12 +266,14 @@
   margin-top: 30px;
   &__list {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin: 0 -30px;
   }
   &__item {
+    white-space: nowrap;
     color: var(--Secondary-Color-Secondary-2, #9e9da8);
-    padding: 0 30px;
+    padding: 10px 30px;
     font-size: 2.2rem;
     font-weight: 500;
     line-height: 145.455%; /* */
@@ -286,7 +288,7 @@
   }
 
   &__contents {
-    padding: 30px 0;
+    padding: 20px 0;
   }
   &__content {
     display: none;
@@ -295,45 +297,7 @@
     }
   }
 }
-.review-card {
-  &__content {
-    padding: 30px;
-    border-radius: 16px;
-    background: var(--review-card-bg, #fafafd);
-  }
-  &__avatar {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-  }
 
-  &__info-wrap {
-    display: flex;
-    gap: 20px;
-  }
-  &__title {
-    font-size: 2.2rem;
-    font-weight: 500;
-    line-height: 145.455%; /* 145.455% */
-  }
-  &__desc {
-    margin-top: 10px;
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 150%; /* 150% */
-  }
-  &__rating {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    &-title {
-      margin-left: 10px;
-      font-size: 1.8rem;
-      font-weight: 500;
-      line-height: 144.444%;
-    }
-  }
-}
 .prod-content {
   &__heading {
     color: inherit;
