@@ -1,0 +1,81 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Organic Honey",
+      "brand": "Starbucks",
+      "price": 80.2,
+      "rating": 1.3
+    },
+    {
+      "id": 2,
+      "name": "Natural Peanut Butter",
+      "brand": "McCafe",
+      "price": 14.25,
+      "rating": 4.9
+    },
+    {
+      "id": 3,
+      "name": " Dunkin Donuts",
+      "brand": "Nishio",
+      "price": 33.73,
+      "rating": 1.3
+    },
+    {
+      "id": 4,
+      "name": "Gluten-Free Oats",
+      "brand": "Tully’s Coffee",
+      "price": 21.21,
+      "rating": 2.2
+    },
+    {
+      "id": 5,
+      "name": "Organic Honey",
+      "brand": "Gloria Jean’s Coffee",
+      "price": 73.29,
+      "rating": 2.3
+    },
+    {
+      "id": 6,
+      "name": "Chia Seeds",
+      "brand": "Lavazza",
+      "price": 41.67,
+      "rating": 4.7
+    },
+    {
+      "id": 7,
+      "name": "Natural Peanut Butter",
+      "brand": "Manuka Doctor",
+      "price": 52.48,
+      "rating": 4.1
+    },
+    {
+      "id": 8,
+      "name": "Coffee Beans - Espresso Arabica and Robusta Beans",
+      "brand": "Lindt",
+      "price": 37.58,
+      "rating": 4.3
+    },
+    {
+      "id": 1,
+      "name": "Coffee Beans - Espresso Arabica and Robusta Beans",
+      "brand": "Lindt",
+      "price": 37.58,
+      "rating": 4.3
+    },
+    {
+      "id": 2,
+      "name": "Coffee Beans - Espresso Arabica and Robusta Beans",
+      "brand": "Lindt",
+      "price": 37.58,
+      "rating": 4.3
+    },
+    {
+      "id": 3,
+      "name": "Coffee Beans - Espresso Arabica and Robusta Beans",
+      "brand": "Lindt",
+      "price": 37.58,
+      "rating": 4.3
+    }
+  ]
+}

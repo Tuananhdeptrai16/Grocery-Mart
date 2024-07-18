@@ -399,6 +399,11 @@
     height: 15px;
     filter: var(--filter-form-arrow-color);
   }
+  &__separate {
+    height: 1px;
+    background-color: #d2d1d6;
+    margin: 30px 0;
+  }
 }
 .cart-preview {
   &-item {
