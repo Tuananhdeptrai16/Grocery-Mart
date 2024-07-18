@@ -4,57 +4,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function fetchProduct() {
     fetch("../assets/json/product.json")
-      .then((response) => response.json())
+      .then((reponse) => reponse.json())
       .then((data) => {
         displayProduct(data.products);
       })
-      .catch((error) => console.error("Lỗi khi tải tệp JSON:", error));
+      .catch((error) => console.error("Call Fail Api", error));
   }
-
   function displayProduct(products) {
     const homeProduct = $(".home__product");
-
-    products.forEach((product, index) => {
-      const userDiv = document.createElement("div");
-      userDiv.classList.add("col");
-
-      userDiv.innerHTML = `
+    products.forEach((product) => {
+      const productDiv = document.createElement("div");
+      productDiv.classList.add("col");
+      //index-logined.html
+      if (window.location.pathname.includes("index-logined.html")) {
+        productDiv.innerHTML = `
         <article class="product-card">
-          <div class="product-card__img-wrap">
-            <a href="./Product-detail-logined.html">
-              <img src="./assets/img/product/item${product.id}.png" alt="item${product.id}" class="product-card__thumb" />
-            </a>
-            <button class="like-btn product-card__like--btn">
-              <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
-              <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
-            </button>
-          </div>
-          <a href="./Product-detail-logined.html">
-            <h3 class="product-card__title">${product.name}</h3>
-          </a>
-          <p class="product-card__brand">${product.brand}</p>
-          <div class="product-card__row">
-            <span class="product-card__price">${product.price}</span>
-            <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
-            <span class="product-card__score">${product.rating}</span>
-          </div>
-        </article>
-      `;
-
-      homeProduct.appendChild(userDiv);
+                <div class="product-card__img-wrap">
+                  <a href="./Product-detail-logined-logined.html">
+                    <img src="${product.link}" alt="item1" class="product-card__thumb" />
+                  </a>
+                  <button class="like-btn product-card__like--btn">
+                    <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                    <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
+                  </button>
+                </div>
+                <a href="#!">
+                  <h3 class="product-card__title line-clamp">${product.name}</h3>
+                </a>
+                <p class="product-card__brand">${product.brand}</p>
+                <div class="product-card__row">
+                  <span class="product-card__price">${product.price}$</span>
+                  <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                  <span class="product-card__score">${product.rating}</span>
+                </div>
+              </article>`;
+      } else if (window.location.pathname.includes("index.html")) {
+        productDiv.innerHTML = `
+        <article class="product-card">
+                <div class="product-card__img-wrap">
+                  <a href="./Product-detail.html">
+                    <img src="${product.link}" alt="item1" class="product-card__thumb" />
+                  </a>
+                  <button onclick="window.location.href= 'sign-in.html'" class="like-btn product-card__like--btn">
+                    <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                    <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
+                  </button>
+                </div>
+                <a href="#!">
+                  <h3 class="product-card__title line-clamp">${product.name}</h3>
+                </a>
+                <p class="product-card__brand">${product.brand}</p>
+                <div class="product-card__row">
+                  <span class="product-card__price">${product.price}$</span>
+                  <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                  <span class="product-card__score">${product.rating}</span>
+                </div>
+              </article>`;
+      }
+      homeProduct.appendChild(productDiv);
     });
-
-    // Sau khi hiển thị sản phẩm, gán sự kiện cho nút "like"
-    const likedButtons = $$(".like-btn");
-    likedButtons.forEach((likedButton) => {
-      likedButton.onclick = (event) => {
-        event.currentTarget.classList.toggle("like-btn__liked");
-        updateLikeCount();
-      };
-    });
-
-    // Cập nhật số lượng yêu thích
-    updateLikeCount();
   }
 
   function updateLikeCount() {

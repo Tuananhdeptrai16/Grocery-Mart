@@ -1,79 +1,86 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Organic Honey",
+      "link": "./assets/img/product/item1.jpg",
+      "name": "Organic Honey from Natural Beekeepers in the Hills",
       "brand": "Starbucks",
       "price": 80.2,
       "rating": 1.3
     },
     {
-      "id": 2,
-      "name": "Natural Peanut Butter",
-      "brand": "McCafe",
+      "link": "./assets/img/product/item2.jpg",
+      "name": "Natural Peanut Butter Made from Organic Peanuts",
+      "brand": "Lavazza",
       "price": 14.25,
       "rating": 4.9
     },
     {
-      "id": 3,
-      "name": " Dunkin Donuts",
-      "brand": "Nishio",
+      "link": "./assets/img/product/item3.jpg",
+      "name": "Dunkin Donuts Special Edition Coffee Blend",
+      "brand": "Lavazza",
       "price": 33.73,
-      "rating": 1.3
+      "rating": 3.3
     },
     {
-      "id": 4,
-      "name": "Gluten-Free Oats",
-      "brand": "Tully’s Coffee",
+      "link": "./assets/img/product/item4.jpg",
+      "name": "Gluten-Free Oats for a Healthy Breakfast",
+      "brand": "Luca’s Coffee",
       "price": 21.21,
-      "rating": 2.2
+      "rating": 3.2
     },
     {
-      "id": 5,
-      "name": "Organic Honey",
-      "brand": "Gloria Jean’s Coffee",
+      "link": "./assets/img/product/item5.jpg",
+      "name": "Organic Honey from the Wild Forests",
+      "brand": "Lavazza",
       "price": 73.29,
       "rating": 2.3
     },
     {
-      "id": 6,
-      "name": "Chia Seeds",
-      "brand": "Lavazza",
+      "link": "./assets/img/product/item6.jpg",
+      "name": "Chia Seeds Packed with Nutrients and Fiber",
+      "brand": "Luca’s Coffe",
       "price": 41.67,
       "rating": 4.7
     },
     {
-      "id": 7,
-      "name": "Natural Peanut Butter",
-      "brand": "Manuka Doctor",
+      "link": "./assets/img/product/item7.jpg",
+      "name": "Natural Peanut Butter with No Added Sugar",
+      "brand": "Vanigla",
       "price": 52.48,
       "rating": 4.1
     },
     {
-      "id": 8,
-      "name": "Coffee Beans - Espresso Arabica and Robusta Beans",
-      "brand": "Lindt",
+      "link": "./assets/img/product/item8.jpg",
+      "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
+      "brand": "Arancia",
       "price": 37.58,
       "rating": 4.3
     },
     {
-      "id": 1,
-      "name": "Coffee Beans - Espresso Arabica and Robusta Beans",
-      "brand": "Lindt",
+      "link": "./assets/img/product/item9.jpg",
+      "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
+      "brand": "Luca’s Coffe",
       "price": 37.58,
       "rating": 4.3
     },
     {
-      "id": 2,
-      "name": "Coffee Beans - Espresso Arabica and Robusta Beans",
-      "brand": "Lindt",
+      "link": "./assets/img/product/item10.jpg",
+      "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
+      "brand": "Limbo",
       "price": 37.58,
       "rating": 4.3
     },
     {
-      "id": 3,
-      "name": "Coffee Beans - Espresso Arabica and Robusta Beans",
-      "brand": "Lindt",
+      "link": "./assets/img/product/item11.jpg",
+      "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
+      "brand": "Lavazza",
+      "price": 37.58,
+      "rating": 4.3
+    },
+    {
+      "link": "./assets/img/product/item12.jpg",
+      "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
+      "brand": "ManaResi",
       "price": 37.58,
       "rating": 4.3
     }
