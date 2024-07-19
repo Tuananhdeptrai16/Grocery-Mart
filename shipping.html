@@ -72,7 +72,10 @@
                       <h2 class="user-address__title">Shipping address</h2>
                       <p class="user-address__desc">Where should we deliver your order?</p>
                     </div>
-                    <button class="user-address__btn btn btn--primary btn--rounded">
+                    <button
+                      toggle-class="#modall__newAddress"
+                      class="user-address__btn btn btn--primary btn--rounded js-toggle"
+                    >
                       <img src="./assets/icons/plus.svg" alt="" class="icon" />
                       Add a new address
                     </button>
@@ -102,7 +105,7 @@
                       </div>
                       <div class="adress-card__right">
                         <button class="adress-card__ctrl">
-                          <div class="adress-card__ctrl-btn">
+                          <div toggle-class="#modall__newAddress" class="adress-card__ctrl-btn js-toggle">
                             <img src="./assets/icons/edit.svg" alt="" class="icon" />
                             Edit
                           </div>
@@ -131,7 +134,7 @@
                       </div>
                       <div class="adress-card__right">
                         <button class="adress-card__ctrl">
-                          <div class="adress-card__ctrl-btn">
+                          <div toggle-class="#modall__newAddress" class="adress-card__ctrl-btn js-toggle">
                             <img src="./assets/icons/edit.svg" alt="" class="icon" />
                             Edit
                           </div>
@@ -179,7 +182,7 @@
                             <img src="./assets/icons/heart2.svg" alt="" />
                             Save
                           </button>
-                          <button class="cart-item__ctrl--btn delete">
+                          <button toggle-class="#modal-delete" class="cart-item__ctrl--btn js-toggle">
                             <img src="./assets/icons/trash.svg" alt="" />
                             Delete
                           </button>
@@ -222,7 +225,7 @@
                             <img src="./assets/icons/heart2.svg" alt="" />
                             Save
                           </button>
-                          <button class="cart-item__ctrl--btn delete">
+                          <button toggle-class="#modal-delete" class="cart-item__ctrl--btn js-toggle">
                             <img src="./assets/icons/trash.svg" alt="" />
                             Delete
                           </button>
@@ -265,7 +268,7 @@
                             <img src="./assets/icons/heart2.svg" alt="" />
                             Save
                           </button>
-                          <button class="cart-item__ctrl--btn delete">
+                          <button toggle-class="#modal-delete" class="cart-item__ctrl--btn js-toggle">
                             <img src="./assets/icons/trash.svg" alt="" />
                             Delete
                           </button>
@@ -276,6 +279,7 @@
                 </div>
                 <div class="cart-info__bottom d-md-none">
                   <div class="row">
+                    <link rel="stylesheet" href="" />
                     <div class="col-8 col-xxl-7">
                       <div class="cart-info__continue">
                         <a href="./index-logined.html" class="cart-info__continue-link">
@@ -353,16 +357,124 @@
     </script>
     <script src="./assets/js/toggleShowOverlay.js"></script>
     <script src="./assets/js/lightmode.js"></script>
-    <!-- dialog  -->
-    <div class="dialog jsShow">
-      <div class="dialog__content">
-        <div class="dialog__text">Do you want to delete this product?</div>
-        <div class="dialog__bottom">
-          <button class="btn btn--text dialog__btn jsClose btn--no-margin">Cancle</button>
-          <button class="btn btn--primary dialog__btn btn--no-margin">Confirm</button>
+    <!-- modal comfirm remove shopping cart item   -->
+    <div id="modal-delete" class="modal modal--small">
+      <!-- <button class="modal__close">&times;</button> -->
+      <div class="modal__content">
+        <div class="modal__text">Do you want to delete this product?</div>
+        <div class="modal__bottom">
+          <button class="btn btn--text modal__btn jsClose btn--no-margin">Cancle</button>
+          <button class="btn btn--primary modal__btn btn--no-margin">Confirm</button>
         </div>
       </div>
-      <div class="dialog__overlay jsOvelay"></div>
+      <div class="modal__overlay jsOvelay"></div>
+    </div>
+    <!-- modal add new address shopping   -->
+    <div id="modall__newAddress" style="--content-width: 650px" class="modal modal--medium jsShow">
+      <!-- <button class="modal__close">&times;</button> -->
+      <div class="modal__content">
+        <div class="modal__body">
+          <h2 class="modal__heading">Add new shipping address</h2>
+          <form action="" class="form">
+            <div class="form__row">
+              <div class="form__group">
+                <lable for="name" class="form__lable form__lable-small">Name</lable>
+                <div class="form__text--input">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Name"
+                    class="form__input form__input-small"
+                    required
+                    minlength="2"
+                  />
+                  <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+                  <img src="./assets/icons/message.svg" alt="message" class="form__input--icon" />
+                </div>
+                <p class="form__error">Name must be at least 2 characters</p>
+              </div>
+              <div class="form__group">
+                <lable for="phone" class="form__lable form__lable-small">Phone</lable>
+
+                <div class="form__text--input">
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    placeholder="Phone"
+                    class="form__input form__input-small"
+                    required
+                    minlength="10"
+                  />
+                  <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+                  <img src="./assets/icons/message.svg" alt="message" class="form__input--icon" />
+                </div>
+                <p class="form__error">Phone must be at least 10 characters</p>
+              </div>
+            </div>
+            <div class="form__group">
+              <lable for="address" class="form__lable form__lable-small">Address</lable>
+
+              <div class="form__text--area">
+                <textarea
+                  name="address"
+                  id="address"
+                  placeholder="Address (Area and street)"
+                  class="form__text--area-input form__input-small"
+                  required
+                ></textarea>
+                <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+              </div>
+              <p class="form__error">Address not empty</p>
+            </div>
+            <div class="form__group">
+              <lable for="city" class="form__lable form__lable-small">City/District/Town</lable>
+
+              <div class="form__text--input">
+                <input
+                  type="text"
+                  name=""
+                  placeholder="City/District/Town"
+                  id="city"
+                  class="form__input form__input-small"
+                />
+                <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+                <div class="form__select-dialog">
+                  <div class="form__search">
+                    <input type="text" class="form__search-input" placeholder="Search" />
+                    <img src="./assets/icons/search.svg" alt="search" class="form__search-icon icon" />
+                  </div>
+                  <ul class="form__options-list">
+                    <li class="form__options">Ha Noi</li>
+                    <li class="form__options form__options--current">Ho Chi Minh</li>
+                    <li class="form__options">Da Nang</li>
+                    <li class="form__options">Hai Phong</li>
+                    <li class="form__options">Ho Chi Minh</li>
+                    <li class="form__options">Da Nang</li>
+                    <li class="form__options">Hai Phong</li>
+                    <li class="form__options">Ho Chi Minh</li>
+                    <li class="form__options">Da Nang</li>
+                    <li class="form__options">Hai Phong</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="form__error">Phone must be at least 2 characters</p>
+            </div>
+            <div class="form__group form__group--inline">
+              <label class="form__checkbox">
+                <input type="checkbox" name="" class="form__checkbox--input" />
+                <span class="form__checkbox--lable">Set as default address </span>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="modal__bottom">
+          <button class="btn btn--text modal__btn jsClose btn--no-margin">Cancle</button>
+          <button class="btn btn--primary modal__btn btn--no-margin">Create</button>
+        </div>
+      </div>
+      <div class="modal__overlay"></div>
     </div>
   </body>
 </html>

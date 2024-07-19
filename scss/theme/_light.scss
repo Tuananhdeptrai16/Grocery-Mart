@@ -70,7 +70,9 @@ html {
   //form filter
   --form-tag-bg: #f8f8fb;
   --form-bg: #fff;
-
+  --form-select-dialog-shadow: rgba(#000, 0.15);
+  --form-select-dialog-bg: #fff;
+  --form-options-hover-bg: #ebebeb;
   //auth
   --auth--intro-bg: #fafafd;
   --auth--content--heading-color: #1a162e;
@@ -119,7 +121,8 @@ html {
   --cart-item-text-color: #1a162e;
   --cart-item-boder-color: #d2d1d6;
   --gift-item-icon-shadow: rgba(237, 237, 246, 0.2);
-  //dialog
-  --dialog-bg: #fff;
-  --dialog-shadow: rgba(237, 237, 246, 0.2);
+  //modal
+  --modal-bg: #fff;
+  --modal-shadow: rgba(237, 237, 246, 0.2);
+  --modal-text-color: var(--cart-item-text-color);
 }

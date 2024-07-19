@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const $$ = document.querySelectorAll.bind(document);
 
   function fetchProduct() {
-    fetch("./json/product.json")
+    fetch("../assets/json/product.json")
       .then((reponse) => reponse.json())
       .then((data) => {
         displayProduct(data.products);
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         productDiv.innerHTML = `
         <article class="product-card">
                 <div class="product-card__img-wrap">
-                  <a href="./Product-detail-logined-logined.html">
+                  <a href="./Product-detail.html">
                     <img src="${product.link}" alt="item1" class="product-card__thumb" />
                   </a>
                   <button class="like-btn product-card__like--btn">

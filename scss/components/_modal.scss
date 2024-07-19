@@ -1,0 +1,112 @@
+@use "../abstracts";
+
+%fill-screen {
+  position: fixed;
+  inset: 0;
+}
+.modal {
+  &__heading {
+    color: var(--modal-text-color);
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 141.667%;
+    @include abstracts.breakpoint(md) {
+      font-size: 1.8rem;
+    }
+  }
+  @extend %fill-screen;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+
+  &__close {
+    color: var(--modal-text-color);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    font-size: 3.2rem;
+    padding: 3px 20px;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &--fill &__content {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__overlay {
+    @extend %fill-screen;
+    background: rgba($color: #000000, $alpha: 0.2);
+  }
+  @extend %fill-screen;
+  &--small &__content {
+    --content-width: 400px;
+  }
+  &--large &__content {
+    --content-width: 1100px;
+  }
+  &--medium &__content {
+    --content-width: 800px;
+  }
+  &__content {
+    max-height: calc(100vh - 100px);
+    width: min(var(--content-width), 100% - 40px);
+    background: var(--modal-bg);
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 20px 60px 10px var(--modal-shadow);
+    @include abstracts.breakpoint(lg) {
+      width: calc(100% - 200px);
+      padding: 20px;
+    }
+    @include abstracts.breakpoint(md) {
+      padding: 20px;
+      width: calc(100% - 50px);
+    }
+  }
+  &__text {
+    line-height: 1.5;
+    font-size: 1.9rem;
+    font-weight: 500;
+  }
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    @include abstracts.breakpoint(md) {
+      margin-top: 20px;
+    }
+  }
+  &__btn {
+    @include abstracts.breakpoint(md) {
+      flex: 1;
+    }
+  }
+  &__body {
+    padding-right: 20px;
+    overflow-y: auto;
+    @include abstracts.breakpoint(xl) {
+      height: 500px;
+    }
+
+    @include abstracts.breakpoint(md) {
+      height: 400px;
+      padding-right: 10px;
+    }
+  }
+}

@@ -1,6 +1,89 @@
 @use "../abstracts";
 
 .form {
+  &__select-dialog {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity, visibility, translate;
+    transition-duration: 0.5s;
+    translate: 0 -2px;
+    position: absolute;
+    z-index: 3;
+    bottom: 59px;
+    left: 10px;
+    background: var(--form-select-dialog-bg);
+    border: 1px solid #d2d1d6;
+    border-radius: 10px;
+    max-height: 310px;
+    box-shadow: 0 0 5px var(--form-select-dialog-shadow);
+  }
+  &__input:focus ~ &__select-dialog {
+    opacity: 1;
+    visibility: visible;
+    translate: 0;
+  }
+  &__options {
+    padding: 10px;
+    font-size: 1.4rem;
+    &:not(&--current):hover {
+      background: var(--form-options-hover-bg);
+      cursor: pointer;
+    }
+    &--current {
+      background: rgba(#ffb700, 0.6);
+      font-weight: 500;
+    }
+    @include abstracts.breakpoint(lg) {
+      padding: 14px;
+    }
+    // @include abstracts.breakpoint(sm) {
+    //   position: fixed;
+    //   min-width: initial;
+    //   min-height: initial;
+    //   inset: 0;
+    //   border-radius: 0;
+    //   z-index: 1;
+    // }
+  }
+  &__options-list {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  &__search {
+    height: 38px;
+    flex-shrink: 0;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d2d1d6;
+    margin-bottom: 10px;
+    min-width: 230px;
+    &-input {
+      height: 100%;
+      padding: 10px;
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+    }
+    &__input--icon {
+      margin-bottom: 6px;
+      width: 16px;
+      margin-left: 10px;
+    }
+    @include abstracts.breakpoint(lg) {
+      height: 42px;
+    }
+  }
+  &__row {
+    display: flex;
+    gap: 20px;
+    @include abstracts.breakpoint(lg) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
   &__seperate {
     height: calc(100% - 12px);
     width: 1px;
@@ -10,9 +93,12 @@
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-
+    flex: 1;
     &--inline {
       flex-direction: row;
+    }
+    @include abstracts.breakpoint(lg) {
+      margin-top: 20px;
     }
   }
   &__group:has(:invalid):has(&__input:not(:placeholder-shown)) {
@@ -28,20 +114,18 @@
       display: none;
     }
   }
-  &__text--input {
-    width: 100%;
-    justify-content: space-between;
-    padding: 0 12px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    border: 1.5px solid var(--form--input-boder-color, #d2d1d6);
-    &:focus-within {
-      border-color: #77dae6;
+  &__text--area {
+    padding: 12px;
+    height: 120px;
+    &-input {
+      width: 100%;
+      resize: none;
     }
   }
+  &__text--area-input,
   &__input {
+    border: none;
+
     width: 100%;
     height: 100%;
     flex: 1;
@@ -51,7 +135,32 @@
     &::placeholder {
       color: var(--form--input--text-color);
     }
+    &-small {
+      font-size: 1.4rem;
+    }
   }
+  &__text--area-input {
+    padding: 10px;
+    background: var(--modal-bg);
+  }
+  &__text--area,
+  &__text--input {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    justify-content: space-between;
+
+    border-radius: 10px;
+    border: 1.5px solid var(--form--input-boder-color, #d2d1d6);
+    &:focus-within {
+      border-color: #77dae6;
+    }
+  }
+  &__text--input {
+    height: 50px;
+    position: relative;
+  }
+
   &__error {
     display: none;
     color: red;

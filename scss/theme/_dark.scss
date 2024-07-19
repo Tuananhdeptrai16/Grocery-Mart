@@ -67,6 +67,10 @@ html.dark {
   //form
   --btn--outline-bg: #292e39;
   --btn--outline-text: #b9babe;
+  --form-select-dialog-shadow: rgba(#fff, 0.15);
+  --form-select-dialog-bg: #2f3441;
+  --form-options-hover-bg: #292e39;
+
   //form filter
   --form-tag-bg: #292e39;
   --form-bg: #2f3441;
@@ -104,4 +108,8 @@ html.dark {
   //dialog
   --dialog-bg: #2f3441;
   --dialog-shadow: rgba(23, 28, 40, 0.4);
+  //modal
+  --modal-bg: #292e39;
+  --modal-shadow: rgba(23, 28, 40, 0.2);
+  --modal-text-color: var(--cart-item-text-color);
 }
