@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const $$ = document.querySelectorAll.bind(document);
 
   function fetchProduct() {
-    fetch("/assets/json/product.json")
+    fetch("./assets/json/product.json")
       .then((reponse) => reponse.json())
       .then((data) => {
         displayProduct(data.products);
