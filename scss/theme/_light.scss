@@ -32,6 +32,8 @@ html {
   @include abstracts.breakpoint(md) {
     --cate--item-bg: #fff;
   }
+  //slideshow
+  --slideshow-next-bg: #fff;
   // buttons
   --filter--btn-color: #6c6c72;
   --filter--btn-bg: #fff;

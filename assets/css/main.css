@@ -1379,6 +1379,7 @@ html.dark {
   --cate--item-bg: #171c28;
   --cate--item-thumb-bg: #292e39;
   --cate--item-title-color: #fff;
+  --slideshow-next-bg: #171c28;
   --filter--btn-color: #fff;
   --filter--btn-bg: #171c28;
   --product-card-bg: #171c28;
@@ -1465,6 +1466,7 @@ html {
   --cate--item-bg: #eee;
   --cate--item-thumb-bg: #fff;
   --cate--item-title-color: #000;
+  --slideshow-next-bg: #fff;
   --filter--btn-color: #6c6c72;
   --filter--btn-bg: #fff;
   --product-card-bg: #fff;
@@ -2469,13 +2471,28 @@ html {
   translate: -90% -50%;
 }
 .slideshow__btn {
-  width: calc(100% - 26px);
+  width: calc(100% + 50px);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 16px;
+  left: -25px;
   display: flex;
   justify-content: space-between;
+}
+.slideshow__btn--right, .slideshow__btn--left {
+  transition: translate 0.2s ease;
+}
+.slideshow__btn--left:hover {
+  translate: -3px 0px;
+}
+.slideshow__btn--right:hover {
+  translate: 3px 0px;
+}
+.slideshow__btn--icon-wrap {
+  background: var(--slideshow-next-bg);
+  padding: 5px;
+  border-radius: 100%;
+  scale: 0.7;
 }
 .slideshow__btn--icon {
   padding: 5px;

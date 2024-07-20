@@ -74,13 +74,33 @@
     }
   }
   &__btn {
-    width: calc(100% - 26px);
+    width: calc(100% + 50px);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 16px;
+    left: -25px;
     display: flex;
     justify-content: space-between;
+  }
+  &__btn--right,
+  &__btn--left {
+    transition: translate 0.2s ease;
+  }
+  &__btn--left {
+    &:hover {
+      translate: -3px 0px;
+    }
+  }
+  &__btn--right {
+    &:hover {
+      translate: 3px 0px;
+    }
+  }
+  &__btn--icon-wrap {
+    background: var(--slideshow-next-bg);
+    padding: 5px;
+    border-radius: 100%;
+    scale: 0.7;
   }
   &__btn--icon {
     padding: 5px;
