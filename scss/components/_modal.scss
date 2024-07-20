@@ -83,18 +83,29 @@
     font-weight: 500;
   }
   &__bottom {
+    gap: 20px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 30px;
+    margin-top: 40px;
     flex-wrap: wrap;
     @include abstracts.breakpoint(md) {
-      margin-top: 20px;
+      margin-top: 30px;
+      gap: 10px;
+    }
+    @include abstracts.breakpoint(sm) {
+      margin-top: 40px;
+      gap: 10px;
     }
   }
   &__btn {
-    @include abstracts.breakpoint(md) {
+    @include abstracts.breakpoint(lg) {
       flex: 1;
+    }
+
+    &-delete {
+      color: #fff;
+      background: #f16565;
     }
   }
   &__body {

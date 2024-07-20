@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
   const buttonSignIn = document.querySelector(".auth__btn--Signin");
   const textError = document.querySelector(".form__error--confirm");
-
+  console.log(buttonSignIn);
   buttonSignIn.onclick = (event) => {
     event.preventDefault(); // Ngăn chặn hành động mặc định của nút
     let email = document.querySelector(".auth__from__email--signIn").value;

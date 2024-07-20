@@ -90,8 +90,14 @@
                       <div class="adress-card__left">
                         <div class="adress-card__choose">
                           <!-- cusstoom, check box -->
-                          <label class="adress-card__checkbox">
-                            <input type="checkbox" checked name="" id="" class="adress-card__checkbox-input" />
+                          <label class="cart-info__checkbox">
+                            <input
+                              type="radio"
+                              checked
+                              name="shipping_address"
+                              id=""
+                              class="cart-info__checkbox-input"
+                            />
                           </label>
                         </div>
                         <div class="adress-card__info">
@@ -105,7 +111,7 @@
                       </div>
                       <div class="adress-card__right">
                         <button class="adress-card__ctrl">
-                          <div toggle-class="#modall__newAddress" class="adress-card__ctrl-btn js-toggle">
+                          <div toggle-class="#modall__newAddress" class="cart-infor__edit-btn js-toggle">
                             <img src="./assets/icons/edit.svg" alt="" class="icon" />
                             Edit
                           </div>
@@ -117,8 +123,8 @@
                       <div class="adress-card__left">
                         <div class="adress-card__choose">
                           <!-- cusstoom, check box -->
-                          <label class="adress-card__checkbox">
-                            <input type="checkbox" name="" id="" class="adress-card__checkbox-input" />
+                          <label class="cart-info__checkbox__checkbox">
+                            <input type="radio" name="shipping_address" id="" class="cart-info__checkbox-input" />
                           </label>
                         </div>
                         <div class="adress-card__info">
@@ -134,7 +140,7 @@
                       </div>
                       <div class="adress-card__right">
                         <button class="adress-card__ctrl">
-                          <div toggle-class="#modall__newAddress" class="adress-card__ctrl-btn js-toggle">
+                          <div toggle-class="#modall__newAddress" class="cart-infor__edit-btn js-toggle">
                             <img src="./assets/icons/edit.svg" alt="" class="icon" />
                             Edit
                           </div>
@@ -328,7 +334,9 @@
                       <span>Estimated Total</span>
                       <span class="cart-info__row--bold-price">$201.65</span>
                     </div>
-                    <a href="" class="btn btn--primary btn--rounded cart-info__next-btn">Continue to checkout</a>
+                    <a href="./payment.html" class="btn btn--primary btn--rounded cart-info__next-btn"
+                      >Continue to checkout</a
+                    >
                   </div>
                 </div>
               </div>
@@ -357,14 +365,15 @@
     </script>
     <script src="./assets/js/toggleShowOverlay.js"></script>
     <script src="./assets/js/lightmode.js"></script>
+    <script src="./assets/js/shipping.js"></script>
     <!-- modal comfirm remove shopping cart item   -->
     <div id="modal-delete" class="modal modal--small">
       <!-- <button class="modal__close">&times;</button> -->
       <div class="modal__content">
         <div class="modal__text">Do you want to delete this product?</div>
         <div class="modal__bottom">
-          <button class="btn btn--text modal__btn jsClose btn--no-margin">Cancle</button>
-          <button class="btn btn--primary modal__btn btn--no-margin">Confirm</button>
+          <button class="btn btn--text modal__btn btn--outline jsClose btn--no-margin">Cancle</button>
+          <button class="modal__btn-delete btn btn--primary modal__btn btn--no-margin">Delete</button>
         </div>
       </div>
       <div class="modal__overlay jsOvelay"></div>
@@ -385,7 +394,7 @@
                     name="name"
                     id="name"
                     placeholder="Name"
-                    class="form__input form__input-small"
+                    class="form__input form__name form__input-small"
                     required
                     minlength="2"
                   />
@@ -403,7 +412,7 @@
                     name="phone"
                     id="phone"
                     placeholder="Phone"
-                    class="form__input form__input-small"
+                    class="form__input form__phone form__input-small"
                     required
                     minlength="10"
                   />
@@ -437,7 +446,8 @@
                   name=""
                   placeholder="City/District/Town"
                   id="city"
-                  class="form__input form__input-small"
+                  readonly
+                  class="form__input form__city form__input-small"
                 />
                 <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
                 <div class="form__select-dialog">
@@ -459,7 +469,7 @@
                   </ul>
                 </div>
               </div>
-              <p class="form__error">Phone must be at least 2 characters</p>
+              <p class="form__error form__error--confirm">Phone must be at least 2 characters</p>
             </div>
             <div class="form__group form__group--inline">
               <label class="form__checkbox">
@@ -467,11 +477,12 @@
                 <span class="form__checkbox--lable">Set as default address </span>
               </label>
             </div>
+            <p class="form__error form__error--throw">Name must be at least 2 characters</p>
           </form>
         </div>
         <div class="modal__bottom">
           <button class="btn btn--text modal__btn jsClose btn--no-margin">Cancle</button>
-          <button class="btn btn--primary modal__btn btn--no-margin">Create</button>
+          <button class="btn btn--primary buttonSubmit modal__btn btn--no-margin">Create</button>
         </div>
       </div>
       <div class="modal__overlay"></div>

@@ -83,6 +83,9 @@
       flex-direction: column;
       gap: 10px;
     }
+    @include abstracts.breakpoint(md) {
+      gap: 0;
+    }
   }
   &__seperate {
     height: calc(100% - 12px);
@@ -96,9 +99,6 @@
     flex: 1;
     &--inline {
       flex-direction: row;
-    }
-    @include abstracts.breakpoint(lg) {
-      margin-top: 20px;
     }
   }
   &__group:has(:invalid):has(&__input:not(:placeholder-shown)) {
@@ -244,6 +244,12 @@
       font-weight: 500;
       line-height: 142.857%; /* 142.857% */
       margin-bottom: 10px;
+    }
+    &-medium {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 144.444%; /*  */
+      margin-bottom: 20px;
     }
   }
   &-tags {
