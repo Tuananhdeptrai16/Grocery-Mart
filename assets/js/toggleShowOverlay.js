@@ -1,7 +1,7 @@
 window.document.addEventListener("DOMContentLoaded", () => {
   const modalTriggers = document.querySelectorAll(".js-toggle"); // Nút mở modal
-  const allModals = document.querySelectorAll(".modal"); // Tất cả các modal
-
+  const allModals = document.querySelectorAll(".jsShow"); // Tất cả các modal
+  const closes = document.querySelectorAll(".jsClose");
   modalTriggers.forEach((trigger) => {
     const targetSelector = trigger.getAttribute("toggle-class");
     const targetModal = document.querySelector(targetSelector);
@@ -28,9 +28,9 @@ window.document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Đóng modal khi nhấp vào nút đóng
-  document.querySelectorAll(".jsClose").forEach((closeButton) => {
+  closes.forEach((closeButton) => {
     closeButton.onclick = (event) => {
-      const modal = closeButton.closest(".modal");
+      const modal = closeButton.closest(".jsShow");
       if (modal) {
         modal.classList.remove("show");
         modal.classList.add("hide");
@@ -42,7 +42,7 @@ window.document.addEventListener("DOMContentLoaded", () => {
   // Đóng modal khi nhấp vào overlay
   document.querySelectorAll(".modal__overlay").forEach((overlay) => {
     overlay.onclick = (event) => {
-      const modal = overlay.closest(".modal");
+      const modal = overlay.closest(".jsShow");
       if (modal) {
         modal.classList.remove("show");
         modal.classList.add("hide");
