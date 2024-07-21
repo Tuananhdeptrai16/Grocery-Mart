@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
 
     <!-- Scripts -->
-    <script src="./assets/js/scripts.js"></script>
     <script src="./assets/js/product.js"></script>
+    <script src="./assets/js/scripts.js"></script>
 
   </head>
   <body>
@@ -174,11 +174,11 @@
         <div class="home__row">
           <h2 class="home__heading">Total LavAzza 1320</h2>
           <div class="filter-wrap">
-            <button class="filter-btn">
+            <button toggle-class="#filter-modal" class="filter-btn js-toggle">
               Filter
               <img src="./assets/icons/filter.svg" alt="filter" class="filter-btn__icon icon" />
             </button>
-            <div class="filter jsShow">
+            <div id="filter-modal" class="filter jsShow">
               <img src="./assets/icons/arrow-up.png" alt="" class="filter__arrow" />
               <h3 class="filter__heading">Filter</h3>
               <div class="filter__form">

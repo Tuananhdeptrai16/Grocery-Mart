@@ -81,6 +81,10 @@
     left: -25px;
     display: flex;
     justify-content: space-between;
+    @include abstracts.breakpoint(md) {
+      width: calc(100% + 40px);
+      left: -20px;
+    }
   }
   &__btn--right,
   &__btn--left {

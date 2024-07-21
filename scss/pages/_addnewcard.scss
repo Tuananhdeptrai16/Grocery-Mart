@@ -1,0 +1,19 @@
+.form-card {
+  &__bottom {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+  }
+}
+.new-card {
+  &__top {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+  }
+  &__icon {
+    padding: 10px;
+  }
+}

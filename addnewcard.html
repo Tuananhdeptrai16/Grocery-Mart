@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add new card | Grocery Mart</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- Scripts -->
+    <script src="./assets/js/scripts.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header" class="header"></header>
+    <script>
+      load("#header", "./templates/header-logined.html");
+    </script>
+    <main class="profile-page">
+      <div class="container">
+        <div class="profile-container">
+          <!-- md search  -->
+          <div class="search-bar d-none d-md-flex">
+            <input type="text" class="search-bar__input" placeholder="search for item" />
+            <button class="search-bar__submit">
+              <img src="./assets/icons/search.svg" alt="search" class="search-bar__icon icon" />
+            </button>
+          </div>
+        </div>
+        <div class="profile-container">
+          <div class="row gy-3">
+            <div class="col-3 col-xl-4 d-lg-none">
+              <div class="profile__sidebar">
+                <!-- user -->
+                <div class="profile__user">
+                  <img src="./assets/img/avatar.jpg" alt="avatar" class="profile__user--avatar" />
+                  <h1 class="profile__user--name">Truong Tuan Anh</h1>
+                  <p class="profile__user--desc">Registered: 17th May 2022</p>
+                </div>
+                <!-- menu -->
+                <div class="profile-menu">
+                  <h3 class="profile-menu__title">Manage Account</h3>
+                  <ul class="profile-menu__list">
+                    <li>
+                      <a href="./edit-person-info.html" class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img src="./assets/icons/profile.svg" alt="profile" class="icon" />
+                        </span>
+                        Personal info
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!" class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img src="./assets/icons/location.svg" alt="" class="icon" />
+                        </span>
+                        Addresses
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!" class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img src="./assets/icons/message1.svg" alt="" class="icon" />
+                        </span>
+                        Communications & privacy
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- menu 2 -->
+                <div class="profile-menu">
+                  <h3 class="profile-menu__title">My items</h3>
+                  <ul class="profile-menu__list">
+                    <li>
+                      <a href="#!" class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img src="./assets/icons/dowload.svg" alt="profile" class="icon" />
+                        </span>
+                        Reorder
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!" class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img src="./assets/icons/heart.svg" alt="" class="icon" />
+                        </span>
+                        Lists
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!" class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img src="./assets/icons/giftsmall.svg" alt="" class="icon" />
+                        </span>
+                        Registries
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="profile-menu">
+                  <h3 class="profile-menu__title">Subscriptions & plans</h3>
+                  <ul class="profile-menu__list">
+                    <li>
+                      <a href="#!" class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img src="./assets/icons/protect.svg" alt="profile" class="icon" />
+                        </span>
+                        Protection plans
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="profile-menu">
+                  <h3 class="profile-menu__title">Customer Service</h3>
+                  <ul class="profile-menu__list">
+                    <li>
+                      <a href="#!" class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img src="./assets/icons/help.svg" alt="help" class="icon" />
+                        </span>
+                        Help
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!" class="profile-menu__link">
+                        <span class="profile-menu__icon">
+                          <img src="./assets/icons/danger.svg" alt="" class="icon" />
+                        </span>
+                        Terms of Use
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-9 col-xl-8 col-lg-12 col-md-12">
+              <div class="cart-info profile-info">
+                <div class="row gy-3 gy-md-2">
+                  <div class="col-12">
+                    <div class="new-card__top">
+                      <a href="./profile.html" class="new-card__icon">
+                        <img src="./assets/icons/arrow-left.svg" alt=""  class="icon"/>
+                      </a>
+                      <h2 class="cart-info__heading--lv2">Add credit or debit card</h2>
+                      
+                    </div>
+                    <form action="" class="form">
+                      <!-- form row 1 -->
+                      <div class="form__row">
+                        <div class="form__group">
+                          <label for="Firstname" class="form__lable form__lable-medium">First Name</label>
+                          <div class="form__text--input">
+                            <input
+                              type="text"
+                              name="Firstname"
+                              placeholder="Truong"
+                              class="form__input"
+                              required
+                              autofocus
+                              autocomplete="new-password"
+                            />
+                            <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+                          </div>
+                          <p class="form__error">Email invalidate</p>
+                        </div>
+                        <div class="form__group">
+                          <label for="lastname" class="form__lable form__lable-medium">Last Name </label>
+                          <div class="form__text--input">
+                            <input
+                              type="text"
+                              name="lastname"
+                              placeholder="Tuan Anh"
+                              class="form__input"
+                              required
+                              autocomplete="new-password"
+                            />
+                            <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+                          </div>
+                          <p class="form__error">Email invalidate</p>
+                        </div>
+                      </div>
+                      <!-- form row 2 -->
+                      <div class="form__row">
+                        <div class="form__group">
+                          <label for="card-number" class="form__lable form__lable-medium">Card Number</label>
+                          <div class="form__text--input">
+                            <input
+                              type="text"
+                              name="card-number"
+                              placeholder="Card Number"
+                              class="form__input"
+                              required
+                              minlength="16"
+                              autocomplete="new-password"
+                            />
+                            <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+                          </div>
+                          <p class="form__error">Card Number must have from 16 to 19 digits</p>
+                        </div>
+                        <div class="form__group">
+                          <label for="Expiration-date" class="form__lable form__lable-medium">Expiration Date </label>
+                          <div class="form__text--input">
+                            <input
+                              type="text"
+                              name="Expiration-date"
+                              placeholder="MM/YY"
+                              class="form__input"
+                              required
+                              autocomplete="new-password"
+                            />
+                            <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+                          </div>
+                          <p class="form__error">Expiration Date invalidate</p>
+                        </div>
+                      </div>
+                      <!-- form row 3 -->
+                      <div class="form__row">
+                        <div class="form__group">
+                          <label for="cvv" class="form__lable form__lable-medium">CVV</label>
+                          <div class="form__text--input">
+                            <input
+                              type="text"
+                              name="cvv"
+                              placeholder="CVV"
+                              class="form__input"
+                              required
+                              minlength="3"
+                              autocomplete="new-password"
+                            />
+                            <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+                          </div>
+                          <p class="form__error">Email must have 3 digits</p>
+                        </div>
+                        <div class="form__group">
+                          <label for="phone-number" class="form__lable form__lable-medium">Phone Number </label>
+                          <div class="form__text--input">
+                            <input
+                              type="tel"
+                              name="phone-number"
+                              placeholder="+84 373691203"
+                              class="form__input"
+                              required
+                              minlength="11"
+                              autocomplete="new-password"
+                            />
+                            <img src="./assets/icons/form-error.svg" alt="message" class="form__input--icon-error" />
+                          </div>
+                          <p class="form__error">Phone Number must have from 10 to 11 digits</p>
+                        </div>
+                      </div>
+                      <div class="form__group ">
+                      <label for="card-number" class="form__lable form__lable-medium">Card Preferences</label>
+
+                        <label class="form__checkbox">
+                          <input type="checkbox" name="" class="form__checkbox--input" />
+                          <span class="form__checkbox--lable">Set as default card</span>
+                        </label>
+                      </div>
+                      <div class="form-card__bottom">
+                          <button class="btn btn--text">Cancle</button>
+                          <button class="btn btn--primary">Save Cards</button>
+                      </div>
+                     </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer id="footer"></footer>
+    <script>
+      load("#footer", "./templates/footer.html");
+    </script>
+    <script src="./assets/js/toggleShowOverlay.js"></script>
+    <script src="./assets/js/lightmode.js"></script>
+    <script src="./assets/js/shipping.js"></script>
+
+    <!-- modal comfirm remove shopping cart item   -->
+    <div id="modal-delete" class="modal jsShow modal--small">
+      <!-- <button class="modal__close">&times;</button> -->
+      <div class="modal__content">
+        <div class="modal__text">Do you want to delete this product?</div>
+        <div class="modal__bottom">
+          <button class="btn btn--text modal__btn btn--outline jsClose btn--no-margin">Cancle</button>
+          <button class="modal__btn-delete btn btn--primary modal__btn btn--no-margin">Delete</button>
+        </div>
+      </div>
+      <div class="modal__overlay jsOvelay"></div>
+    </div>
+  </body>
+</html>

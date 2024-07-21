@@ -81,3 +81,8 @@ strong {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.separate {
+  margin: var(--margin) 0;
+  height: 1px;
+  background: #d2d1d6;
+}
