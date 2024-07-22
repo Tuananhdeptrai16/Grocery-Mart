@@ -17,6 +17,12 @@
       position: absolute;
       width: 9%;
       bottom: -5px;
+      @include abstracts.breakpoint(lg) {
+        width: 17%;
+      }
+      @include abstracts.breakpoint(sm) {
+        width: 21%;
+      }
     }
     @include abstracts.breakpoint(md) {
       font-size: 2.6rem;
