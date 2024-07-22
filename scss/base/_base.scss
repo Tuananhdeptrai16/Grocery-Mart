@@ -86,3 +86,7 @@ strong {
   height: 1px;
   background: #d2d1d6;
 }
+.active {
+  opacity: 1;
+  transform: translateX(0);
+}

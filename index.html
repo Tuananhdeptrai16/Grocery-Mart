@@ -34,58 +34,36 @@
       <!-- Main -->
       <div class="home__container">
         <div class="slideshow">
-          <div class="slideshow__inner">
-            <div class="slideshow__item">
-              <a href="#!" class="slideshow__link">
-                <picture>
-                  <source media="(max-width:767.98px)" srcset="./assets/img/slideshow/slideshowmd.png" />
-                  <img src="./assets/img/slideshow/slideshow.jpg" alt="slideshow" class="slideshow__img" />
-                </picture>
-              </a>
-            </div>
-            <!-- item 2 -->
-            <div class="slideshow__item">
-              <a href="#!" class="slideshow__link">
-                <picture>
-                  <img src="./assets/img/slideshow/slideshow2.jpg" alt="slideshow" class="slideshow__img" />
-                </picture>
-              </a>
-            </div>
-            <!-- item 3 -->
-            <div class="slideshow__item">
-              <a href="#!" class="slideshow__link">
-                <picture>
-                  <img src="./assets/img/slideshow/slideshow3.jpg" alt="slideshow" class="slideshow__img" />
-                </picture>
-              </a>
-            </div>
-            <!-- item 4 -->
-            <div class="slideshow__item">
-              <a href="#!" class="slideshow__link">
-                <picture>
-                  <img src="./assets/img/slideshow/slideshow4.jpg" alt="slideshow" class="slideshow__img" />
-                </picture>
-              </a>
-            </div>
-            <!-- item 5 -->
-            <div class="slideshow__item">
-              <a href="#!" class="slideshow__link">
-                <picture>
-                  <img src="./assets/img/slideshow/slideshow5.jpg" alt="slideshow" class="slideshow__img" />
-                </picture>
-              </a>
-            </div>
+          <div class="slideshow__item-container js-sliderItemContainer">
+            <a href="#" class="slideshow__item js-sliderItem next">
+              <picture>
+                <source media="(max-width:767.98px)" srcset="./assets/img/slideshow/slideshowmd.png" />
+                <img class="slideshow__item__image" src="./assets/img/slideshow/slideshow.jpg" alt="Shopping" />
+              </picture>
+            </a>
+            <a href="#" class="slideshow__item js-sliderItem last">
+              <picture>
+                <source media="(max-width:767.98px)" srcset="./assets/img/slideshow/slideshowmd.png" />
+                <img class="slideshow__item__image" src="./assets/img/slideshow/slideshow.jpg" alt="Shopping" />
+              </picture>
+            </a>
+            <a href="#" class="slideshow__item js-sliderItem active">
+              <picture>
+                <source media="(max-width:767.98px)" srcset="./assets/img/slideshow/slideshowmd.png" />
+                <img class="slideshow__item__image" src="./assets/img/slideshow/slideshow.jpg" alt="Shopping" />
+              </picture>
+            </a>
           </div>
           <div class="slideshow__page">
-            <span class="slideshow__num">1</span>
+            <span class="slideshow__num js-slideIndex">1</span>
             <span class="slideshow__slider"></span>
-            <span class="slideshow__num">5</span>
+            <span class="slideshow__num js-slideIndexMax">5</span>
           </div>
           <div class="slideshow__btn">
-            <div class="slideshow__btn--icon-wrap slideshow__btn--left">
+            <div class="slideshow__btn--icon-wrap js-btnPrev">
               <img src="./assets/icons/arrow-left1.svg" alt="left" class="slideshow__btn--icon" />
             </div>
-            <div class="slideshow__btn--icon-wrap slideshow__btn--right">
+            <div class="slideshow__btn--icon-wrap js-btnNext">
               <img src="./assets/icons/arrow-right.svg" alt="left" class="slideshow__btn--icon" />
             </div>
           </div>
