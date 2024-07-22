@@ -1,0 +1,110 @@
+@use "../abstracts";
+.faq {
+  margin-top: 50px;
+  padding: 20px;
+  &__heading {
+    position: relative;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    z-index: 1;
+    &::before {
+      content: "";
+      margin-right: 10px;
+      z-index: -1;
+      height: 15px;
+      background: #77dae6;
+      position: absolute;
+      width: 9%;
+      bottom: -5px;
+    }
+    @include abstracts.breakpoint(md) {
+      font-size: 2.6rem;
+    }
+  }
+  &__item {
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px solid #77dae6;
+    border-radius: 20px;
+    @include abstracts.breakpoint(md) {
+      margin-top: 20px;
+      padding: 10px;
+    }
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #77dae6;
+    border-radius: 50%;
+    transition: all 1s ease;
+    @include abstracts.breakpoint(md) {
+      width: 35px;
+      height: 35px;
+    }
+    @include abstracts.breakpoint(sm) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    @include abstracts.breakpoint(md) {
+      width: 16px;
+    }
+    @include abstracts.breakpoint(sm) {
+      width: 12px;
+    }
+  }
+
+  &__question {
+    font-size: 2rem;
+    font-weight: 500;
+    @include abstracts.breakpoint(md) {
+      font-size: 1.5rem;
+    }
+    @include abstracts.breakpoint(sm) {
+      font-size: 1.3rem;
+    }
+  }
+  &__bottom {
+    margin-top: 20px;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: opacity 1s ease;
+    @include abstracts.breakpoint(md) {
+      margin-top: 10px;
+    }
+  }
+
+  &__answer {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    @include abstracts.breakpoint(md) {
+      font-size: 1.4rem;
+      margin-top: 10px;
+    }
+    @include abstracts.breakpoint(sm) {
+      font-size: 1.1rem;
+    }
+  }
+}
+.js_show {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+}
+.js__rotate {
+  transform: rotate(180deg);
+}

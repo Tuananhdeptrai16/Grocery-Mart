@@ -298,13 +298,13 @@
     gap: 10px;
     display: flex;
     &--icon {
-      width: 24px;
-      height: 24px;
+      width: 15px;
+      height: 15px;
     }
     &--text {
       color: var(--text-color);
-      font-size: 1.8rem;
-      font-weight: 500;
+      font-size: 1.6rem;
+      font-weight: 400;
     }
   }
   &__seperate {
@@ -314,9 +314,9 @@
     background-color: #eee;
   }
   &__lightmode--text {
-    font-weight: 500;
+    font-weight: 400;
     color: var(--text-color);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     white-space: nowrap;
   }
 }

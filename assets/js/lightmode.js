@@ -4,6 +4,8 @@ window.document.addEventListener("DOMContentLoaded", () => {
   const lightModeHandle = $(".user__lightmode");
   const textLightMode = $(".user__lightmode--text-active");
   const htmlElement = document.documentElement;
+
+  console.log(userHandle);
   userHandle.onclick = () => {
     userAction.classList.toggle("show");
   };

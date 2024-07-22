@@ -80,8 +80,6 @@ class Slider {
   }
 
   changeSlide(type) {
-    let i = this.slides.length;
-    console.log(i);
     const active = document.querySelector(".active");
     const last = document.querySelector(".last");
     let next = active.nextElementSibling;
