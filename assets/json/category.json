@@ -1,31 +1,37 @@
 [
   {
-    "category": "Arabica Coffee",
-    "description": "Known for its mild and slightly acidic flavor.",
+    "brand": "All",
+    "description": "Everything here",
     "imageUrl": "./assets/img/category-item/item1.jpg"
   },
   {
-    "category": "Robusta Coffee",
-    "description": "Characterized by a stronger, more bitter flavor.",
-    "imageUrl": "./assets/img/category-item/item2.jpg"
+    "brand": "Starbucks",
+    "description": "Known for its mild and slightly acidic flavor.",
+    "imageUrl": "./assets/img/category-item/item1.jpg"
   },
+
   {
-    "category": "Espresso",
+    "brand": "Luca’s Coffee",
     "description": "A strong, concentrated coffee made by forcing hot water through finely-ground coffee beans.",
     "imageUrl": "./assets/img/category-item/item3.jpg"
   },
   {
-    "category": "Fresh Coffee",
+    "brand": "Vanigla",
     "description": "Coffee that is roasted and ground right before brewing.",
     "imageUrl": "./assets/img/category-item/item4.jpg"
   },
   {
-    "category": "Whole Bean Coffee",
+    "brand": "Arancia",
     "description": "Coffee that is kept in whole bean form and ground before brewing.",
     "imageUrl": "./assets/img/category-item/item5.jpg"
   },
   {
-    "category": "Ground Coffee",
+    "brand": "Limbo",
+    "description": "Coffee that is pre-ground for convenience.",
+    "imageUrl": "./assets/img/category-item/item6.jpg"
+  },
+  {
+    "brand": "Lavazza",
     "description": "Coffee that is pre-ground for convenience.",
     "imageUrl": "./assets/img/category-item/item6.jpg"
   }

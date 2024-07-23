@@ -2566,7 +2566,7 @@ html {
   padding: 20px 26px 20px 20px;
   border-radius: 16px;
   background: var(--cate--item-bg);
-  transition: transform 0.5s ease;
+  transition: box-shadow 0.5s ease;
 }
 @media (max-width: 1199.98px) {
   .cate-item {
@@ -2579,7 +2579,6 @@ html {
   }
 }
 .cate-item:hover {
-  transform: translateY(-2px);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 .cate-item__thumb {
@@ -2637,6 +2636,11 @@ html {
   .cate-item__desc {
     font-size: 1.4rem;
   }
+}
+
+.is-active {
+  border: 3px solid var(--text-color);
+  border-radius: 20px;
 }
 
 .filter-btn {
