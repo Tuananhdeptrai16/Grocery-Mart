@@ -3061,9 +3061,11 @@
     <div class="navbar-ovelay"></div>
     <!-- Actions -->
     <div class="top-act">
-      <div class="top-act__group d-md-none top-act__group--single">
-        <button class="top-act__btn">
-          <img src="./assets/icons/search.svg" alt="" class="icon top-act__icon" />
+      <!-- search bar -->
+      <div class="search-bar d-lg-none">
+        <input type="text" class="search-bar__input d-xl-none" placeholder="Search for item" />
+        <button class="search-bar__submit">
+          <img src="./assets/icons/search.svg" alt="search" class="search-bar__icon icon" />
         </button>
       </div>
 
@@ -3195,13 +3197,16 @@
       </div>
 
       <div class="top-act__user">
-        <div class="user__wrap">
+        <div class="js__action-user">
           <img src="./assets/img/avatar.jpg" alt="" class="top-act__avatar" />
-          <span class="user__name">Truong Tuan Anh</span>
-          <img src="./assets/icons/arrow-down.svg" alt="arrow" class="user__name--arrow icon" />
         </div>
         <div class="user__action">
           <img src="./assets/icons/arrow-up.png" alt="arrow-up" class="user__action--arrowUp icon" />
+          <div class="user__wrap">
+            <img src="./assets/img/avatar.jpg" alt="" class="top-act__avatar d-sm-none" />
+            <span class="user__name">Truong Tuan Anh</span>
+          </div>
+          <div class="user__seperate"></div>
           <div class="user__logout">
             <img src="./assets/icons/person.svg" alt="signout" class="user__logout--icon icon" />
 

@@ -198,8 +198,8 @@
 
   &__avatar {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
     object-fit: cover;
@@ -237,9 +237,16 @@
   }
 }
 .user {
+  &__name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    @include abstracts.breakpoint(md) {
+      font-size: 1.6rem;
+    }
+  }
   &__lightmode--icon {
-    width: 24px;
-    height: 24px;
+    width: 15px;
+    height: 15px;
   }
   &__lightmode {
     padding: 10px;
@@ -249,26 +256,23 @@
   }
   &__wrap {
     position: relative;
-    padding: 5px 10px;
+    padding: 10px;
     background: var(--top-act-group-bg-color);
     border-radius: 30px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     @include abstracts.breakpoint(xxl) {
       background: var(--header-bg-color);
-      gap: 5px;
+    }
+    @include abstracts.breakpoint(xl) {
+      gap: 10px;
+    }
+    @include abstracts.breakpoint(lg) {
+      gap: 20px;
     }
   }
-  &__name {
-    margin: -4px 0px 0px 10px;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: var(--p-color-1);
-    @include abstracts.breakpoint(xxl) {
-      display: none;
-    }
-  }
+
   &__action {
     opacity: 0;
     visibility: hidden;
@@ -277,7 +281,7 @@
     border-radius: 10px;
     position: absolute;
     top: 100px;
-    right: 20px;
+    right: 0;
     background: var(--filter-form-bg);
     padding: 20px;
     &--arrowUp {
