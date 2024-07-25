@@ -186,11 +186,20 @@
                     <div class="form-group">
                       <div class="form__size-select-wrap">
                         <div class="form__size-select" style="--width: 158px">
-                          500g
+                          <select class="form__custom-select js-filterWeight">
+                            <option value="500">500</option>
+                            <option value="600">600</option>
+                            <option value="700">700</option>
+                            <option value="800">800</option>
+                            <option value="900">900</option>
+                          </select>
                           <img src="./assets/icons/select-arrow.svg" alt="down" class="form__size-select-arrow icon" />
                         </div>
                         <div class="form-select">
-                          Gram
+                          <select class="form__custom-select">
+                            <option value="0">Gram</option>
+                            <option value="1">Kg</option>
+                          </select>
                           <img src="./assets/icons/select-arrow.svg" alt="down" class="form__size-select-arrow icon" />
                         </div>
                       </div>
@@ -216,9 +225,9 @@
                     </div>
                     <div class="form-group">
                       <div class="form-tags">
-                        <button class="form-tag">Lavazza</button>
-                        <button class="form-tag">Nescafe</button>
-                        <button class="form-tag">Starbucks</button>
+                        <button class="form-tag js-formTags">Lavazza</button>
+                        <button class="form-tag js-formTags">Nescafe</button>
+                        <button class="form-tag js-formTags">Starbucks</button>
                       </div>
                     </div>
                   </div>

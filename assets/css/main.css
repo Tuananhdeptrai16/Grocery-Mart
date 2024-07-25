@@ -179,6 +179,10 @@ select {
   outline: none;
 }
 
+select {
+  border: none;
+}
+
 input {
   background: transparent;
   outline: none;
@@ -2638,11 +2642,6 @@ html {
   }
 }
 
-.is-active {
-  border: 3px solid var(--text-color);
-  border-radius: 20px;
-}
-
 .filter-btn {
   display: flex;
   align-items: center;
@@ -2985,6 +2984,58 @@ html {
   visibility: visible;
 }
 
+.form__price-slider {
+  position: relative;
+  height: 10px;
+}
+.form__price-slider input {
+  position: absolute;
+  top: -12px;
+  width: 100%;
+  height: 10px;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+}
+.form__price-slider input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ffb700;
+  cursor: pointer;
+  pointer-events: all;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.form__price-slider input::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #ffb700;
+  cursor: pointer;
+  pointer-events: all;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.form-slider {
+  height: 10px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+.form__progress {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  background: #ffb700;
+}
+.form__input-number {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
 .form__select-dialog {
   display: flex;
   flex-direction: column;
@@ -3255,31 +3306,6 @@ html {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.form__price-slider {
-  position: relative;
-  width: 272px;
-  height: 2px;
-  flex-shrink: 0;
-  background: #d2d1d6;
-}
-.form__price-slider::before, .form__price-slider::after {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  content: "";
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 6px solid #ffb700;
-  background: var(--form-bg);
-  cursor: pointer;
-}
-.form__price-slider::before {
-  left: var(--min-value);
-}
-.form__price-slider::after {
-  left: var(--max-value);
-}
 .form-select {
   display: flex;
   align-items: center;
@@ -3308,6 +3334,7 @@ html {
   cursor: pointer;
 }
 .form__size-select {
+  position: relative;
   display: flex;
   align-items: center;
   min-width: var(--width, 108px);
@@ -3323,8 +3350,14 @@ html {
     flex: 1;
   }
 }
-.form__size-select + .form__size-select {
-  border-left: 1px solid #d2d1d6;
+.form__custom-select {
+  background: var(--filter-form-bg);
+  font-size: 1.4rem;
+  font-weight: 500;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px;
+  flex: 1;
 }
 .form__brand-text-input {
   width: 100%;
@@ -3812,7 +3845,7 @@ html {
   text-align: center;
   font-size: 4rem;
   font-weight: 700;
-  z-index: 1;
+  z-index: 0;
 }
 .faq__heading::before {
   content: "";

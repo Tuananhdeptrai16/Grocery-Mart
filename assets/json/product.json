@@ -4,160 +4,183 @@
     "name": "Organic Honey from Natural Beekeepers in the Hills",
     "brand": "Starbucks",
     "price": 8022,
-    "rating": 1.3
+    "rating": 1.3,
+    "weight": 500
   },
   {
     "link": "./assets/img/product/item2.jpg",
     "name": "Organic Honey from Natural Beekeepers in the Hills",
     "brand": "Starbucks",
     "price": 8022,
-    "rating": 1.3
+    "rating": 1.3,
+    "weight": 600
   },
   {
     "link": "./assets/img/product/item3.jpg",
     "name": "Organic Honey from Natural Beekeepers in the Hills",
     "brand": "Starbucks",
     "price": 8022,
-    "rating": 1.3
+    "rating": 1.3,
+    "weight": 800
   },
   {
     "link": "./assets/img/product/item4.jpg",
     "name": "Organic Honey from Natural Beekeepers in the Hills",
     "brand": "Starbucks",
     "price": 8022,
-    "rating": 1.3
+    "rating": 1.3,
+    "weight": 500
   },
   {
     "link": "./assets/img/product/item5.jpg",
     "name": "Organic Honey from Natural Beekeepers in the Hills",
     "brand": "Starbucks",
     "price": 8022,
-    "rating": 1.3
+    "rating": 1.3,
+    "weight": 600
   },
   {
     "link": "./assets/img/product/item6.jpg",
     "name": "Organic Honey from Natural Beekeepers in the Hills",
     "brand": "Starbucks",
     "price": 8022,
-    "rating": 1.3
+    "rating": 1.3,
+    "weight": 800
   },
   {
     "link": "./assets/img/product/item2.jpg",
     "name": "Natural Peanut Butter Made from Organic Peanuts",
     "brand": "Lavazza",
     "price": 1425,
-    "rating": 4.9
+    "rating": 4.9,
+    "weight": 500
   },
   {
     "link": "./assets/img/product/item3.jpg",
     "name": "Dunkin Donuts Special Edition Coffee Blend",
     "brand": "Lavazza",
     "price": 3373,
-    "rating": 3.3
+    "rating": 3.3,
+    "weight": 600
   },
   {
     "link": "./assets/img/product/item4.jpg",
     "name": "Gluten-Free Oats for a Healthy Breakfast",
     "brand": "Luca’s Coffee",
     "price": 2121,
-    "rating": 3.2
+    "rating": 3.2,
+    "weight": 800
   },
   {
     "link": "./assets/img/product/item1.jpg",
     "name": "Gluten-Free Oats for a Healthy Breakfast",
     "brand": "Luca’s Coffee",
     "price": 2121,
-    "rating": 3.2
+    "rating": 3.2,
+    "weight": 500
   },
   {
     "link": "./assets/img/product/item12.jpg",
     "name": "Gluten-Free Oats for a Healthy Breakfast",
     "brand": "Luca’s Coffee",
     "price": 2121,
-    "rating": 3.2
+    "rating": 3.2,
+    "weight": 600
   },
   {
     "link": "./assets/img/product/item3.jpg",
     "name": "Gluten-Free Oats for a Healthy Breakfast",
     "brand": "Luca’s Coffee",
     "price": 2121,
-    "rating": 3.2
+    "rating": 3.2,
+    "weight": 800
   },
   {
     "link": "./assets/img/product/item4.jpg",
     "name": "Gluten-Free Oats for a Healthy Breakfast",
     "brand": "Luca’s Coffee",
     "price": 2121,
-    "rating": 3.2
+    "rating": 3.2,
+    "weight": 500
   },
   {
     "link": "./assets/img/product/item5.jpg",
     "name": "Gluten-Free Oats for a Healthy Breakfast",
     "brand": "Luca’s Coffee",
     "price": 2121,
-    "rating": 3.2
+    "rating": 3.2,
+    "weight": 600
   },
   {
     "link": "./assets/img/product/item6.jpg",
     "name": "Gluten-Free Oats for a Healthy Breakfast",
     "brand": "Luca’s Coffee",
     "price": 2121,
-    "rating": 3.2
+    "rating": 3.2,
+    "weight": 800
   },
   {
     "link": "./assets/img/product/item5.jpg",
     "name": "Organic Honey from the Wild Forests",
     "brand": "Lavazza",
     "price": 7329,
-    "rating": 2.3
+    "rating": 2.3,
+    "weight": 500
   },
   {
     "link": "./assets/img/product/item6.jpg",
     "name": "Chia Seeds Packed with Nutrients and Fiber",
     "brand": "Luca’s Coffe",
     "price": 4167,
-    "rating": 4.7
+    "rating": 4.7,
+    "weight": 600
   },
   {
     "link": "./assets/img/product/item7.jpg",
     "name": "Natural Peanut Butter with No Added Sugar",
     "brand": "Vanigla",
     "price": 5248,
-    "rating": 4.1
+    "rating": 4.1,
+    "weight": 800
   },
   {
     "link": "./assets/img/product/item8.jpg",
     "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
     "brand": "Arancia",
     "price": 3758,
-    "rating": 4.3
+    "rating": 4.3,
+    "weight": 500
   },
   {
     "link": "./assets/img/product/item9.jpg",
     "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
     "brand": "Luca’s Coffe",
     "price": 3758,
-    "rating": 4.3
+    "rating": 4.3,
+    "weight": 600
   },
   {
     "link": "./assets/img/product/item10.jpg",
     "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
     "brand": "Limbo",
     "price": 3758,
-    "rating": 4.3
+    "rating": 4.3,
+    "weight": 800
   },
   {
     "link": "./assets/img/product/item11.jpg",
     "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
     "brand": "Lavazza",
     "price": 3758,
-    "rating": 4.3
+    "rating": 4.3,
+    "weight": 500
   },
   {
     "link": "./assets/img/product/item12.jpg",
     "name": "Coffee Beans - Espresso Arabica and Robusta Beans Blend",
     "brand": "ManaResi",
     "price": 3758,
-    "rating": 4.3
+    "rating": 4.3,
+    "weight": 600
   }
 ]

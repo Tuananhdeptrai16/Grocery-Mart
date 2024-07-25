@@ -1,10 +1,5 @@
 [
   {
-    "brand": "All",
-    "description": "Everything here",
-    "imageUrl": "./assets/img/category-item/item1.jpg"
-  },
-  {
     "brand": "Starbucks",
     "description": "Known for its mild and slightly acidic flavor.",
     "imageUrl": "./assets/img/category-item/item1.jpg"
