@@ -2665,12 +2665,6 @@ html {
   border-radius: 50%;
   box-shadow: 0px 1px var(--like-btn-shadow);
 }
-.like-btn:not(.like-btn__liked) .like-btn__icon-liked {
-  display: none;
-}
-.like-btn__liked .like-btn__icons {
-  display: none;
-}
 .like-btn__icon-liked {
   margin-top: 6px;
 }

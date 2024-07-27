@@ -227,9 +227,10 @@ window.addEventListener("DOMContentLoaded", () => {
                           <p class="cart-preview-item__price">${product.formatPrice()}</p>
                         </article>
                       </div>`;
-          Â;
         })
         .join("");
+      const textQuantityProductToCart = document.querySelector(".js-quantityProductToCart");
+      textQuantityProductToCart.innerText = this.cart.products.length;
 
       this.cartContainerDom.innerHTML = cartDisplayDom;
     }

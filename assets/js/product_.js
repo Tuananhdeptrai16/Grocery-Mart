@@ -64,6 +64,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     showProduct() {
       const productHTML = this.products
+        // ./Product-detail-logined.html
         .map((product) => {
           return `<div class="col">
             <article class="product-card js-productItem" data-weight="${product.weight}" data-category ='${
@@ -73,10 +74,11 @@ window.addEventListener("DOMContentLoaded", () => {
               <div class="product-card__img-wrap js-saveChangeIdProduct">
               
                 <div>
-                  <img src="${product.link}" alt="${product.name}" class="product-card__thumb js-productThumbs">
+                  <img src="${product.link}" alt="${product.name}" class="product-card__thumb">
                 </div>
-                <button class="like-btn product-card__like--btn js-HeartClick">
-                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon ">
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon">
+                  <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked">
                 </button>
               </div>
               <a href="#!">
@@ -93,15 +95,6 @@ window.addEventListener("DOMContentLoaded", () => {
         })
         .join("");
       this.productContainerDom.innerHTML = productHTML;
-      const ClickHearts = this.productContainerDom.querySelectorAll(".js-HeartClick");
-      ClickHearts.forEach((clickHeart) => {
-        clickHeart.addEventListener("click", () => {
-          const productDom = clickHeart.closest(".js-productItem");
-          const product = this.products.find((product) => +product.id === +productDom.dataset.id);
-          product.dom = new ProductsDomFavourit(product, productDom, clickHeart);
-          product.dom.addEventClick();
-        });
-      });
     }
 
     showCategoryButton() {
@@ -170,72 +163,14 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     SaveChangeIdProduct() {
-      const productThumbItems = this.productContainerDom.querySelectorAll(".js-productThumbs");
-      productThumbItems.forEach((productThumbItem) => {
-        productThumbItem.addEventListener("click", () => {
-          const productDom = productThumbItem.closest(".js-productItem");
-          const productItemId = productDom.dataset.id;
+      const productItems = this.productContainerDom.querySelectorAll(".js-productItem");
+      productItems.forEach((productItem) => {
+        productItem.addEventListener("click", () => {
+          const productItemId = productItem.dataset.id;
           localStorage.setItem("productItemId", productItemId);
           window.location.href = "Product-detail-logined.html";
         });
       });
-    }
-  }
-  class ProductsDomFavourit {
-    constructor(product, productDom, buttonDom) {
-      this.product = product;
-      this.productDom = productDom;
-      this.buttonDom = buttonDom;
-    }
-    addEventClick() {
-      this.buttonDom.addEventListener("click", () => {
-        this.addToCartFavourit();
-        this.tranformHeartToHeartRed();
-      });
-    }
-    tranformHeartToHeartRed() {
-      this.buttonDom.outerHTML = `
-       <button class="like-btn product-card__like--btn js-HeartClick">
-                   <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked">
-                </button>`;
-    }
-    addToCartFavourit() {
-      cartFavourit.addProducts(this.product);
-    }
-  }
-  class CartFavourit {
-    productsFavourit = [];
-    constructor() {
-      this.cartFavouritDom = new CartFavouritDom(this);
-    }
-    addProducts(product) {
-      this.productsFavourit.push(product);
-      this.cartFavouritDom.showCartProductFavourit();
-    }
-  }
-  class CartFavouritDom {
-    constructor(cartFavourit) {
-      this.cartFavourit = cartFavourit;
-      this.cartFavouritContainerDom = document.querySelector(".js-cartFavouritContainer");
-      this.showCartProductFavourit();
-    }
-    showCartProductFavourit() {
-      this.cartFavouritContainerDom.innerHTML = this.cartFavourit.productsFavourit
-        .map((product) => {
-          return `<div class="col">
-                        <article class="cart-preview-item">
-                          <div class="cart-preview-item__img-wrap">
-                            <img src="${product.link}" alt="" class="cart-preview-item__thumb" />
-                          </div>
-                          <h3 class="cart-preview-item__title line-clamp">${product.name}</h3>
-                          <p class="cart-preview-item__price">${product.formatPrice()}</p>
-                        </article>
-                      </div>`;
-        })
-        .join("");
-      const numberQuantityFavouritItem = document.querySelector(".js-quantityFavouritItem");
-      const formatNumber = (number) => (number <= 10 ? `0${number}` : `${number}`);
-      numberQuantityFavouritItem.innerText = formatNumber(this.cartFavourit.productsFavourit.length);
     }
   }
   class Cart {
@@ -284,13 +219,10 @@ window.addEventListener("DOMContentLoaded", () => {
         })
         .join("");
 
-      this.cartContainerDom.innerHTML = cartDisplayDom;
-      const textQuantityProductToCart = document.querySelector(".js-quantityProductToCart");
-      textQuantityProductToCart.innerText = this.cart.products.length;
+      this.cartContainerDom.innerHTML = cartDisplayDom; // Cập nhật nội dung của phần tử DOM
     }
   }
   const productsDom = new ProductsDOM();
   const cart = new Cart();
-  const cartFavourit = new CartFavourit();
   console.log(cart);
 });
