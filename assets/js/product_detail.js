@@ -45,7 +45,7 @@ window.addEventListener("DOMContentLoaded", () => {
     showProduct() {
       const selectedProduct = localStorage.getItem("productItemId");
       const productDom = this.products.find((product) => +product.id === +selectedProduct);
-      const productHTML = `<div class="row product-container__wrap js-productWrap">
+      const productHTML = `
                 <div class="col-5 col-xl-6 col-lg-12">
                   <div class="product-preview">
                     <div class="product-preview__list">
@@ -143,7 +143,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </section>
                 </div>
-              </div>`;
+             `;
       this.ProductContainerDom.innerHTML = productHTML;
       const buttonAddtoCart = this.ProductContainerDom.querySelector(".js-productItemButton");
       const product = this.products.find((product) => +product.id === +selectedProduct);
