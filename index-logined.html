@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
 
     <!-- Scripts -->
+    <script src="./assets/js/test2.js"></script>
+    <script src="./assets/js/test.js"></script>
     <script src="./assets/js/product.js"></script>
     <script src="./assets/js/lightmode.js"></script>
     <script src="./assets/js/scripts.js"></script>
@@ -165,16 +167,22 @@
                   <div class="filter__col form__price">
                     <lable class="form__lable">Price</lable>
                     <div class="form-group">
-                      <div class="form__price-slider" style="--min-value: 10%; --max-value: 60%"></div>
+                      <div class="form-slider">
+                        <div class="form__progress"></div>
+                      </div>
+                      <div class="form__price-slider">
+                        <input type="range" min="0" max="7500" step="100" class="form__range-min js-range-min" />
+                        <input type="range" min="0" max="7500" step="100" class="form__range-max js-range-max" />
+                      </div>
                     </div>
-                    <div class="form-group form-group--inline">
+                    <div class="form-group form-group--inline js__formPrice">
                       <div>
-                        <lable class="form__lable form__lable-small">Minimum</lable>
-                        <input type="text" name="" id="" value="$30.00" class="filter__form--input" />
+                        <label class="form__label form__label-small">Minimum</label>
+                        <input type="number" value="0" class="form__input-number js-inputMin" />
                       </div>
                       <div>
-                        <lable class="form__lable form__lable-small">Maximum</lable>
-                        <input type="text" name="" id="" value="$100.00" class="filter__form--input" />
+                        <label class="form__label form__label-small">Maximum</label>
+                        <input type="number" value="7500" class="form__input-number js-inputMax" />
                       </div>
                     </div>
                   </div>
@@ -243,8 +251,9 @@
         <div class="home__product row row-cols-4 row-cols-lg-2 row-cols-sm-1 g-3 js-productContainer">
           <div class="col">
             <article class="product-card">
-              <div class="product-card__img-wrap">
-                <a href="./Product-detail-logined.html">
+              <div class="product-card__img-wrap" data-id="1">
+                <div class="product-card__overlay"></div>
+                <a href="#!">
                   <img src="./assets/img/product/item1.png" alt="item1" class="product-card__thumb" />
                 </a>
                 <button class="like-btn product-card__like--btn">

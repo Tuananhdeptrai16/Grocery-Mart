@@ -13,17 +13,24 @@ window.addEventListener("DOMContentLoaded", () => {
     .then((response) => response.json())
     .then((data) => {
       productsDom.products = data.map((product) => {
-        return new Product(product.link, product.name, product.brand, product.price, product.rating, product.w);
+        return new Product(
+          product.id,
+          product.link,
+          product.name,
+          product.brand,
+          product.price,
+          product.rating,
+          product.weight
+        );
       });
       productsDom.showProduct();
       productsDom.changeFilterProduct();
-      CartDom.products = data.map((product) => {
-        return new Product(product.link, product.name, product.brand, product.price, product.rating, product.w);
-      });
+      productsDom.SaveChangeIdProduct();
     })
     .catch((error) => console.error("Call Fail Api", error));
   class Product {
-    constructor(link, name, brand, price, rating, weight) {
+    constructor(id, link, name, brand, price, rating, weight) {
+      this.id = id;
       this.link = link;
       this.name = name;
       this.brand = brand;
@@ -51,22 +58,24 @@ window.addEventListener("DOMContentLoaded", () => {
   class ProductsDOM {
     products = [];
     categories = [];
-
     constructor() {
       this.categoryContainerDom = document.querySelector(".js-productCategoryContainer");
       this.productContainerDom = document.querySelector(".js-productContainer");
     }
     showProduct() {
       const productHTML = this.products
+        // ./Product-detail-logined.html
         .map((product) => {
           return `<div class="col">
             <article class="product-card js-productItem" data-weight="${product.weight}" data-category ='${
             product.brand
-          }'>
-              <div class="product-card__img-wrap">
-                <a href="./Product-detail-logined.html">
+          }' data-id='${product.id}'>
+             
+              <div class="product-card__img-wrap js-saveChangeIdProduct">
+              
+                <div>
                   <img src="${product.link}" alt="${product.name}" class="product-card__thumb">
-                </a>
+                </div>
                 <button class="like-btn product-card__like--btn">
                   <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon">
                   <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked">
@@ -152,65 +161,41 @@ window.addEventListener("DOMContentLoaded", () => {
         });
       });
     }
-  }
 
+    SaveChangeIdProduct() {
+      const productItems = this.productContainerDom.querySelectorAll(".js-productItem");
+      productItems.forEach((productItem) => {
+        productItem.addEventListener("click", () => {
+          const productItemId = productItem.dataset.id;
+          localStorage.setItem("productItemId", productItemId);
+          window.location.href = "Product-detail-logined.html";
+        });
+      });
+    }
+  }
   class Cart {
-    products = [
-      {
-        link: "./assets/img/product/item1.jpg",
-        name: "Organic Honey from Natural Beekeepers in the Hills",
-        brand: "Starbucks",
-        price: 8022,
-        rating: 1.3,
-        weight: 500,
-      },
-      {
-        link: "./assets/img/product/item2.jpg",
-        name: "Organic Honey from Natural Beekeepers in the Hills",
-        brand: "Starbucks",
-        price: 8022,
-        rating: 1.3,
-        weight: 600,
-      },
-      {
-        link: "./assets/img/product/item3.jpg",
-        name: "Organic Honey from Natural Beekeepers in the Hills",
-        brand: "Starbucks",
-        price: 8022,
-        rating: 1.3,
-        weight: 800,
-      },
-      {
-        link: "./assets/img/product/item4.jpg",
-        name: "Organic Honey from Natural Beekeepers in the Hills",
-        brand: "Starbucks",
-        price: 8022,
-        rating: 1.3,
-        weight: 500,
-      },
-      {
-        link: "./assets/img/product/item5.jpg",
-        name: "Organic Honey from Natural Beekeepers in the Hills",
-        brand: "Starbucks",
-        price: 8022,
-        rating: 1.3,
-        weight: 600,
-      },
-      {
-        link: "./assets/img/product/item6.jpg",
-        name: "Organic Honey from Natural Beekeepers in the Hills",
-        brand: "Starbucks",
-        price: 8022,
-        rating: 1.3,
-        weight: 800,
-      },
-    ];
+    products = [];
     constructor() {
       this.cartDom = new CartDom(this);
+      this.loadCartFromLocalStorage();
     }
-    addProduct(product) {}
-    removeProduct(product) {}
-    updateQuantity() {}
+
+    loadCartFromLocalStorage() {
+      const savedProducts = JSON.parse(localStorage.getItem("cart")) || [];
+      this.products = savedProducts.map(
+        (product) =>
+          new Product(
+            product.id,
+            product.link,
+            product.name,
+            product.brand,
+            product.price,
+            product.rating,
+            product.weight
+          )
+      );
+      this.cartDom.showCartProduct();
+    }
   }
   class CartDom {
     constructor(cart) {
@@ -218,23 +203,23 @@ window.addEventListener("DOMContentLoaded", () => {
       this.cartContainerDom = document.querySelector(".js-cartProductContainer");
       this.cartSubTotalDom = document.querySelector(".js-cartSubTotal");
       this.cartTotalDom = document.querySelector(".js-cartTotal");
-      this.showCartProduct();
     }
     showCartProduct() {
       const cartDisplayDom = this.cart.products
         .map((product) => {
           return `<div class="col">
-                  <article class="cart-preview-item">
-                    <div class="cart-preview-item__img-wrap">
-                      <img src="${product.link}" alt="" class="cart-preview-item__thumb" />
-                    </div>
-                    <h3 class="cart-preview-item__title line-clamp">${product.name}</h3>
-                    <p class="cart-preview-item__price">${product.price}</p>
-                  </article>
-                </div>`;
+                        <article class="cart-preview-item">
+                          <div class="cart-preview-item__img-wrap">
+                            <img src="${product.link}" alt="" class="cart-preview-item__thumb" />
+                          </div>
+                          <h3 class="cart-preview-item__title line-clamp">${product.name}</h3>
+                          <p class="cart-preview-item__price">${product.formatPrice()}</p>
+                        </article>
+                      </div>`;
         })
         .join("");
-      this.cartContainerDom.innerHTML = cartDisplayDom;
+
+      this.cartContainerDom.innerHTML = cartDisplayDom; // Cập nhật nội dung của phần tử DOM
     }
   }
   const productsDom = new ProductsDOM();

@@ -29,7 +29,6 @@ class Slide {
 const slides = slideItems.map((slide) => {
   return new Slide(slide.img);
 });
-console.log(Slide.img);
 class Slider {
   constructor(slides) {
     this.slides = slides;
@@ -109,4 +108,3 @@ class Slider {
   }
 }
 const slider = new Slider(slides);
-console.log(slider.init());

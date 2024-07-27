@@ -2725,6 +2725,10 @@ html {
   box-shadow: 0px 20px 60px 10px var(--product-card-shadow);
   transition: all 0.3s ease-in-out;
 }
+.product-card:hover {
+  transform: translateY(-15px);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
 .product-card__img-wrap {
   position: relative;
   padding-top: 100%;
@@ -2763,10 +2767,6 @@ html {
 }
 .product-card__star {
   margin: 0 6px 0 auto;
-}
-.product-card:hover {
-  transform: translateY(-15px);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .countdown__box__time {

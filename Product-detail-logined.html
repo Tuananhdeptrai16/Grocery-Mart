@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
 
     <!-- Scripts -->
+    <script src="./assets/js/product-detail.js"></script>
+    <script src="./assets/js/product_detail.js"></script>
     <script src="./assets/js/scripts.js"></script>
   </head>
   <body>
@@ -86,7 +88,7 @@
         </div>
         <!-- product infor  -->
         <div class="product-container">
-          <div class="row product-container__wrap">
+          <div class="row product-container__wrap js-productWrap">
             <div class="col-5 col-xl-6 col-lg-12">
               <div class="product-preview">
                 <div class="product-preview__list">
@@ -185,7 +187,7 @@
                       </div>
                       <span class="prod-infor__total--price">$540.00</span>
                       <div class="prod-infor__row prod-infor__btn-wrap">
-                        <button class="btn btn--primary prod-infor__btn">Add to cart</button>
+                        <button class="btn btn--primary prod-infor__btn js-productItemButton">Add to cart</button>
                         <button class="like-btn prod-infor__like--btn">
                           <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
                           <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked" />
@@ -639,7 +641,5 @@
     <script>
       load("#footer", "./templates/footer.html");
     </script>
-    <script src="./assets/js/product-detail.js"></script>
-    <script src="./assets/js/product.js"></script>
   </body>
 </html>

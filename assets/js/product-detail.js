@@ -5,6 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const productZoom = document.querySelector(".product__zoom");
   itemThumbs.forEach((element, index) => {
     element.onmousemove = () => {
+      console.log("Dang chay");
       const imgWidth = itemList.offsetWidth;
       itemList.style.transform = `translateX(${-imgWidth * index}px)`;
     };
