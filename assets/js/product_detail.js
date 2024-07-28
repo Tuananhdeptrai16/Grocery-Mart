@@ -135,7 +135,6 @@ window.addEventListener("DOMContentLoaded", () => {
                             <button class="btn btn--primary prod-infor__btn js-productItemButton">Add to cart</button>
                             <button class="like-btn prod-infor__like--btn">
                               <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon">
-                              <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked">
                             </button>
                           </div>
                         </div>

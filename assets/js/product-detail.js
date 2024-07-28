@@ -3,9 +3,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const itemList = document.querySelector(".product-preview__list");
   const overlay = document.querySelector(".product-ovelay ");
   const productZoom = document.querySelector(".product__zoom");
+  console.log(itemThumbs);
   itemThumbs.forEach((element, index) => {
     element.onmousemove = () => {
-      console.log("Dang chay");
+      console.log("dang di chuyen");
       const imgWidth = itemList.offsetWidth;
       itemList.style.transform = `translateX(${-imgWidth * index}px)`;
     };
@@ -18,8 +19,8 @@ window.addEventListener("DOMContentLoaded", () => {
   overlay.onclick = () => {
     if (window.innerWidth <= 1140) return;
     if (overlay.classList.contains("overlay") || productZoom.classList.contains("product__zoom")) {
-      overlay.classList.add("d-none"); // Changed from remove to add
-      productZoom.classList.add("d-none"); // Changed from remove to add
+      overlay.classList.add("d-none");
+      productZoom.classList.add("d-none");
     }
   };
   const itemZooms = document.querySelectorAll(".product__zoom--item");
@@ -39,7 +40,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const contentActive = `${contentSelector}--current`;
   const tabContainers = document.querySelectorAll(".js-tabs");
   tabContainers.forEach((tabContainer) => {
-    console.log(tabContainer);
     const tabs = tabContainer.querySelectorAll(`.${tabsSelector}`);
     const contents = tabContainer.querySelectorAll(`.${contentSelector}`);
     tabs.forEach((tab, index) => {

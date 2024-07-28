@@ -1,7 +1,8 @@
-window.document.addEventListener("DOMContentLoaded", () => {
-  const modalTriggers = document.querySelectorAll(".js-toggle"); // Nút mở modal
-  const allModals = document.querySelectorAll(".jsShow"); // Tất cả các modal
+function toggleShow() {
+  const modalTriggers = document.querySelectorAll(".js-toggle");
+  const allModals = document.querySelectorAll(".jsShow");
   const closes = document.querySelectorAll(".jsClose");
+
   modalTriggers.forEach((trigger) => {
     const targetSelector = trigger.getAttribute("toggle-class");
     const targetModal = document.querySelector(targetSelector);
@@ -14,44 +15,39 @@ window.document.addEventListener("DOMContentLoaded", () => {
     }
 
     trigger.onclick = (event) => {
-      // Ẩn tất cả các modal khác
       allModals.forEach((modal) => {
         modal.classList.remove("show");
         modal.classList.add("hide");
       });
 
-      // Hiển thị modal mục tiêu
       targetModal.classList.toggle("hide");
       targetModal.classList.toggle("show");
-      event.stopPropagation(); // Ngăn chặn sự kiện click truyền lên window
+      event.stopPropagation();
     };
   });
 
-  // Đóng modal khi nhấp vào nút đóng
   closes.forEach((closeButton) => {
     closeButton.onclick = (event) => {
       const modal = closeButton.closest(".jsShow");
       if (modal) {
         modal.classList.remove("show");
         modal.classList.add("hide");
-        event.stopPropagation(); // Ngăn chặn sự kiện click truyền lên window
+        event.stopPropagation();
       }
     };
   });
 
-  // Đóng modal khi nhấp vào overlay
   document.querySelectorAll(".modal__overlay").forEach((overlay) => {
     overlay.onclick = (event) => {
       const modal = overlay.closest(".jsShow");
       if (modal) {
         modal.classList.remove("show");
         modal.classList.add("hide");
-        event.stopPropagation(); // Ngăn chặn sự kiện click truyền lên window
+        event.stopPropagation();
       }
     };
   });
 
-  // Đóng modal khi nhấp ra ngoài modal
   window.addEventListener("click", (event) => {
     allModals.forEach((modal) => {
       if (!modal.contains(event.target)) {
@@ -60,4 +56,6 @@ window.document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
+}
+
+export { toggleShow };

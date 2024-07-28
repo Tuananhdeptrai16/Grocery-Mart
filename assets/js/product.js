@@ -194,7 +194,7 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
     tranformHeartToHeartRed() {
-      this.buttonDom.outerHTML = `
+      this.buttonDom.outerHTML = ` 
        <button class="like-btn product-card__like--btn js-HeartClick">
                    <img src="./assets/icons/heart-red.svg" alt="heart" class="like-btn__icon-liked">
                 </button>`;
@@ -261,6 +261,18 @@ window.addEventListener("DOMContentLoaded", () => {
       );
       this.cartDom.showCartProduct();
     }
+
+    totalPrice() {
+      const price = this.products.reduce((total, product) => {
+        return total * product.price;
+      }, 0);
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+      return formatter.format(price);
+    }
   }
   class CartDom {
     constructor(cart) {
@@ -268,6 +280,10 @@ window.addEventListener("DOMContentLoaded", () => {
       this.cartContainerDom = document.querySelector(".js-cartProductContainer");
       this.cartSubTotalDom = document.querySelector(".js-cartSubTotal");
       this.cartTotalDom = document.querySelector(".js-cartTotal");
+      this.renderCart();
+    }
+    renderCart() {
+      console.log("object", this.cart.totalPrice());
     }
     showCartProduct() {
       const cartDisplayDom = this.cart.products

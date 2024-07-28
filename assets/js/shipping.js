@@ -1,14 +1,9 @@
 window.addEventListener("DOMContentLoaded", () => {
   const buttonSubmit = document.querySelector(".buttonSubmit");
   const textError = document.querySelector(".form__error--throw");
-
-  console.log("Nút:", buttonSubmit);
-  console.log("Lỗi văn bản:", textError);
-
   if (buttonSubmit) {
     buttonSubmit.onclick = (event) => {
       event.preventDefault(); // Ngăn chặn hành động mặc định của nút
-      console.log(1);
 
       let name = document.querySelector(".form__name").value;
       let phone = document.querySelector(".form__phone").value;
