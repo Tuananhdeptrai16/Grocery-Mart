@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+export const filterSlide = () => {
   const rangePriceInputs = document.querySelectorAll(".form__price-slider input");
   const priceInputs = document.querySelectorAll(".js__formPrice input");
   const range = document.querySelector(".form__progress");
@@ -45,4 +45,4 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   updateRange();
-});
+};

@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+function zoomItem() {
   const itemThumbs = document.querySelectorAll(".product-preview__thumbs--img");
   const itemList = document.querySelector(".product-preview__list");
   const overlay = document.querySelector(".product-ovelay ");
@@ -32,8 +32,6 @@ window.addEventListener("DOMContentLoaded", () => {
       itemListZoom.setAttribute("src", `./assets/img/product/item${index + 1}.png`);
     };
   });
-});
-window.addEventListener("DOMContentLoaded", () => {
   const tabsSelector = "prod-tab__item";
   const contentSelector = "prod-tab__content";
   const tabActive = `${tabsSelector}--current`;
@@ -51,4 +49,6 @@ window.addEventListener("DOMContentLoaded", () => {
       };
     });
   });
-});
+}
+
+export { zoomItem };

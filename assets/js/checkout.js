@@ -59,6 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
         );
       });
       this.showCart();
+      this.totalPrice();
     }
     removeDuplicateById(saveCartItem) {
       const uniqueItems = [];
@@ -103,7 +104,9 @@ window.addEventListener("DOMContentLoaded", () => {
                           </div>
                         </div>
                         <div class="cart-item__content--right">
-                          <p class="cart-item__total-price">${cartItem.formatPrice()}</p>
+                          <p class="cart-item__total-price js-subPriceItem"  data-id="${
+                            cartItem.id
+                          }">${cartItem.formatPrice()}</p>
                           <div class="cart-item__ctrl">
                             <button class="cart-item__ctrl--btn">
                               <img src="./assets/icons/heart2.svg" alt="" />
@@ -125,6 +128,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const quantityDecreaseButtonDoms = this.ProductContainerDom.querySelectorAll(".js-quantityDecreaseButton");
       quantityIncreaseButtonDoms.forEach((quantityIncreaseButtonDom) => {
         this.increaseQuantityButton(quantityIncreaseButtonDom);
+        this.totalPrice;
       });
       quantityDecreaseButtonDoms.forEach((quantityDecreaseButtonDom) => {
         this.decreaseQuantityButton(quantityDecreaseButtonDom);
@@ -137,32 +141,14 @@ window.addEventListener("DOMContentLoaded", () => {
           this.removeCart(RemoveCartButton, DeleteButton);
         });
       });
-      this.totalItemPrice();
-      //   this.totalPrice();
     }
-    //hàm tính tổng tiền
-    // totalPrice() {
-    //   const arrPrices = [];
-    //   this.cartItems.map((cartItem) => {
-    //     const objCartItem ={
-    //         price
-    //     }
-    //     arrPrices.push(cartItem.price);
-    //   });
-    //   const totalPrice = arrPrices.reduce((total, price) => {
-    //     return total + price;
-    //   }, 0);
-
-    //   console.log(totalPrice);
-    // }
-    // totalQuantity() {}
-    //hàm xóa
     CartDisplayMessage() {
       toggleShow();
     }
     removeCart(RemoveCartButton, DeleteButton) {
       RemoveCartButton.addEventListener("click", () => {
         this.removeProductFromCart(DeleteButton);
+        this.totalPrice();
       });
     }
     removeProductFromCart(DeleteButton) {
@@ -183,30 +169,81 @@ window.addEventListener("DOMContentLoaded", () => {
         const productDiv = quantityIncreaseButtonDom.closest(".js-quantityWrap");
         const currenQuantity = this.getCurrentQuantity(productDiv, quantityIncreaseButtonDom);
         this.setQuantity(productDiv, currenQuantity + 1);
-        this.totalItemPrice();
+        this.subTotalPrice(productDiv);
+        this.totalPrice();
+        console.log(this.cartItems.length);
       });
     }
-    // totalItemPrice() {
-    //     const price =
-    //   console.log("Run");
-    // }
-    // getPrice(){
-    //     return
-    // }
+    totalQuantity(productDiv) {
+      const quantity = this.getCurrentQuantity(productDiv);
+      return quantity;
+    }
+    totalPrice() {
+      const total = this.cartItems.reduce((acc, product) => {
+        const price = parseFloat(product.price);
+        let quantity = parseInt(product.quantity, 10);
+
+        if (isNaN(quantity)) {
+          quantity = 1;
+        }
+        return acc + price * quantity;
+      }, 0);
+      const PriceShipping = 1000;
+      this.PriceShow(total, total + PriceShipping);
+      return total;
+    }
+    PriceShow(subtotal, totalprice) {
+      const subTotal1 = document.querySelector(".js-Subtotal1");
+      const totalPrice1 = document.querySelector(".js-totalPrice1");
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+      subTotal1.textContent = `${formatter.format(subtotal)}`;
+      totalPrice1.textContent = `${formatter.format(totalprice)}`;
+      const subTotal2 = document.querySelector(".js-Subtotal2");
+      const totalPrice2 = document.querySelector(".js-totalPrice2");
+      subTotal2.textContent = `${formatter.format(subtotal)}`;
+      totalPrice2.textContent = `${formatter.format(totalprice)}`;
+      const sumItem = document.querySelector(".js-lengthItem");
+      sumItem.textContent = `${this.cartItems.length}`;
+    }
+    subTotalPrice(productDiv) {
+      const cartItemContent = productDiv.parentElement;
+      const PriceItem = cartItemContent.querySelector(".js-subPriceItem");
+      const a = this.cartItems.find((p) => p.id === parseInt(PriceItem.dataset.id));
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+      PriceItem.innerHTML = `${formatter.format(a.price * a.quantity)}`;
+    }
     getCurrentQuantity(productDiv) {
       return parseInt(productDiv.querySelector(".js-quantityInput").textContent);
     }
     setQuantity(productDiv, quantity) {
-      productDiv.querySelector(".js-quantityInput").innerHTML = quantity;
+      const productId = parseInt(productDiv.closest(".js-productItemWrap").dataset.id, 10);
+      const cartItem = this.cartItems.find((item) => item.id === productId);
+      if (cartItem) {
+        cartItem.quantity = quantity;
+      }
+      productDiv.querySelector(".js-quantityInput").textContent = quantity;
     }
+
     decreaseQuantityButton(quantityDecreaseButtonDom) {
       quantityDecreaseButtonDom.addEventListener("click", () => {
         const productDiv = quantityDecreaseButtonDom.closest(".js-quantityWrap");
         const currenQuantity = this.getCurrentQuantity(productDiv, quantityDecreaseButtonDom);
         if (currenQuantity <= 1) {
           this.setQuantity(productDiv, 1);
+          this.subTotalPrice(productDiv);
+          this.totalPrice(); // Cập nhật tổng giá sau khi thay đổi số lượng
         } else {
           this.setQuantity(productDiv, currenQuantity - 1);
+          this.subTotalPrice(productDiv);
+          this.totalPrice(); // Cập nhật tổng giá sau khi thay đổi số lượng
         }
       });
     }
