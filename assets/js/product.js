@@ -1,5 +1,5 @@
-import { toggleShow } from "./toggleShowOverlay.js";
 import { filterSlide } from "./filterSlide.js";
+import { toggleShow } from "./toggleShowOverlay.js";
 window.addEventListener("DOMContentLoaded", () => {
   fetch("./assets/json/category.json")
     .then((response) => response.json())
@@ -160,12 +160,12 @@ window.addEventListener("DOMContentLoaded", () => {
           const filterShow = document.querySelector(".filter__submit");
           filterShow.addEventListener("click", () => {
             const weight = document.querySelector(".js-filterWeight").value;
-            const filterSelected = input.value.toLowerCase();
             productDoms.forEach((product) => {
+              const filterSelected = input.value.toLowerCase();
               const productBrand = product.dataset.category.toLowerCase();
               const productWeight = product.dataset.weight;
-              console.log(productBrand.includes(filterSelected));
-              if (productBrand.includes(filterSelected) || weight === productWeight) {
+              console.log(productWeight === weight);
+              if (productBrand.includes(filterSelected) && productWeight === weight) {
                 product.closest(".col").style.display = "block";
                 product.style.display = "block";
               } else {
@@ -314,6 +314,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   const productsDom = new ProductsDOM();
-  const cart = new Cart();
   const cartFavourit = new CartFavourit();
+  const cart = new Cart();
 });

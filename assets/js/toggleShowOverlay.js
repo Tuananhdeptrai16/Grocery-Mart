@@ -1,4 +1,4 @@
-function toggleShow() {
+export const toggleShow = () => {
   const modalTriggers = document.querySelectorAll(".js-toggle");
   const allModals = document.querySelectorAll(".jsShow");
   const closes = document.querySelectorAll(".jsClose");
@@ -56,6 +56,4 @@ function toggleShow() {
       }
     });
   });
-}
-
-export { toggleShow };
+};
