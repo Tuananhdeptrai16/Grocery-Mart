@@ -1,216 +1,303 @@
-import { toggleShow as t } from "./toggleShowOverlay.js";
+import { toggleShow } from "./toggleShowOverlay.js";
+
 window.addEventListener("DOMContentLoaded", () => {
   fetch("./assets/json/product.json")
-    .then((t) => t.json())
-    .then((t) => {
-      a.products = t.map((t) => new e(t.id, t.link, t.name, t.brand, t.price, t.rating, t.weight));
+    .then((response) => response.json())
+    .then((data) => {
+      cartDom.products = data.map((product) => {
+        return new Cart(
+          product.id,
+          product.link,
+          product.name,
+          product.brand,
+          product.price,
+          product.rating,
+          product.weight
+        );
+      });
     })
-    .catch((t) => console.error("Call Fail Api", t));
-  class e {
-    constructor(t, e, r, a, i, s, c) {
-      (this.id = t),
-        (this.link = e),
-        (this.name = r),
-        (this.brand = a),
-        (this.price = i),
-        (this.rating = s),
-        (this.weight = c);
+    .catch((error) => console.error("Call Fail Api", error));
+
+  class Cart {
+    constructor(id, link, name, brand, price, rating, weight) {
+      this.id = id;
+      this.link = link;
+      this.name = name;
+      this.brand = brand;
+      this.price = price;
+      this.rating = rating;
+      this.weight = weight;
     }
     formatPrice() {
-      let t = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 });
-      return t.format(this.price);
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+      return formatter.format(this.price);
     }
   }
-  class r {
+
+  class CartDom {
     cartItems = [];
     constructor() {
-      (this.cartContainerDom = document.querySelector(".js-cartProductContainer")),
-        (this.ProductContainerDom = document.querySelector(".js-showContainer")),
-        this.loadCartFromLocalStorage();
+      this.cartContainerDom = document.querySelector(".js-cartProductContainer");
+      this.ProductContainerDom = document.querySelector(".js-showContainer");
+      this.loadCartFromLocalStorage();
     }
     loadCartFromLocalStorage() {
-      let t = JSON.parse(localStorage.getItem("cart") || "[]"),
-        r = this.removeDuplicateById(t);
-      (this.cartItems = r.map((t) => new e(t.id, t.link, t.name, t.brand, t.price, t.rating, t.weight))),
-        this.showProduct(),
-        this.showCart(),
-        this.totalPrice();
+      const saveCartItem = JSON.parse(localStorage.getItem("cart") || "[]");
+      const uniqueCartItems = this.removeDuplicateById(saveCartItem);
+      this.cartItems = uniqueCartItems.map((cartItem) => {
+        return new Cart(
+          cartItem.id,
+          cartItem.link,
+          cartItem.name,
+          cartItem.brand,
+          cartItem.price,
+          cartItem.rating,
+          cartItem.weight
+        );
+      });
+      this.showProduct();
+      this.showCart();
+      this.totalPrice();
     }
-    removeDuplicateById(t) {
-      let e = [],
-        r = new Set();
-      for (let a of t) r.has(a.id) || (e.push(a), r.add(a.id));
-      return e;
+    removeDuplicateById(saveCartItem) {
+      const uniqueItems = [];
+      const ids = new Set();
+      for (const item of saveCartItem) {
+        if (!ids.has(item.id)) {
+          uniqueItems.push(item);
+          ids.add(item.id);
+        }
+      }
+      return uniqueItems;
     }
     showCart() {
-      let t = this.cartItems.map(
-        (t) => `<div class="col">
-  <article class="cart-preview-item">
-    <div class="cart-preview-item__img-wrap">
-      <img src="${t.link}" alt="" class="cart-preview-item__thumb">
-    </div>
-    <h3 class="cart-preview-item__title">${t.name}</h3>
-    <p class="cart-preview-item__price">${t.formatPrice()}</p>
-  </article>
-</div>`
-      );
-      (this.cartContainerDom.innerHTML = t), this.showPriceToCartFromLocalStorage();
+      const productHTML = this.cartItems.map((cart) => {
+        return `<div class="col">
+                  <article class="cart-preview-item">
+                    <div class="cart-preview-item__img-wrap">
+                      <img src="${cart.link}" alt="" class="cart-preview-item__thumb">
+                    </div>
+                    <h3 class="cart-preview-item__title">${cart.name}</h3>
+                    <p class="cart-preview-item__price">${cart.formatPrice()}</p>
+                  </article>
+                </div>`;
+      });
+      this.cartContainerDom.innerHTML = productHTML;
+      this.showPriceToCartFromLocalStorage();
     }
     showPriceToCartFromLocalStorage() {
-      let t = localStorage.getItem("subtotal"),
-        e = localStorage.getItem("totalprice"),
-        r = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 }),
-        a = document.querySelector(".js-subTotal"),
-        i = document.querySelector(".js-total");
-      (a.innerText = `${r.format(t)}`), (i.innerText = `${r.format(e)}`);
+      const getSubtotal = localStorage.getItem("subtotal");
+      const getTotal = localStorage.getItem("totalprice");
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+      const subTotal = document.querySelector(".js-subTotal");
+      const totalPrice = document.querySelector(".js-total");
+      subTotal.innerText = `${formatter.format(getSubtotal)}`;
+      totalPrice.innerText = `${formatter.format(getTotal)}`;
     }
     showProduct() {
-      let t = this.cartItems
-        .map(
-          (t) => `<article class="cart-item js-productItemWrap" data-id="${t.id}"}>
-      <a href="./Product-detail.html">
-        <img src="${t.link}" alt="item" class="cart-item__thumb" />
-      </a>
-      <div class="cart-item__content">
-        <div class="cart-item__content--left js-quantityWrap">
-          <h3 class="cart-item__title">
-            <a href="./Product-detail.html">${t.name}</a>
-          </h3>
-          <p class="cart-item__price-wrap">${t.formatPrice()} | <span class="cart-item__status">In Stock</span></p>
-          <div class="cart-item__ctrl cart-item__ctrl--md-block">
-            <div class="cart-item__input">
-              LavAzza
-              <img src="./assets/icons/arrow-down2.svg" alt="down2" class="icon" />
-            </div>
+      const productHTML = this.cartItems
+        .map((cartItem) => {
+          return `<article class="cart-item js-productItemWrap" data-id="${cartItem.id}"}>
+                      <a href="./Product-detail.html">
+                        <img src="${cartItem.link}" alt="item" class="cart-item__thumb" />
+                      </a>
+                      <div class="cart-item__content">
+                        <div class="cart-item__content--left js-quantityWrap">
+                          <h3 class="cart-item__title">
+                            <a href="./Product-detail.html">${cartItem.name}</a>
+                          </h3>
+                          <p class="cart-item__price-wrap">${cartItem.formatPrice()} | <span class="cart-item__status">In Stock</span></p>
+                          <div class="cart-item__ctrl cart-item__ctrl--md-block">
+                            <div class="cart-item__input">
+                              LavAzza
+                              <img src="./assets/icons/arrow-down2.svg" alt="down2" class="icon" />
+                            </div>
 
-            <div class="cart-item__input">
-              <button class="cart-item__input--btn js-quantityDecreaseButton">
-                <img src="./assets/icons/minus.svg" alt="minus" class="icon" />
-              </button>
-              <span class="js-quantityInput">1</span>
-              <button class="cart-item__input--btn js-quantityIncreaseButton">
-                <img src="./assets/icons/plus.svg" alt="plus" class="icon" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cart-item__content--right">
-          <p class="cart-item__total-price js-subPriceItem"  data-id="${t.id}">${t.formatPrice()}</p>
-          <div class="cart-item__ctrl">
-            <button class="cart-item__ctrl--btn">
-              <img src="./assets/icons/heart2.svg" alt="" />
-              Save
-            </button>
-            <button toggle-class="#modal-delete" class="js-toggle cart-item__ctrl--btn delete js-DeleteButton ">
-              <img src="./assets/icons/trash.svg" alt="" />
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
-    </article>`
-        )
+                            <div class="cart-item__input">
+                              <button class="cart-item__input--btn js-quantityDecreaseButton">
+                                <img src="./assets/icons/minus.svg" alt="minus" class="icon" />
+                              </button>
+                              <span class="js-quantityInput">1</span>
+                              <button class="cart-item__input--btn js-quantityIncreaseButton">
+                                <img src="./assets/icons/plus.svg" alt="plus" class="icon" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-item__content--right">
+                          <p class="cart-item__total-price js-subPriceItem"  data-id="${
+                            cartItem.id
+                          }">${cartItem.formatPrice()}</p>
+                          <div class="cart-item__ctrl">
+                            <button class="cart-item__ctrl--btn">
+                              <img src="./assets/icons/heart2.svg" alt="" />
+                              Save
+                            </button>
+                            <button toggle-class="#modal-delete" class="js-toggle cart-item__ctrl--btn delete js-DeleteButton ">
+                              <img src="./assets/icons/trash.svg" alt="" />
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </article>`;
+        })
         .join("");
-      this.ProductContainerDom.innerHTML = t;
-      let e = this.ProductContainerDom.querySelectorAll(".js-quantityIncreaseButton"),
-        r = this.ProductContainerDom.querySelectorAll(".js-quantityDecreaseButton");
-      e.forEach((t) => {
-        this.increaseQuantityButton(t), this.totalPrice;
-      }),
-        r.forEach((t) => {
-          this.decreaseQuantityButton(t);
-        }),
-        this.CartDisplayMessage();
-      let a = document.querySelector(".js-removeProductFromCart"),
-        i = this.ProductContainerDom.querySelectorAll(".js-DeleteButton");
-      i.forEach((t) => {
-        t.addEventListener("click", () => {
-          this.removeCart(a, t);
+
+      this.ProductContainerDom.innerHTML = productHTML;
+      const quantityIncreaseButtonDoms = this.ProductContainerDom.querySelectorAll(".js-quantityIncreaseButton");
+      const quantityDecreaseButtonDoms = this.ProductContainerDom.querySelectorAll(".js-quantityDecreaseButton");
+      quantityIncreaseButtonDoms.forEach((quantityIncreaseButtonDom) => {
+        this.increaseQuantityButton(quantityIncreaseButtonDom);
+        this.totalPrice;
+      });
+      quantityDecreaseButtonDoms.forEach((quantityDecreaseButtonDom) => {
+        this.decreaseQuantityButton(quantityDecreaseButtonDom);
+      });
+      this.CartDisplayMessage();
+      const RemoveCartButton = document.querySelector(".js-removeProductFromCart");
+      const DeleteButtons = this.ProductContainerDom.querySelectorAll(".js-DeleteButton");
+      DeleteButtons.forEach((DeleteButton) => {
+        DeleteButton.addEventListener("click", () => {
+          this.removeCart(RemoveCartButton, DeleteButton);
         });
       });
     }
     CartDisplayMessage() {
-      t();
+      toggleShow();
     }
-    removeCart(t, e) {
-      t.addEventListener("click", () => {
-        this.removeProductFromCart(e), this.totalPrice(), this.showPriceToCartFromLocalStorage();
+    removeCart(RemoveCartButton, DeleteButton) {
+      RemoveCartButton.addEventListener("click", () => {
+        this.removeProductFromCart(DeleteButton);
+        this.totalPrice();
+        this.showPriceToCartFromLocalStorage();
       });
     }
-    removeProductFromCart(t) {
-      let e = t.closest(".js-productItemWrap"),
-        r = e.dataset.id;
-      console.log(r);
-      let a = this.cartItems.findIndex((t) => t.id === parseInt(r));
-      -1 !== a && this.cartItems.splice(a, 1), this.renderCart(), this.updateLocalStorage();
+    removeProductFromCart(DeleteButton) {
+      const DivItem = DeleteButton.closest(".js-productItemWrap");
+      const ItemIndex = DivItem.dataset.id;
+      console.log(ItemIndex);
+      const productCartIndex = this.cartItems.findIndex((cartItem) => cartItem.id === parseInt(ItemIndex));
+      if (productCartIndex !== -1) {
+        this.cartItems.splice(productCartIndex, 1);
+      }
+      this.renderCart();
+      this.updateLocalStorage();
     }
-    increaseQuantityButton(t) {
-      t.addEventListener("click", () => {
-        let e = t.closest(".js-quantityWrap"),
-          r = this.getCurrentQuantity(e, t);
-        this.setQuantity(e, r + 1), this.subTotalPrice(e), this.totalPrice(), console.log(this.cartItems.length);
+    //kết thúc xóa
+    //hàm tăng giá trị
+    increaseQuantityButton(quantityIncreaseButtonDom) {
+      quantityIncreaseButtonDom.addEventListener("click", () => {
+        const productDiv = quantityIncreaseButtonDom.closest(".js-quantityWrap");
+        const currenQuantity = this.getCurrentQuantity(productDiv, quantityIncreaseButtonDom);
+        this.setQuantity(productDiv, currenQuantity + 1);
+        this.subTotalPrice(productDiv);
+        this.totalPrice();
+        console.log(this.cartItems.length);
       });
     }
-    totalQuantity(t) {
-      let e = this.getCurrentQuantity(t);
-      return e;
+    totalQuantity(productDiv) {
+      const quantity = this.getCurrentQuantity(productDiv);
+      return quantity;
     }
     totalPrice() {
-      let t = this.cartItems.reduce((t, e) => {
-        let r = parseFloat(e.price),
-          a = parseInt(e.quantity, 10);
-        return isNaN(a) && (a = 1), t + r * a;
+      const total = this.cartItems.reduce((acc, product) => {
+        const price = parseFloat(product.price);
+        let quantity = parseInt(product.quantity, 10);
+
+        if (isNaN(quantity)) {
+          quantity = 1;
+        }
+        return acc + price * quantity;
       }, 0);
-      return this.PriceShow(t, t + 1e3), t;
+      const PriceShipping = 1000;
+      this.PriceShow(total, total + PriceShipping);
+      return total;
     }
-    PriceShow(t, e) {
-      let r = document.querySelector(".js-Subtotal1"),
-        a = document.querySelector(".js-totalPrice1"),
-        i = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 });
-      (r.textContent = `${i.format(t)}`), (a.textContent = `${i.format(e)}`);
-      let s = document.querySelector(".js-Subtotal2"),
-        c = document.querySelector(".js-totalPrice2");
-      (s.textContent = `${i.format(t)}`), (c.textContent = `${i.format(e)}`);
-      let o = document.querySelector(".js-lengthItem");
-      (o.textContent = `${this.cartItems.length}`), this.savePriceToLocalStorage(t, e);
+    PriceShow(subtotal, totalprice) {
+      const subTotal1 = document.querySelector(".js-Subtotal1");
+      const totalPrice1 = document.querySelector(".js-totalPrice1");
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+      subTotal1.textContent = `${formatter.format(subtotal)}`;
+      totalPrice1.textContent = `${formatter.format(totalprice)}`;
+      const subTotal2 = document.querySelector(".js-Subtotal2");
+      const totalPrice2 = document.querySelector(".js-totalPrice2");
+      subTotal2.textContent = `${formatter.format(subtotal)}`;
+      totalPrice2.textContent = `${formatter.format(totalprice)}`;
+      const sumItem = document.querySelector(".js-lengthItem");
+      sumItem.textContent = `${this.cartItems.length}`;
+      this.savePriceToLocalStorage(subtotal, totalprice);
     }
-    savePriceToLocalStorage(t, e) {
-      localStorage.setItem("subtotal", t), localStorage.setItem("totalprice", e);
+    savePriceToLocalStorage(subtotal, totalprice) {
+      localStorage.setItem("subtotal", subtotal);
+      localStorage.setItem("totalprice", totalprice);
     }
-    subTotalPrice(t) {
-      let e = t.parentElement,
-        r = e.querySelector(".js-subPriceItem"),
-        a = this.cartItems.find((t) => t.id === parseInt(r.dataset.id)),
-        i = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 });
-      r.innerHTML = `${i.format(a.price * a.quantity)}`;
+    subTotalPrice(productDiv) {
+      const cartItemContent = productDiv.parentElement;
+      const PriceItem = cartItemContent.querySelector(".js-subPriceItem");
+      const a = this.cartItems.find((p) => p.id === parseInt(PriceItem.dataset.id));
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+      PriceItem.innerHTML = `${formatter.format(a.price * a.quantity)}`;
     }
-    getCurrentQuantity(t) {
-      return parseInt(t.querySelector(".js-quantityInput").textContent);
+    getCurrentQuantity(productDiv) {
+      return parseInt(productDiv.querySelector(".js-quantityInput").textContent);
     }
-    setQuantity(t, e) {
-      let r = parseInt(t.closest(".js-productItemWrap").dataset.id, 10),
-        a = this.cartItems.find((t) => t.id === r);
-      a && (a.quantity = e), (t.querySelector(".js-quantityInput").textContent = e);
+    setQuantity(productDiv, quantity) {
+      const productId = parseInt(productDiv.closest(".js-productItemWrap").dataset.id, 10);
+      const cartItem = this.cartItems.find((item) => item.id === productId);
+      if (cartItem) {
+        cartItem.quantity = quantity;
+      }
+      productDiv.querySelector(".js-quantityInput").textContent = quantity;
     }
-    decreaseQuantityButton(t) {
-      t.addEventListener("click", () => {
-        let e = t.closest(".js-quantityWrap"),
-          r = this.getCurrentQuantity(e, t);
-        r <= 1
-          ? (this.setQuantity(e, 1), this.subTotalPrice(e), this.totalPrice())
-          : (this.setQuantity(e, r - 1), this.subTotalPrice(e), this.totalPrice());
+
+    decreaseQuantityButton(quantityDecreaseButtonDom) {
+      quantityDecreaseButtonDom.addEventListener("click", () => {
+        const productDiv = quantityDecreaseButtonDom.closest(".js-quantityWrap");
+        const currenQuantity = this.getCurrentQuantity(productDiv, quantityDecreaseButtonDom);
+        if (currenQuantity <= 1) {
+          this.setQuantity(productDiv, 1);
+          this.subTotalPrice(productDiv);
+          this.totalPrice(); // Cập nhật tổng giá sau khi thay đổi số lượng
+        } else {
+          this.setQuantity(productDiv, currenQuantity - 1);
+          this.subTotalPrice(productDiv);
+          this.totalPrice(); // Cập nhật tổng giá sau khi thay đổi số lượng
+        }
       });
     }
+    //kết thúc tăng
+    //hàm update lại
     updateLocalStorage() {
-      let t = this.cartItems.map((t) => {
-        let { domInstance: e, ...r } = t;
-        return r;
+      // Chuyển đổi sản phẩm thành dạng không có thuộc tính không cần thiết
+      const productsToSave = this.cartItems.map((product) => {
+        // Tạo đối tượng mới không có thuộc tính domInstance
+        const { domInstance, ...productData } = product;
+        return productData;
       });
-      localStorage.setItem("cart", JSON.stringify(t));
+      localStorage.setItem("cart", JSON.stringify(productsToSave));
     }
+    //hàm render lại sản phẩm
     renderCart() {
-      this.showProduct(), this.showCart();
+      this.showProduct();
+      this.showCart();
     }
   }
-  let a = new r();
+  const cartDom = new CartDom();
 });

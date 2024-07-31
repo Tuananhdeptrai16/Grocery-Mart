@@ -1,32 +1,48 @@
 export const filterSlide = () => {
-  let e = document.querySelectorAll(".form__price-slider input"),
-    t = document.querySelectorAll(".js__formPrice input"),
-    l = document.querySelector(".form__progress"),
-    a = 1e3;
-  function r() {
-    let a = parseInt(t[0].value),
-      r = parseInt(t[1].value);
-    (l.style.left = (a / e[0].max) * 100 + "%"), (l.style.right = 100 - (r / e[1].max) * 100 + "%");
+  const rangePriceInputs = document.querySelectorAll(".form__price-slider input");
+  const priceInputs = document.querySelectorAll(".js__formPrice input");
+  const range = document.querySelector(".form__progress");
+  let priceGap = 1000;
+
+  function updateRange() {
+    const minPrice = parseInt(priceInputs[0].value);
+    const maxPrice = parseInt(priceInputs[1].value);
+    range.style.left = (minPrice / rangePriceInputs[0].max) * 100 + "%";
+    range.style.right = 100 - (maxPrice / rangePriceInputs[1].max) * 100 + "%";
   }
-  t.forEach((l) => {
-    l.addEventListener("input", (l) => {
-      let u = parseInt(t[0].value),
-        i = parseInt(t[1].value);
-      i - u >= a &&
-        i <= e[1].max &&
-        (l.target.classList.contains("js-inputMin") ? (e[0].value = u) : (e[1].value = i), r());
+
+  priceInputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      let minPrice = parseInt(priceInputs[0].value);
+      let maxPrice = parseInt(priceInputs[1].value);
+      if (maxPrice - minPrice >= priceGap && maxPrice <= rangePriceInputs[1].max) {
+        if (e.target.classList.contains("js-inputMin")) {
+          rangePriceInputs[0].value = minPrice;
+        } else {
+          rangePriceInputs[1].value = maxPrice;
+        }
+        updateRange();
+      }
     });
-  }),
-    e.forEach((l) => {
-      l.addEventListener("input", (l) => {
-        let u = parseInt(e[0].value),
-          i = parseInt(e[1].value);
-        i - u < a
-          ? l.target.classList.contains("form__range-min")
-            ? (e[0].value = i - a)
-            : (e[1].value = u + a)
-          : ((t[0].value = u), (t[1].value = i), r());
-      });
-    }),
-    r();
+  });
+
+  rangePriceInputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      let minVal = parseInt(rangePriceInputs[0].value);
+      let maxVal = parseInt(rangePriceInputs[1].value);
+      if (maxVal - minVal < priceGap) {
+        if (e.target.classList.contains("form__range-min")) {
+          rangePriceInputs[0].value = maxVal - priceGap;
+        } else {
+          rangePriceInputs[1].value = minVal + priceGap;
+        }
+      } else {
+        priceInputs[0].value = minVal;
+        priceInputs[1].value = maxVal;
+        updateRange();
+      }
+    });
+  });
+
+  updateRange();
 };

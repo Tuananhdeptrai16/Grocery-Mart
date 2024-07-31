@@ -1,361 +1,396 @@
-<!doctype html>
-<html lang=en class=light>
-<head>
-<meta charset=UTF-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<title>Grocery Mart</title>
-<link rel=apple-touch-icon sizes=76x76 href=./assets/favicon/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=./assets/favicon/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=./assets/favicon/favicon-16x16.png>
-<link rel=manifest href=./assets/favicon/site.webmanifest>
-<meta name=msapplication-TileColor content=#da532c>
-<meta name=theme-color content=#ffffff>
-<link rel=stylesheet href=./assets/fonts/stylesheet.css>
-<link rel=stylesheet href=./assets/css/main.css>
-<script type=module src=./assets/js/product.js></script>
-<script type=module src=./assets/js/filterSlide.js></script>
-<script src=./assets/js/lightmode.js></script>
-<script src=./assets/js/scripts.js></script>
-</head>
-<body>
-<header id=header class=header></header>
-<script>load("#header","./templates/header-logined.html")</script>
-<div class="container home">
-<div class=home__container>
-<div class=slideshow>
-<div class="slideshow__item-container js-sliderItemContainer">
-<a href=# class="slideshow__item js-sliderItem next">
-<picture>
-<source media=(max-width:767.98px) srcset=./assets/img/slideshow/slideshowmd.png>
-<img class=slideshow__item__image src=./assets/img/slideshow/slideshow.jpg alt=Shopping>
-</picture>
-</a>
-<a href=# class="slideshow__item js-sliderItem last">
-<picture>
-<source media=(max-width:767.98px) srcset=./assets/img/slideshow/slideshowmd.png>
-<img class=slideshow__item__image src=./assets/img/slideshow/slideshow.jpg alt=Shopping>
-</picture>
-</a>
-<a href=# class="slideshow__item js-sliderItem active">
-<picture>
-<source media=(max-width:767.98px) srcset=./assets/img/slideshow/slideshowmd.png>
-<img class=slideshow__item__image src=./assets/img/slideshow/slideshow.jpg alt=Shopping>
-</picture>
-</a>
-</div>
-<div class=slideshow__page>
-<span class="slideshow__num js-slideIndex">1</span>
-<span class=slideshow__slider></span>
-<span class="slideshow__num js-slideIndexMax">5</span>
-</div>
-<div class=slideshow__btn>
-<div class="slideshow__btn--icon-wrap js-btnPrev">
-<img src=./assets/icons/arrow-left1.svg alt=left class=slideshow__btn--icon>
-</div>
-<div class="slideshow__btn--icon-wrap js-btnNext">
-<img src=./assets/icons/arrow-right.svg alt=left class=slideshow__btn--icon>
-</div>
-</div>
-</div>
-</div>
-<section class=home__container>
-<div class=home__row>
-<h2 class=home__heading>Browse Categories</h2>
-</div>
-<div class="home__cate row row-cols-3 row-cols-md-1 gy-2 gy-md-1 js-productCategoryContainer">
-<div class=col>
-<div class=js-productCategory>
-<article class=cate-item>
-<img src=./assets/img/category-item/item1.jpg alt=item1 class=cate-item__thumb>
-<div class=cate-item__infor>
-<h3 class=cate-item__title>$24 - $150</h3>
-<p class="cate-item__desc line-clamp">New sumatra mandeling coffe blend</p>
-</div>
-</article>
-</div>
-</div>
-<div class=col>
-<div class=js-productCategory>
-<article class=cate-item>
-<img src=./assets/img/category-item/item1.jpg alt=item1 class=cate-item__thumb>
-<div class=cate-item__infor>
-<h3 class=cate-item__title>$24 - $150</h3>
-<p class="cate-item__desc line-clamp">New sumatra mandeling coffe blend</p>
-</div>
-</article>
-</div>
-</div>
-<div class=col>
-<div class=js-productCategory>
-<article class=cate-item>
-<img src=./assets/img/category-item/item1.jpg alt=item1 class=cate-item__thumb>
-<div class=cate-item__infor>
-<h3 class=cate-item__title>$24 - $150</h3>
-<p class="cate-item__desc line-clamp">New sumatra mandeling coffe blend</p>
-</div>
-</article>
-</div>
-</div>
-</div>
-</section>
-<section class=home__container>
-<div class="countdown section-spacing js-countdown">
-<div class=countdown-wrapper>
-<div class=countdown__text-wrapper>
-<div class=countdown__text>
-<h2>Get <span class=countdown__text--highlighted>50% Off </span>Before It's too Late!<br></h2>
-</div>
-<div class="countdown__text countdown__text--secondary js-endDate">
-Offer ends on <span>Thursday, 7 September 2023 9:14</span>
-</div>
-</div>
-<div class="countdown__box-wrapper js-countdown">
-<div class=countdown__box>
-<div class="countdown__box__time js-countdownValue">11</div>
-<div class=countdown__box__text>days</div>
-</div>
-<div class=countdown__box>
-<div class="countdown__box__time js-countdownValue">21</div>
-<div class=countdown__box__text>hours</div>
-</div>
-<div class=countdown__box>
-<div class="countdown__box__time js-countdownValue">54</div>
-<div class=countdown__box__text>mins</div>
-</div>
-<div class=countdown__box>
-<div class="countdown__box__time js-countdownValue">36</div>
-<div class=countdown__box__text>secs</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class=home__container>
-<div class=home__row>
-<h2 class=home__heading>Total LavAzza 1320</h2>
-<div class=filter-wrap>
-<button toggle-class=#filter-modal class="filter-btn js-toggle">
-Filter
-<img src=./assets/icons/filter.svg alt=filter class="filter-btn__icon icon">
-</button>
-<div id=filter-modal class="filter jsShow">
-<img src=./assets/icons/arrow-up.png alt="" class=filter__arrow>
-<h3 class=filter__heading>Filter</h3>
-<div class=filter__form>
-<div class="filter__row filter__content">
-<div class="filter__col form__price">
-<lable class=form__lable>Price</lable>
-<div class=form-group>
-<div class=form-slider>
-<div class=form__progress style=left:34.6667%;right:36%></div>
-</div>
-<div class=form__price-slider>
-<input type=range min=0 max=7500 step=100 class="form__range-min js-range-min">
-<input type=range min=0 max=7500 step=100 class="form__range-max js-range-max">
-</div>
-</div>
-<div class="form-group form-group--inline js__formPrice">
-<div>
-<label class="form__label form__label-small">Minimum</label>
-<input type=number value=0 class="form__input-number js-inputMin">
-</div>
-<div>
-<label class="form__label form__label-small">Maximum</label>
-<input type=number value=7500 class="form__input-number js-inputMax">
-</div>
-</div>
-</div>
-<div class=filter__separate></div>
-<div class="filter__col form__size">
-<lable class=form__lable>Size/Weight</lable>
-<div class=form-group>
-<div class=form__size-select-wrap>
-<div class=form__size-select style=--width:158px>
-<select class="form__custom-select js-filterWeight">
-<option value=500>500</option>
-<option value=600>600</option>
-<option value=700>700</option>
-<option value=800>800</option>
-<option value=900>900</option>
-</select>
-<img src=./assets/icons/select-arrow.svg alt=down class="form__size-select-arrow icon">
-</div>
-<div class=form-select>
-<select class=form__custom-select>
-<option value=0>Gram</option>
-<option value=1>Kg</option>
-</select>
-<img src=./assets/icons/select-arrow.svg alt=down class="form__size-select-arrow icon">
-</div>
-</div>
-</div>
-<div class=form-group>
-<div class=form-tags>
-<button class=form-tag>Small</button>
-<button class=form-tag>Medium</button>
-<button class=form-tag>Large</button>
-</div>
-</div>
-</div>
-<div class=filter__separate></div>
-<div class="filter__col form__brand">
-<lable class=form__lable>Brand</lable>
-<div class=form-group>
-<div class=form__brand-text-input>
-<input name="" placeholder="Search brand name" class=form__brand-input>
-<img src=./assets/icons/search.svg alt=search class="form__brand-input--icon icon">
-</div>
-</div>
-<div class=form-group>
-<div class=form-tags>
-<button class="form-tag js-formTags">Lavazza</button>
-<button class="form-tag js-formTags">Nescafe</button>
-<button class="form-tag js-formTags">Starbucks</button>
-</div>
-</div>
-</div>
-</div>
-<div class="filter__row filter__footer">
-<button class="btn btn--text filter__cancle jsClose">Cancel</button>
-<button class="btn btn--primary filter__submit">Show Result</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="home__product row row-cols-4 row-cols-lg-2 row-cols-sm-1 g-3 js-productContainer">
-<div class=col>
-<article class=product-card>
-<div class=product-card__img-wrap data-id=1>
-<div class=product-card__overlay></div>
-<a href=#!>
-<img src=./assets/img/product/item1.png alt=item1 class=product-card__thumb>
-</a>
-<button class="like-btn product-card__like--btn">
-<img src=./assets/icons/heart.svg alt=heart class="like-btn__icons icon">
-</button>
-</div>
-<a href=#!>
-<h3 class=product-card__title>Coffee Beans - Espresso Arabica and Robusta Beans</h3>
-</a>
-<p class=product-card__brand>Lavazza</p>
-<div class=product-card__row>
-<span class=product-card__price>$47.00</span>
-<img src=./assets/icons/star.svg alt=star class=product-card__star>
-<span class=product-card__score>4.3</span>
-</div>
-</article>
-</div>
-<div class=col>
-<article class=product-card>
-<div class=product-card__img-wrap>
-<a href=./Product-detail-logined.html>
-<img src=./assets/img/product/item2.png alt=item1 class=product-card__thumb>
-</a>
-<button class="like-btn product-card__like--btn">
-<img src=./assets/icons/heart.svg alt=heart class="like-btn__icons icon">
-</button>
-</div>
-<a href=#!>
-<h3 class=product-card__title>Lavazza Coffee Blends - Try the Italian Espresso</h3>
-</a>
-<p class=product-card__brand>Lavazza</p>
-<div class=product-card__row>
-<span class=product-card__price>$53.00</span>
-<img src=./assets/icons/star.svg alt=star class=product-card__star>
-<span class=product-card__score>3.4</span>
-</div>
-</article>
-</div>
-<div class=col>
-<article class=product-card>
-<div class=product-card__img-wrap>
-<a href=./Product-detail-logined.html>
-<img src=./assets/img/product/item3.png alt=item1 class=product-card__thumb>
-</a>
-<button class="like-btn product-card__like--btn">
-<img src=./assets/icons/heart.svg alt=heart class="like-btn__icons icon">
-</button>
-</div>
-<a href=#!>
-<h3 class=product-card__title>Lavazza - Caffè Espresso Black Tin - Ground coffee</h3>
-</a>
-<p class=product-card__brand>welikecoffee</p>
-<div class=product-card__row>
-<span class=product-card__price>$99.99</span>
-<img src=./assets/icons/star.svg alt=star class=product-card__star>
-<span class=product-card__score>5.0</span>
-</div>
-</article>
-</div>
-<div class=col>
-<article class=product-card>
-<div class=product-card__img-wrap>
-<a href=./Product-detail-logined.html>
-<img src=./assets/img/product/item2.jpg alt=item1 class=product-card__thumb>
-</a>
-<button class="like-btn product-card__like--btn">
-<img src=./assets/icons/heart.svg alt=heart class="like-btn__icons icon">
-</button>
-</div>
-<a href=#!>
-<h3 class=product-card__title>Qualità Oro Mountain Grown - Espresso Coffee Beans</h3>
-</a>
-<p class=product-card__brand>Lavazza</p>
-<div class=product-card__row>
-<span class=product-card__price>$38.65</span>
-<img src=./assets/icons/star.svg alt=star class=product-card__star>
-<span class=product-card__score>4.4</span>
-</div>
-</article>
-</div>
-</div>
-</section>
-<div class=faq>
-<div class=faq__heading>FAQ's</div>
-<div class="faq__item js__wraper">
-<div class=faq__top>
-<p class=faq__question>How may days should I Pay for delivery ?</p>
-<button class="faq__button js_faqQuestion">
-<img src=./assets/icons/arrow-down.svg alt=1 class=faq__icon>
-</button>
-</div>
-<div class=faq__bottom>
-<div class=separate></div>
-<p class=faq__answer>You don't have to pay for delivery. It's totally free !</p>
-</div>
-</div>
-<div class="faq__item js__wraper">
-<div class=faq__top>
-<p class=faq__question>How many days should I wait before reaching you ?</p>
-<button class="faq__button js_faqQuestion">
-<img src=./assets/icons/arrow-down.svg alt=2 class=faq__icon>
-</button>
-</div>
-<div class=faq__bottom>
-<div class=separate></div>
-<p class=faq__answer>It is enough to wait 3-7 days for the delivery</p>
-</div>
-</div>
-<div class="faq__item js__wraper">
-<div class=faq__top>
-<p class=faq__question>Do you have refund policy</p>
-<button class="faq__button js_faqQuestion">
-<img src=./assets/icons/arrow-down.svg alt=3 class=faq__icon>
-</button>
-</div>
-<div class=faq__bottom>
-<div class=separate></div>
-<p class=faq__answer>Yes, we have</p>
-</div>
-</div>
-</div>
-</div>
-<footer id=footer></footer>
-<script>load("#footer","./templates/footer.html")</script>
-<script src=./assets/js/faq.js></script>
-<script src=./assets/js/slideshow.js></script>
-<script src=./assets/js/coutdown.js></script>
-<script type=module src=./assets/js/toggleShowOverlay.js></script>
-</body>
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grocery Mart</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- Scripts -->
+    <script type="module" src="./assets/js/product.js"></script>
+    <script type="module" src="./assets/js/filterSlide.js"></script>
+    <script src="./assets/js/lightmode.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header" class="header"></header>
+    <script>
+      load("#header", "./templates/header-logined.html");
+    </script>
+
+    <div class="container home">
+      <!-- Main -->
+      <div class="home__container">
+        <div class="slideshow">
+          <div class="slideshow__item-container js-sliderItemContainer">
+            <a href="#" class="slideshow__item js-sliderItem next">
+              <picture>
+                <source media="(max-width:767.98px)" srcset="./assets/img/slideshow/slideshowmd.png" />
+                <img class="slideshow__item__image" src="./assets/img/slideshow/slideshow.jpg" alt="Shopping" />
+              </picture>
+            </a>
+            <a href="#" class="slideshow__item js-sliderItem last">
+              <picture>
+                <source media="(max-width:767.98px)" srcset="./assets/img/slideshow/slideshowmd.png" />
+                <img class="slideshow__item__image" src="./assets/img/slideshow/slideshow.jpg" alt="Shopping" />
+              </picture>
+            </a>
+            <a href="#" class="slideshow__item js-sliderItem active">
+              <picture>
+                <source media="(max-width:767.98px)" srcset="./assets/img/slideshow/slideshowmd.png" />
+                <img class="slideshow__item__image" src="./assets/img/slideshow/slideshow.jpg" alt="Shopping" />
+              </picture>
+            </a>
+          </div>
+          <div class="slideshow__page">
+            <span class="slideshow__num js-slideIndex">1</span>
+            <span class="slideshow__slider"></span>
+            <span class="slideshow__num js-slideIndexMax">5</span>
+          </div>
+          <div class="slideshow__btn">
+            <div class="slideshow__btn--icon-wrap js-btnPrev">
+              <img src="./assets/icons/arrow-left1.svg" alt="left" class="slideshow__btn--icon" />
+            </div>
+            <div class="slideshow__btn--icon-wrap js-btnNext">
+              <img src="./assets/icons/arrow-right.svg" alt="left" class="slideshow__btn--icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Brower categories -->
+      <section class="home__container">
+        <div class="home__row">
+          <h2 class="home__heading">Browse Categories</h2>
+        </div>
+        <div class="home__cate row row-cols-3 row-cols-md-1 gy-2 gy-md-1 js-productCategoryContainer">
+          <!-- categories item 1 -->
+          <div class="col">
+            <div class="js-productCategory">
+              <article class="cate-item">
+                <img src="./assets/img/category-item/item1.jpg" alt="item1" class="cate-item__thumb" />
+                <div class="cate-item__infor">
+                  <h3 class="cate-item__title">$24 - $150</h3>
+                  <p class="cate-item__desc line-clamp">New sumatra mandeling coffe blend</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- categories item 1 -->
+          <div class="col">
+            <div class="js-productCategory">
+              <article class="cate-item">
+                <img src="./assets/img/category-item/item1.jpg" alt="item1" class="cate-item__thumb" />
+                <div class="cate-item__infor">
+                  <h3 class="cate-item__title">$24 - $150</h3>
+                  <p class="cate-item__desc line-clamp">New sumatra mandeling coffe blend</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- categories item 1 -->
+          <div class="col">
+            <div class="js-productCategory">
+              <article class="cate-item">
+                <img src="./assets/img/category-item/item1.jpg" alt="item1" class="cate-item__thumb" />
+                <div class="cate-item__infor">
+                  <h3 class="cate-item__title">$24 - $150</h3>
+                  <p class="cate-item__desc line-clamp">New sumatra mandeling coffe blend</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- countdown -->
+      <section class="home__container">
+        <div class="countdown section-spacing js-countdown">
+          <div class="countdown-wrapper">
+            <div class="countdown__text-wrapper">
+              <div class="countdown__text">
+                <h2>Get <span class="countdown__text--highlighted">50% Off </span>Before It's too Late!<br /></h2>
+              </div>
+              <div class="countdown__text countdown__text--secondary js-endDate">
+                Offer ends on <span>Thursday, 7 September 2023 9:14</span>
+              </div>
+            </div>
+            <div class="countdown__box-wrapper js-countdown">
+              <div class="countdown__box">
+                <div class="countdown__box__time js-countdownValue">11</div>
+                <div class="countdown__box__text">days</div>
+              </div>
+              <div class="countdown__box">
+                <div class="countdown__box__time js-countdownValue">21</div>
+                <div class="countdown__box__text">hours</div>
+              </div>
+              <div class="countdown__box">
+                <div class="countdown__box__time js-countdownValue">54</div>
+                <div class="countdown__box__text">mins</div>
+              </div>
+              <div class="countdown__box">
+                <div class="countdown__box__time js-countdownValue">36</div>
+                <div class="countdown__box__text">secs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- product -->
+      <section class="home__container">
+        <div class="home__row">
+          <h2 class="home__heading">Total LavAzza 1320</h2>
+          <div class="filter-wrap">
+            <button toggle-class="#filter-modal" class="filter-btn js-toggle">
+              Filter
+              <img src="./assets/icons/filter.svg" alt="filter" class="filter-btn__icon icon" />
+            </button>
+            <div id="filter-modal" class="filter jsShow">
+              <img src="./assets/icons/arrow-up.png" alt="" class="filter__arrow" />
+              <h3 class="filter__heading">Filter</h3>
+              <div class="filter__form">
+                <div class="filter__row filter__content">
+                  <!-- Filter column 1  -->
+                  <div class="filter__col form__price">
+                    <lable class="form__lable">Price</lable>
+                    <div class="form-group">
+                      <div class="form-slider">
+                        <div class="form__progress" style="left: 34.6667%; right: 36%"></div>
+                      </div>
+                      <div class="form__price-slider">
+                        <input type="range" min="0" max="7500" step="100" class="form__range-min js-range-min" />
+                        <input type="range" min="0" max="7500" step="100" class="form__range-max js-range-max" />
+                      </div>
+                    </div>
+                    <div class="form-group form-group--inline js__formPrice">
+                      <div>
+                        <label class="form__label form__label-small">Minimum</label>
+                        <input type="number" value="0" class="form__input-number js-inputMin" />
+                      </div>
+                      <div>
+                        <label class="form__label form__label-small">Maximum</label>
+                        <input type="number" value="7500" class="form__input-number js-inputMax" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter__separate"></div>
+                  <!-- Filter column 2  -->
+
+                  <div class="filter__col form__size">
+                    <lable class="form__lable">Size/Weight</lable>
+                    <div class="form-group">
+                      <div class="form__size-select-wrap">
+                        <div class="form__size-select" style="--width: 158px">
+                          <select class="form__custom-select js-filterWeight">
+                            <option value="500">500</option>
+                            <option value="600">600</option>
+                            <option value="700">700</option>
+                            <option value="800">800</option>
+                            <option value="900">900</option>
+                          </select>
+                          <img src="./assets/icons/select-arrow.svg" alt="down" class="form__size-select-arrow icon" />
+                        </div>
+                        <div class="form-select">
+                          <select class="form__custom-select">
+                            <option value="0">Gram</option>
+                            <option value="1">Kg</option>
+                          </select>
+                          <img src="./assets/icons/select-arrow.svg" alt="down" class="form__size-select-arrow icon" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-tags">
+                        <button class="form-tag">Small</button>
+                        <button class="form-tag">Medium</button>
+                        <button class="form-tag">Large</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter__separate"></div>
+                  <!-- Filter column 3s  -->
+
+                  <div class="filter__col form__brand">
+                    <lable class="form__lable">Brand</lable>
+                    <div class="form-group">
+                      <div class="form__brand-text-input">
+                        <input type="text" name="" id="" placeholder="Search brand name" class="form__brand-input" />
+                        <img src="./assets/icons/search.svg" alt="search" class="form__brand-input--icon icon" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-tags">
+                        <button class="form-tag js-formTags">Lavazza</button>
+                        <button class="form-tag js-formTags">Nescafe</button>
+                        <button class="form-tag js-formTags">Starbucks</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="filter__row filter__footer">
+                  <button class="btn btn--text filter__cancle jsClose">Cancel</button>
+                  <button class="btn btn--primary filter__submit">Show Result</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home__product row row-cols-4 row-cols-lg-2 row-cols-sm-1 g-3 js-productContainer">
+          <div class="col">
+            <article class="product-card">
+              <div class="product-card__img-wrap" data-id="1">
+                <div class="product-card__overlay"></div>
+                <a href="#!">
+                  <img src="./assets/img/product/item1.png" alt="item1" class="product-card__thumb" />
+                </a>
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                </button>
+              </div>
+              <a href="#!">
+                <h3 class="product-card__title">Coffee Beans - Espresso Arabica and Robusta Beans</h3>
+              </a>
+              <p class="product-card__brand">Lavazza</p>
+              <div class="product-card__row">
+                <span class="product-card__price">$47.00</span>
+                <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                <span class="product-card__score">4.3</span>
+              </div>
+            </article>
+          </div>
+          <!-- Product card 2 -->
+          <div class="col">
+            <article class="product-card">
+              <div class="product-card__img-wrap">
+                <a href="./Product-detail-logined.html">
+                  <img src="./assets/img/product/item2.png" alt="item1" class="product-card__thumb" />
+                </a>
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                </button>
+              </div>
+              <a href="#!">
+                <h3 class="product-card__title">Lavazza Coffee Blends - Try the Italian Espresso</h3>
+              </a>
+              <p class="product-card__brand">Lavazza</p>
+              <div class="product-card__row">
+                <span class="product-card__price">$53.00</span>
+                <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                <span class="product-card__score">3.4</span>
+              </div>
+            </article>
+          </div>
+          <!-- Product card 3 -->
+          <div class="col">
+            <article class="product-card">
+              <div class="product-card__img-wrap">
+                <a href="./Product-detail-logined.html">
+                  <img src="./assets/img/product/item3.png" alt="item1" class="product-card__thumb" />
+                </a>
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                </button>
+              </div>
+              <a href="#!">
+                <h3 class="product-card__title">Lavazza - Caffè Espresso Black Tin - Ground coffee</h3>
+              </a>
+              <p class="product-card__brand">welikecoffee</p>
+              <div class="product-card__row">
+                <span class="product-card__price">$99.99</span>
+                <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                <span class="product-card__score">5.0</span>
+              </div>
+            </article>
+          </div>
+          <!-- Product card 4 -->
+          <div class="col">
+            <article class="product-card">
+              <div class="product-card__img-wrap">
+                <a href="./Product-detail-logined.html">
+                  <img src="./assets/img/product/item2.jpg" alt="item1" class="product-card__thumb" />
+                </a>
+                <button class="like-btn product-card__like--btn">
+                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon" />
+                </button>
+              </div>
+              <a href="#!">
+                <h3 class="product-card__title">Qualità Oro Mountain Grown - Espresso Coffee Beans</h3>
+              </a>
+              <p class="product-card__brand">Lavazza</p>
+              <div class="product-card__row">
+                <span class="product-card__price">$38.65</span>
+                <img src="./assets/icons/star.svg" alt="star" class="product-card__star" />
+                <span class="product-card__score">4.4</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- faq's  -->
+      <div class="faq">
+        <div class="faq__heading">FAQ's</div>
+        <!-- item 1 -->
+        <div class="faq__item js__wraper">
+          <div class="faq__top">
+            <p class="faq__question">How may days should I Pay for delivery ?</p>
+            <button class="faq__button js_faqQuestion">
+              <img src="./assets/icons/arrow-down.svg" alt="1" class="faq__icon" />
+            </button>
+          </div>
+          <div class="faq__bottom">
+            <div class="separate"></div>
+            <p class="faq__answer">You don't have to pay for delivery. It's totally free !</p>
+          </div>
+        </div>
+        <!-- item 2 -->
+        <div class="faq__item js__wraper">
+          <div class="faq__top">
+            <p class="faq__question">How many days should I wait before reaching you ?</p>
+            <button class="faq__button js_faqQuestion">
+              <img src="./assets/icons/arrow-down.svg" alt="2" class="faq__icon" />
+            </button>
+          </div>
+          <div class="faq__bottom">
+            <div class="separate"></div>
+            <p class="faq__answer">It is enough to wait 3-7 days for the delivery</p>
+          </div>
+        </div>
+        <!-- item 3 -->
+        <div class="faq__item js__wraper">
+          <div class="faq__top">
+            <p class="faq__question">Do you have refund policy</p>
+            <button class="faq__button js_faqQuestion">
+              <img src="./assets/icons/arrow-down.svg" alt="3" class="faq__icon" />
+            </button>
+          </div>
+          <div class="faq__bottom">
+            <div class="separate"></div>
+            <p class="faq__answer">Yes, we have</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer id="footer"></footer>
+    <script>
+      load("#footer", "./templates/footer.html");
+    </script>
+
+    <script src="./assets/js/faq.js"></script>
+    <script src="./assets/js/slideshow.js"></script>
+    <script src="./assets/js/coutdown.js"></script>
+    <script type="module" src="./assets/js/toggleShowOverlay.js"></script>
+  </body>
 </html>

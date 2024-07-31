@@ -1,18 +1,27 @@
 window.document.addEventListener("DOMContentLoaded", () => {
-  let t = $(".js__action-user"),
-    e = $(".user__action"),
-    s = $(".user__lightmode"),
-    i = $(".user__lightmode--text-active"),
-    n = document.documentElement;
-  (t.onclick = () => {
-    e.classList.toggle("show");
-  }),
-    window.addEventListener("click", (s) => {
-      e.contains(s.target) || t.contains(s.target) || e.classList.remove("show");
-    }),
-    (s.onclick = () => {
-      let t = n.getAttribute("class");
-      t && "dark" === t && (n.setAttribute("class", "light"), (i.innerText = "Dark")),
-        t && "light" === t && (n.setAttribute("class", "dark"), (i.innerText = "Bright"));
-    });
+  const userHandle = $(".js__action-user");
+  const userAction = $(".user__action");
+  const lightModeHandle = $(".user__lightmode");
+  const textLightMode = $(".user__lightmode--text-active");
+  const htmlElement = document.documentElement;
+
+  userHandle.onclick = () => {
+    userAction.classList.toggle("show");
+  };
+  window.addEventListener("click", (event) => {
+    if (!userAction.contains(event.target) && !userHandle.contains(event.target)) {
+      userAction.classList.remove("show");
+    }
+  });
+  lightModeHandle.onclick = () => {
+    const modeCurrent = htmlElement.getAttribute("class");
+    if (modeCurrent && modeCurrent === "dark") {
+      htmlElement.setAttribute("class", "light");
+      textLightMode.innerText = "Dark";
+    }
+    if (modeCurrent && modeCurrent === "light") {
+      htmlElement.setAttribute("class", "dark");
+      textLightMode.innerText = "Bright";
+    }
+  };
 });

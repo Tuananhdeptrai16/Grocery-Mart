@@ -1,103 +1,179 @@
-const $ = document.querySelector.bind(document),
-  $$ = document.querySelectorAll.bind(document);
-function load(e, t) {
-  let n = localStorage.getItem(t);
-  n && ($(e).innerHTML = n),
-    fetch(t)
-      .then((e) => e.text())
-      .then((s) => {
-        s !== n && (($(e).innerHTML = s), localStorage.setItem(t, s));
-      })
-      .finally(() => {
-        window.dispatchEvent(new Event("template-loaded"));
-      });
-}
-function isHidden(e) {
-  if (!e || "none" === window.getComputedStyle(e).display) return !0;
-  let t = e.parentElement;
-  for (; t; ) {
-    if ("none" === window.getComputedStyle(t).display) return !0;
-    t = t.parentElement;
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+/**
+ * Hàm tải template
+ *
+ * Cách dùng:
+ * <div id="parent"></div>
+ * <script>
+ *  load("#parent", "./path-to-template.html");
+ * </script>
+ */
+function load(selector, path) {
+  const cached = localStorage.getItem(path);
+  if (cached) {
+    $(selector).innerHTML = cached;
   }
-  return !1;
+
+  fetch(path)
+    .then((res) => res.text())
+    .then((html) => {
+      if (html !== cached) {
+        $(selector).innerHTML = html;
+        localStorage.setItem(path, html);
+      }
+    })
+    .finally(() => {
+      window.dispatchEvent(new Event("template-loaded"));
+    });
 }
-function debounce(e, t = 300) {
-  let n;
-  return (...s) => {
-    clearTimeout(n),
-      (n = setTimeout(() => {
-        e.apply(this, s);
-      }, t));
+
+/**
+ * Hàm kiểm tra một phần tử
+ * có bị ẩn bởi display: none không
+ */
+function isHidden(element) {
+  if (!element) return true;
+
+  if (window.getComputedStyle(element).display === "none") {
+    return true;
+  }
+
+  let parent = element.parentElement;
+  while (parent) {
+    if (window.getComputedStyle(parent).display === "none") {
+      return true;
+    }
+    parent = parent.parentElement;
+  }
+
+  return false;
+}
+
+/**
+ * Hàm buộc một hành động phải đợi
+ * sau một khoảng thời gian mới được thực thi
+ */
+function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
   };
 }
+
+/**
+ * Hàm tính toán vị trí arrow cho dropdown
+ *
+ * Cách dùng:
+ * 1. Thêm class "js-dropdown-list" vào thẻ ul cấp 1
+ * 2. CSS "left" cho arrow qua biến "--arrow-left-pos"
+ */
 const calArrowPos = debounce(() => {
   if (isHidden($(".js-dropdown-list"))) return;
-  let e = $$(".js-dropdown-list > li");
-  e.forEach((e) => {
-    let t = e.offsetLeft + e.offsetWidth / 2;
-    e.style.setProperty("--arrow-left-pos", `${t}px`);
+
+  const items = $$(".js-dropdown-list > li");
+
+  items.forEach((item) => {
+    const arrowPos = item.offsetLeft + item.offsetWidth / 2;
+    item.style.setProperty("--arrow-left-pos", `${arrowPos}px`);
   });
 });
+
+// Tính toán lại vị trí arrow khi resize trình duyệt
+window.addEventListener("resize", calArrowPos);
+
+// Tính toán lại vị trí arrow sau khi tải template
+window.addEventListener("template-loaded", calArrowPos);
+
+/**
+ * Giữ active menu khi hover
+ *
+ * Cách dùng:
+ * 1. Thêm class "js-menu-list" vào thẻ ul menu chính
+ * 2. Thêm class "js-dropdown" vào class "dropdown" hiện tại
+ *  nếu muốn reset lại item active khi ẩn menu
+ */
+window.addEventListener("template-loaded", handleActiveMenu);
+
 function handleActiveMenu() {
-  let e = $$(".js-dropdown"),
-    t = $$(".js-menu-list"),
-    n = "menu-column__item--active",
-    s = (e) => {
-      e.querySelector(`.${n}`)?.classList.remove(n);
-    },
-    o = () => {
-      t.forEach((e) => {
-        let t = e.children;
-        t.length &&
-          (s(e),
-          window.innerWidth > 991 && t[0].classList.add(n),
-          Array.from(t).forEach((t) => {
-            (t.onmouseenter = () => {
-              window.innerWidth <= 991 || (s(e), t.classList.add(n));
-            }),
-              (t.onclick = () => {
-                window.innerWidth > 991 || (s(e), t.classList.add(n), t.scrollIntoView());
-              });
-          }));
+  const dropdowns = $$(".js-dropdown");
+  const menus = $$(".js-menu-list");
+  const activeClass = "menu-column__item--active";
+
+  const removeActive = (menu) => {
+    menu.querySelector(`.${activeClass}`)?.classList.remove(activeClass);
+  };
+
+  const init = () => {
+    menus.forEach((menu) => {
+      const items = menu.children;
+      if (!items.length) return;
+
+      removeActive(menu);
+      if (window.innerWidth > 991) items[0].classList.add(activeClass);
+
+      Array.from(items).forEach((item) => {
+        item.onmouseenter = () => {
+          if (window.innerWidth <= 991) return;
+          removeActive(menu);
+          item.classList.add(activeClass);
+        };
+        item.onclick = () => {
+          if (window.innerWidth > 991) return;
+          removeActive(menu);
+          item.classList.add(activeClass);
+          item.scrollIntoView();
+        };
       });
-    };
-  o(),
-    e.forEach((e) => {
-      e.onmouseleave = () => o();
     });
-}
-window.addEventListener("resize", calArrowPos),
-  window.addEventListener("template-loaded", calArrowPos),
-  window.addEventListener("template-loaded", handleActiveMenu),
-  document.addEventListener("DOMContentLoaded", function () {
-    let e = $(".top-bar__more"),
-      t = $(".navbar-ovelay"),
-      n = $(".navbar"),
-      s = $(".navbar__close-btn");
-    (e.onclick = (e) => {
-      e.stopPropagation(), window.innerWidth > 991 || (t.classList.toggle("show"), n.classList.toggle("show"));
-    }),
-      (s.onclick = (e) => {
-        e.stopPropagation(),
-          !(window.innerWidth > 991) &&
-            t.classList.contains("show") &&
-            n.classList.contains("show") &&
-            (t.classList.remove("show"), n.classList.remove("show"));
-      }),
-      t.addEventListener("click", () => {
-        !(window.innerWidth > 991) &&
-          t.classList.contains("show") &&
-          n.classList.contains("show") &&
-          (t.classList.remove("show"), n.classList.remove("show"));
-      });
-  }),
-  window.addEventListener("template-loaded", () => {
-    let e = $$(".js-dropdown-list > li > a");
-    e.forEach((e) => {
-      e.onclick = () => {
-        if (window.innerWidth > 991) return;
-        let t = e.closest("li");
-        t.classList.toggle("navbar__item--active");
-      };
-    });
+  };
+
+  init();
+
+  dropdowns.forEach((dropdown) => {
+    dropdown.onmouseleave = () => init();
   });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const clickMenuHandle = $(".top-bar__more");
+  const navbarOverlay = $(".navbar-ovelay");
+  const menu = $(".navbar");
+  const close = $(".navbar__close-btn");
+  clickMenuHandle.onclick = (event) => {
+    event.stopPropagation();
+    if (window.innerWidth > 991) return;
+    navbarOverlay.classList.toggle("show");
+    menu.classList.toggle("show");
+  };
+  close.onclick = (event) => {
+    event.stopPropagation();
+    if (window.innerWidth > 991) return;
+    if (navbarOverlay.classList.contains("show") && menu.classList.contains("show")) {
+      navbarOverlay.classList.remove("show");
+      menu.classList.remove("show");
+    }
+  };
+  navbarOverlay.addEventListener("click", () => {
+    if (window.innerWidth > 991) return;
+    if (navbarOverlay.classList.contains("show") && menu.classList.contains("show")) {
+      navbarOverlay.classList.remove("show");
+      menu.classList.remove("show");
+    }
+  });
+});
+window.addEventListener("template-loaded", () => {
+  const links = $$(".js-dropdown-list > li > a");
+
+  links.forEach((link) => {
+    link.onclick = () => {
+      if (window.innerWidth > 991) return;
+      const item = link.closest("li");
+      item.classList.toggle("navbar__item--active");
+    };
+  });
+});
