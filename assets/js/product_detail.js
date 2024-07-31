@@ -1,3 +1,4 @@
+import { zoomItem } from "./product-detail.js";
 window.addEventListener("DOMContentLoaded", () => {
   fetch("./assets/json/product.json")
     .then((response) => response.json())
@@ -148,6 +149,10 @@ window.addEventListener("DOMContentLoaded", () => {
       const product = this.products.find((product) => +product.id === +selectedProduct);
       product.domInstance = new ProductDom(product, buttonAddtoCart); // Đổi tên thành ProductDom
       product.domInstance.addEventClick(); // Sử dụng domInstance
+      this.showZoomProduct();
+    }
+    showZoomProduct() {
+      zoomItem();
     }
   }
 

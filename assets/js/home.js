@@ -27,7 +27,6 @@ window.addEventListener("DOMContentLoaded", () => {
       });
       productsDom.showProduct();
       productsDom.changeFilterProduct();
-      productsDom.SaveChangeIdProduct();
     })
     .catch((error) => console.error("Call Fail Api", error));
   class Product {

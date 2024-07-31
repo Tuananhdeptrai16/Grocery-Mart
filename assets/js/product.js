@@ -269,8 +269,21 @@ window.addEventListener("DOMContentLoaded", () => {
           )
       );
       this.cartDom.showCartProduct();
+      this.showPriceToCartFromLocalStorage();
     }
-
+    showPriceToCartFromLocalStorage() {
+      const getSubtotal = localStorage.getItem("subtotal");
+      const getTotal = localStorage.getItem("totalprice");
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+      const subTotal = document.querySelector(".js-subTotal");
+      const totalPrice = document.querySelector(".js-total");
+      subTotal.innerText = `${formatter.format(getSubtotal)}`;
+      totalPrice.innerText = `${formatter.format(getTotal)}`;
+    }
     totalPrice() {
       const price = this.products.reduce((total, product) => {
         return total * product.price;
@@ -289,11 +302,8 @@ window.addEventListener("DOMContentLoaded", () => {
       this.cartContainerDom = document.querySelector(".js-cartProductContainer");
       this.cartSubTotalDom = document.querySelector(".js-cartSubTotal");
       this.cartTotalDom = document.querySelector(".js-cartTotal");
-      this.renderCart();
     }
-    renderCart() {
-      console.log("object", this.cart.totalPrice());
-    }
+
     showCartProduct() {
       const cartDisplayDom = this.cart.products
         .map((product) => {

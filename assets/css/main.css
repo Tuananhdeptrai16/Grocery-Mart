@@ -3600,6 +3600,7 @@ html {
 }
 .modal__content {
   max-height: calc(100vh - 100px);
+  overflow-y: auto;
   width: min(var(--content-width), 100% - 40px);
   background: var(--modal-bg);
   position: relative;
@@ -3656,7 +3657,6 @@ html {
 }
 .modal__body {
   padding-right: 20px;
-  overflow-y: auto;
 }
 @media (max-width: 1199.98px) {
   .modal__body {

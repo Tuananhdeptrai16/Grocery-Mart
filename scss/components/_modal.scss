@@ -61,6 +61,7 @@
   }
   &__content {
     max-height: calc(100vh - 100px);
+    overflow-y: auto;
     width: min(var(--content-width), 100% - 40px);
     background: var(--modal-bg);
     position: relative;
@@ -110,7 +111,6 @@
   }
   &__body {
     padding-right: 20px;
-    overflow-y: auto;
     @include abstracts.breakpoint(xl) {
       height: 500px;
     }

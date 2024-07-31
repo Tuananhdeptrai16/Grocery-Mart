@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
 
     <!-- Scripts -->
+    <script type="module" src="./assets/js/shipping.js"></script>
     <script src="./assets/js/scripts.js"></script>
   </head>
   <body>
@@ -152,7 +153,7 @@
                 <div class="cart-info__separate"></div>
 
                 <h2 class="cart-info__sub-heading">Items details</h2>
-                <div class="cart-info__list">
+                <div class="cart-info__list js-showContainer">
                   <!-- cart item 1 -->
                   <article class="cart-item">
                     <a href="./Product-detail.html">
@@ -297,7 +298,7 @@
                     <div class="col-4 col-xxl-5">
                       <div class="cart-info__row">
                         <span>Subtotal</span>
-                        <span>$191.65</span>
+                        <span class="js-Subtotal2">$191.65</span>
                       </div>
                       <div class="cart-info__row">
                         <span>Shipping</span>
@@ -306,7 +307,7 @@
                       <div class="cart-info__separate"></div>
                       <div class="cart-info__row cart-info__row--bold">
                         <span>Total</span>
-                        <span>$201.65</span>
+                        <span class="js-totalPrice2">$201.65</span>
                       </div>
                     </div>
                   </div>
@@ -319,11 +320,11 @@
                   <div class="col">
                     <div class="cart-info__row">
                       <span>Subtotal <span class="cart-info__sub-lable">(items)</span></span>
-                      <span class="cart-info__row--bold-price">3</span>
+                      <span class="cart-info__row--bold-price js-lengthItem">3</span>
                     </div>
                     <div class="cart-info__row">
                       <span>Price <span class="cart-info__sub-lable">(Total)</span></span>
-                      <span class="cart-info__row--bold-price">$191.65</span>
+                      <span class="cart-info__row--bold-price js-Subtotal1">$191.65</span>
                     </div>
                     <div class="cart-info__row">
                       <span>Shipping</span>
@@ -332,7 +333,7 @@
                     <div class="cart-info__separate"></div>
                     <div class="cart-info__row">
                       <span>Estimated Total</span>
-                      <span class="cart-info__row--bold-price">$201.65</span>
+                      <span class="cart-info__row--bold-price js-totalPrice1">$201.65</span>
                     </div>
                     <a href="./payment.html" class="btn btn--primary btn--rounded cart-info__next-btn"
                       >Continue to checkout</a
@@ -363,9 +364,8 @@
     <script>
       load("#footer", "./templates/footer.html");
     </script>
-    <script src="./assets/js/toggleShowOverlay.js"></script>
+    <script type="module" src="./assets/js/toggleShowOverlay.js"></script>
     <script src="./assets/js/lightmode.js"></script>
-    <script src="./assets/js/shipping.js"></script>
     <!-- modal comfirm remove shopping cart item   -->
     <div id="modal-delete" class="modal jsShow modal--small">
       <!-- <button class="modal__close">&times;</button> -->

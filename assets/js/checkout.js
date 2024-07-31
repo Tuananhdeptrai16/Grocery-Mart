@@ -41,6 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
   class CartDom {
     cartItems = [];
     constructor() {
+      this.cartContainerDom = document.querySelector(".js-cartProductContainer");
       this.ProductContainerDom = document.querySelector(".js-showContainer");
       this.loadCartFromLocalStorage();
     }
@@ -58,6 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
           cartItem.weight
         );
       });
+      this.showProduct();
       this.showCart();
       this.totalPrice();
     }
@@ -73,7 +75,34 @@ window.addEventListener("DOMContentLoaded", () => {
       return uniqueItems;
     }
     showCart() {
-      console.log(this.cartItems);
+      const productHTML = this.cartItems.map((cart) => {
+        return `<div class="col">
+                  <article class="cart-preview-item">
+                    <div class="cart-preview-item__img-wrap">
+                      <img src="${cart.link}" alt="" class="cart-preview-item__thumb">
+                    </div>
+                    <h3 class="cart-preview-item__title">${cart.name}</h3>
+                    <p class="cart-preview-item__price">${cart.formatPrice()}</p>
+                  </article>
+                </div>`;
+      });
+      this.cartContainerDom.innerHTML = productHTML;
+      this.showPriceToCartFromLocalStorage();
+    }
+    showPriceToCartFromLocalStorage() {
+      const getSubtotal = localStorage.getItem("subtotal");
+      const getTotal = localStorage.getItem("totalprice");
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+      const subTotal = document.querySelector(".js-subTotal");
+      const totalPrice = document.querySelector(".js-total");
+      subTotal.innerText = `${formatter.format(getSubtotal)}`;
+      totalPrice.innerText = `${formatter.format(getTotal)}`;
+    }
+    showProduct() {
       const productHTML = this.cartItems
         .map((cartItem) => {
           return `<article class="cart-item js-productItemWrap" data-id="${cartItem.id}"}>
@@ -149,16 +178,17 @@ window.addEventListener("DOMContentLoaded", () => {
       RemoveCartButton.addEventListener("click", () => {
         this.removeProductFromCart(DeleteButton);
         this.totalPrice();
+        this.showPriceToCartFromLocalStorage();
       });
     }
     removeProductFromCart(DeleteButton) {
       const DivItem = DeleteButton.closest(".js-productItemWrap");
       const ItemIndex = DivItem.dataset.id;
+      console.log(ItemIndex);
       const productCartIndex = this.cartItems.findIndex((cartItem) => cartItem.id === parseInt(ItemIndex));
       if (productCartIndex !== -1) {
         this.cartItems.splice(productCartIndex, 1);
       }
-      console.log(this.cartItems);
       this.renderCart();
       this.updateLocalStorage();
     }
@@ -208,6 +238,11 @@ window.addEventListener("DOMContentLoaded", () => {
       totalPrice2.textContent = `${formatter.format(totalprice)}`;
       const sumItem = document.querySelector(".js-lengthItem");
       sumItem.textContent = `${this.cartItems.length}`;
+      this.savePriceToLocalStorage(subtotal, totalprice);
+    }
+    savePriceToLocalStorage(subtotal, totalprice) {
+      localStorage.setItem("subtotal", subtotal);
+      localStorage.setItem("totalprice", totalprice);
     }
     subTotalPrice(productDiv) {
       const cartItemContent = productDiv.parentElement;
@@ -260,6 +295,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     //hàm render lại sản phẩm
     renderCart() {
+      this.showProduct();
       this.showCart();
     }
   }
