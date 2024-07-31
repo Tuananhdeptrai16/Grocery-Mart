@@ -1,82 +1,111 @@
 const slideItems = [
-  { img: "./assets/img/slideshow/slideshow.jpg" },
-  { img: "./assets/img/slideshow/slideshow2.jpg" },
-  { img: "./assets/img/slideshow/slideshow3.jpg" },
-  { img: "./assets/img/slideshow/slideshow4.jpg" },
-  { img: "./assets/img/slideshow/slideshow5.jpg" },
-  { img: "./assets/img/slideshow/slideshow6.jpg" },
-  { img: "./assets/img/slideshow/slideshow7.jpg" },
+  {
+    img: "./assets/img/slideshow/slideshow.jpg",
+  },
+  {
+    img: "./assets/img/slideshow/slideshow2.jpg",
+  },
+  {
+    img: "./assets/img/slideshow/slideshow3.jpg",
+  },
+  {
+    img: "./assets/img/slideshow/slideshow4.jpg",
+  },
+  {
+    img: "./assets/img/slideshow/slideshow5.jpg",
+  },
+  {
+    img: "./assets/img/slideshow/slideshow6.jpg",
+  },
+  {
+    img: "./assets/img/slideshow/slideshow7.jpg",
+  },
 ];
 class Slide {
-  constructor(e) {
-    this.img = e;
+  constructor(img) {
+    this.img = img;
   }
 }
-const slides = slideItems.map((e) => new Slide(e.img));
+const slides = slideItems.map((slide) => {
+  return new Slide(slide.img);
+});
 class Slider {
-  constructor(e) {
-    (this.slides = e),
-      (this.slideItemContainer = document.querySelector(".js-sliderItemContainer")),
-      (this.currentIndex = 0);
+  constructor(slides) {
+    this.slides = slides;
+    this.slideItemContainer = document.querySelector(".js-sliderItemContainer");
+    this.currentIndex = 0; // Biến đếm để theo dõi chỉ số hình ảnh hiện tại
   }
   init() {
-    let e = this.slides
-      .map((e, s) => {
-        let i = "next";
-        return (
-          0 === s && (i = "active"),
-          s === this.slides.length - 1 && (i = "last"),
-          this.slides.length <= 1 && (i = "active"),
-          `<a href="#" class="slideshow__item js-sliderItem ${i}">
+    const slideItemHTML = this.slides
+      .map((slide, index) => {
+        let positon = "next";
+        if (index === 0) {
+          positon = "active";
+        }
+        if (index === this.slides.length - 1) {
+          positon = "last";
+        }
+        if (this.slides.length <= 1) {
+          positon = "active";
+        }
+        return `<a href="#" class="slideshow__item js-sliderItem ${positon}">
               <picture>
                 <source media="(max-width:767.98px)" srcset="./assets/img/slideshow/slideshowmd.png" />
-                <img class="slideshow__item__image" src="${e.img}" alt="Shopping" />
+                <img class="slideshow__item__image" src="${slide.img}" alt="Shopping" />
               </picture>
             </a>
-            `
-        );
+            `;
       })
       .join("");
-    this.slideItemContainer.innerHTML = e;
-    let s = document.querySelector(".js-btnNext"),
-      i = document.querySelector(".js-btnPrev");
-    this.updateSlideIndex(),
-      s.addEventListener("click", () => this.changeSlide()),
-      i.addEventListener("click", () => this.changeSlide("prev")),
-      setInterval(() => {
-        this.changeSlide();
-      }, 3e3);
+    this.slideItemContainer.innerHTML = slideItemHTML;
+    const buttonNext = document.querySelector(".js-btnNext");
+    const buttonPrev = document.querySelector(".js-btnPrev");
+    this.updateSlideIndex();
+    buttonNext.addEventListener("click", () => this.changeSlide());
+    buttonPrev.addEventListener("click", () => this.changeSlide("prev"));
+    setInterval(() => {
+      this.changeSlide();
+    }, 3000);
   }
   updateSlideIndex() {
-    let e = document.querySelector(".js-slideIndex");
-    e && (e.textContent = `${this.currentIndex + 1}`);
-    let s = document.querySelector(".js-slideIndexMax");
-    s && (s.textContent = `${this.slides.length}`);
+    const slideIndexElement = document.querySelector(".js-slideIndex");
+    if (slideIndexElement) {
+      slideIndexElement.textContent = `${this.currentIndex + 1}`;
+    }
+    const lengthSlideElement = document.querySelector(".js-slideIndexMax");
+    if (lengthSlideElement) {
+      lengthSlideElement.textContent = `${this.slides.length}`;
+    }
   }
-  changeSlide(e) {
-    let s = document.querySelector(".active"),
-      i = document.querySelector(".last"),
-      t = s.nextElementSibling;
-    if (
-      (t || (t = this.slideItemContainer.firstElementChild),
-      s.classList.remove("active"),
-      i.classList.remove("last"),
-      t.classList.remove("next"),
-      "prev" === e)
-    ) {
-      s.classList.add("next"), i.classList.add("active");
-      let l = i.previousElementSibling;
-      l || (l = this.slideItemContainer.lastElementChild),
-        l.classList.remove("next"),
-        l.classList.add("last"),
-        (this.currentIndex = (this.currentIndex - 1) % this.slides.length);
+
+  changeSlide(type) {
+    const active = document.querySelector(".active");
+    const last = document.querySelector(".last");
+    let next = active.nextElementSibling;
+    if (!next) {
+      next = this.slideItemContainer.firstElementChild;
+    }
+    active.classList.remove("active");
+    last.classList.remove("last");
+    next.classList.remove("next");
+    if (type === "prev") {
+      active.classList.add("next");
+      last.classList.add("active");
+      let next = last.previousElementSibling;
+      if (!next) {
+        next = this.slideItemContainer.lastElementChild;
+      }
+      next.classList.remove("next");
+      next.classList.add("last");
+      this.currentIndex = (this.currentIndex - 1) % this.slides.length;
       return;
     }
-    s.classList.add("last"),
-      i.classList.add("next"),
-      t.classList.add("active"),
-      (this.currentIndex = (this.currentIndex + 1) % this.slides.length),
-      this.updateSlideIndex();
+    active.classList.add("last");
+    last.classList.add("next");
+    next.classList.add("active");
+    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+    this.updateSlideIndex();
   }
 }
 const slider = new Slider(slides);
+console.log(slider.init());
