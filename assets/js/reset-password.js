@@ -1,20 +1,14 @@
 window.document.addEventListener("DOMContentLoaded", () => {
-  const buttonSubmit = document.querySelector(".auth__btn ");
-  const textError = document.querySelector(".form__error");
-  const form = document.querySelector(".auth__form--forgot");
-  const formSuccess = document.querySelector(".message--success");
-  buttonSubmit.onclick = (event) => {
-    event.preventDefault();
-    const email = document.querySelector(".form__input").value;
-    if (email === "") {
-      textError.style.display = "block";
-      textError.innerText = "Please enter Email !!!";
-    } else {
-      form.classList.add("d-none");
-      if (formSuccess.classList.contains("d-none")) {
-        formSuccess.classList.remove("d-none");
-        formSuccess.classList.add("d-block");
-      }
-    }
+  let e = document.querySelector(".auth__btn "),
+    t = document.querySelector(".form__error"),
+    o = document.querySelector(".auth__form--forgot"),
+    r = document.querySelector(".message--success");
+  e.onclick = (e) => {
+    e.preventDefault();
+    let s = document.querySelector(".form__input").value;
+    "" === s
+      ? ((t.style.display = "block"), (t.innerText = "Please enter Email !!!"))
+      : (o.classList.add("d-none"),
+        r.classList.contains("d-none") && (r.classList.remove("d-none"), r.classList.add("d-block")));
   };
 });

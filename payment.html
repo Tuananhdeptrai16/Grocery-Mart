@@ -1,3 +1,7 @@
+Utilities
+HTML Minifier
+Online HTML Minifier Tool and Compressor, with Fast and Simple API Access
+Input HTML
 <!DOCTYPE html>
 <html lang="en" class="light">
   <head>
@@ -398,3 +402,332 @@
     </div>
   </body>
 </html>
+
+Minified HTML Output
+<!doctype html>
+<html lang=en class=light>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Payment | Grocery Mart</title>
+<link rel=apple-touch-icon sizes=76x76 href=./assets/favicon/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=./assets/favicon/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=./assets/favicon/favicon-16x16.png>
+<link rel=manifest href=./assets/favicon/site.webmanifest>
+<meta name=msapplication-TileColor content=#da532c>
+<meta name=theme-color content=#ffffff>
+<link rel=stylesheet href=./assets/fonts/stylesheet.css>
+<link rel=stylesheet href=./assets/css/main.css>
+<script src=./assets/js/scripts.js></script>
+</head>
+<body>
+<header id=header class=header></header>
+<script>load("#header","./templates/header-logined.html")</script>
+<main class=checkout-page>
+<div class=container>
+<div class=checkout-container>
+<div class="search-bar d-none d-md-flex">
+<input class=search-bar__input placeholder="search for item">
+<button class=search-bar__submit>
+<img src=./assets/icons/search.svg alt=search class="search-bar__icon icon">
+</button>
+</div>
+</div>
+<div class=checkout-container>
+<ul class="Breadcrumbs checkout-page__Breadcrumbs">
+<li>
+<a href=./index-logined.html class=Breadcrumbs__link>Home
+<img src=./assets/icons/arrow-right-breadcrumb.svg alt=arrow-right-breadcrumb>
+</a>
+</li>
+<li>
+<a href=./Checkout.html class=Breadcrumbs__link>checkout
+<img src=./assets/icons/arrow-right-breadcrumb.svg alt=arrow-right-breadcrumb>
+</a>
+</li>
+<li>
+<a href=./shipping.html class=Breadcrumbs__link>Shipping
+<img src=./assets/icons/arrow-right-breadcrumb.svg alt=arrow-right-breadcrumb>
+</a>
+</li>
+<li>
+<a href=#! class="Breadcrumbs__link Breadcrumbs__link--current">Payment method</a>
+</li>
+</ul>
+<div class="row gy-xl-3">
+<div class="col-8 col-xl-8 col-lg-12">
+<div class=cart-info>
+<div class=cart-info__top>
+<h2 class="cart-info__heading cart-info__heading--lv2">
+1. Shipping, arrives between Mon, May 16—Tue, May 24
+</h2>
+<a class=adress-card__ctrl href=./shipping.html>
+<div toggle-class=#modall__newAddress class=cart-info__edit-btn>
+<img src=./assets/icons/edit.svg alt="" class=icon>
+Edit
+</div>
+</a>
+</div>
+<article class=payment-item>
+<div class=payment-item__content>
+<h3 class=payment-item__title>Imran Khan</h3>
+<p class=payment-item__desc>Museum of Rajas, Sylhet Sadar, Sylhet 3100.</p>
+</div>
+</article>
+<article class=payment-item>
+<div class=payment-item__content>
+<h3 class=payment-item__title>Items details</h3>
+<p class=payment-item__desc>2 items</p>
+</div>
+<a href=./shipping.html class=payment-item__detail>View details</a>
+</article>
+</div>
+<div class=cart-info>
+<h2 class="cart-info__heading cart-info__heading--lv2">2. Shipping method</h2>
+<div class=cart-info__separate></div>
+<h3 class=cart-info__sub-heading>Availeble Shipping method</h3>
+<article class="payment-item payment-item__pointer">
+<img src=./assets/img/payment/delivery-1.png alt="" class=payment-item__thumb>
+<div class=payment-item__content-wrap>
+<div class=payment-item__content>
+<h3 class=payment-item__title>Fedex Delivery</h3>
+<p class="payment-item__desc payment-item__desc--low">Delivery: 2-3 days work</p>
+</div>
+<div class=payment-item__cost-wrap>
+<span class="cart-info__checkbox__checkbox payment-item__checkbox">
+<input checked type=radio name=payment-delivery class="cart-info__checkbox-input payment-item__checkbox-input">
+<span class=payment-item__cost>Free</span>
+</span>
+</div>
+</div>
+</article>
+<article class="payment-item payment-item__pointer">
+<img src=./assets/img/payment/delivery-2.png alt="" class=payment-item__thumb>
+<div class=payment-item__content-wrap>
+<div class=payment-item__content>
+<h3 class=payment-item__title>Fedex Delivery</h3>
+<p class="payment-item__desc payment-item__desc--low">Delivery: 2-3 days work</p>
+</div>
+<div class=payment-item__cost-wrap>
+<span class="cart-info__checkbox__checkbox payment-item__checkbox">
+<input type=radio name=payment-delivery class="cart-info__checkbox-input payment-item__checkbox-input">
+<span class=payment-item__cost>$12.00</span>
+</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="col-4 col-xl-4 col-lg-12">
+<div class=cart-info>
+<h2 class="cart-info__heading cart-info__heading--lv2">Payment Details</h2>
+<p class=cart-info__desc>
+Payment Details Complete your purchase item by providing your payment details order.
+</p>
+<form action="" class="form cart-info__form">
+<div class=form__group>
+<label for=email class="form__lable form__lable-medium">Email Address</label>
+<div class=form__text--input>
+<input type=email name=email id=email placeholder=example@gmail.com class=form__input required>
+<img src=./assets/icons/form-error.svg alt=message class=form__input--icon-error>
+</div>
+</div>
+<p class=form__error>Please enter an email address</p>
+<div class=form__group>
+<label for=card-holder class="form__lable form__lable-medium">Card Holder</label>
+<div class=form__text--input>
+<input name=card-holder id=card-holder placeholder="1234 1234 1234 1234" class=form__input required>
+<img src=./assets/icons/form-error.svg alt=message class=form__input--icon-error>
+</div>
+<p class="form__error form__error--confirm">Please enter a card holder</p>
+</div>
+<div class=form__group>
+<label for=card-details class="form__lable form__lable-medium">Card Details </label>
+<div class=form__text--input>
+<input name=card-details id=card-details placeholder="NGUYEN VAN A" class=form__input required>
+<img src=./assets/icons/form-error.svg alt=message class=form__input--icon-error>
+</div>
+<p class=form__error>Please enter a card details</p>
+</div>
+<div class=form__row>
+<div class=form__group>
+<div class=form__text--input>
+<input name=card-expried id=card-details placeholder=MM/YY class=form__input required>
+<img src=./assets/icons/form-error.svg alt=message class=form__input--icon-error>
+</div>
+<p class=form__error>Please enter a card details</p>
+</div>
+<div class=form__group>
+<div class=form__text--input>
+<input name=card-cvc id=card-details placeholder=CVC class=form__input required>
+<img src=./assets/icons/form-error.svg alt=message class=form__input--icon-error>
+</div>
+<p class=form__error>Please enter a card details</p>
+</div>
+</div>
+</form>
+<div class="row cart-info__cost">
+<div class=col>
+<div class=cart-info__row>
+<span>Subtotal <span class=cart-info__sub-lable>(items)</span></span>
+<span class=cart-info__row--bold-price>3</span>
+</div>
+<div class=cart-info__row>
+<span>Price <span class=cart-info__sub-lable>(Total)</span></span>
+<span class="cart-info__row--bold-price js-Subtotal1">$191.65</span>
+</div>
+<div class=cart-info__row>
+<span>Shipping</span>
+<span class=cart-info__row--bold-price>$10.00</span>
+</div>
+<div class=cart-info__separate></div>
+<div class=cart-info__row>
+<span>Estimated Total</span>
+<span class="cart-info__row--bold-price js-totalPrice1">$201.65</span>
+</div>
+<a href="" class="btn btn--primary btn--rounded cart-info__next-btn">Pay $201.65</a>
+</div>
+</div>
+</div>
+<div class=cart-info>
+<a href=#!>
+<article class=gift-item>
+<div class=gift-item__icon-wrap>
+<img src=./assets/icons/gift.svg alt="" class=gift-item__icon>
+</div>
+<div class=gift-item__content>
+<h3 class=gift-item__title>Send this order as a gift.</h3>
+<div class=gift-item__desc>Available items will be shipped to your gift recipient.</div>
+</div>
+</article>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer id=footer></footer>
+<script>load("#footer","./templates/footer.html")</script>
+<script type=module src=./assets/js/toggleShowOverlay.js></script>
+<script src=./assets/js/lightmode.js></script>
+<script type=module src=./assets/js/payment.js></script>
+<div id=modal-delete class="modal jsShow modal--small">
+<div class=modal__content>
+<div class=modal__text>Do you want to delete this product?</div>
+<div class=modal__bottom>
+<button class="btn btn--text modal__btn btn--outline jsClose btn--no-margin">Cancle</button>
+<button class="modal__btn-delete btn btn--primary modal__btn btn--no-margin">Delete</button>
+</div>
+</div>
+<div class="modal__overlay jsOvelay"></div>
+</div>
+<div id=modall__newAddress style=--content-width:650px class="modal modal--medium jsShow">
+<div class=modal__content>
+<div class=modal__body>
+<h2 class=modal__heading>Add new shipping address</h2>
+<form action="" class=form>
+<div class=form__row>
+<div class=form__group>
+<lable for=name class="form__lable form__lable-small">Name</lable>
+<div class=form__text--input>
+<input name=name id=name placeholder=Name class="form__input form__name form__input-small" required minlength=2>
+<img src=./assets/icons/form-error.svg alt=message class=form__input--icon-error>
+<img src=./assets/icons/message.svg alt=message class=form__input--icon>
+</div>
+<p class=form__error>Name must be at least 2 characters</p>
+</div>
+<div class=form__group>
+<lable for=phone class="form__lable form__lable-small">Phone</lable>
+<div class=form__text--input>
+<input type=tel name=phone id=phone placeholder=Phone class="form__input form__phone form__input-small" required minlength=10>
+<img src=./assets/icons/form-error.svg alt=message class=form__input--icon-error>
+<img src=./assets/icons/message.svg alt=message class=form__input--icon>
+</div>
+<p class=form__error>Phone must be at least 10 characters</p>
+</div>
+</div>
+<div class=form__group>
+<lable for=address class="form__lable form__lable-small">Address</lable>
+<div class=form__text--area>
+<textarea name=address id=address placeholder="Address (Area and street)" class="form__text--area-input form__input-small" required></textarea>
+<img src=./assets/icons/form-error.svg alt=message class=form__input--icon-error>
+</div>
+<p class=form__error>Address not empty</p>
+</div>
+<div class=form__group>
+<lable for=city class="form__lable form__lable-small">City/District/Town</lable>
+<div class=form__text--input>
+<input name="" placeholder=City/District/Town id=city class="form__input form__city form__input-small">
+<img src=./assets/icons/form-error.svg alt=message class=form__input--icon-error>
+<div class=form__select-dialog>
+<div class=form__search>
+<input class=form__search-input placeholder=Search>
+<img src=./assets/icons/search.svg alt=search class="form__search-icon icon">
+</div>
+<ul class=form__options-list>
+<li class=form__options>Ha Noi</li>
+<li class="form__options form__options--current">Ho Chi Minh</li>
+<li class=form__options>Da Nang</li>
+<li class=form__options>Hai Phong</li>
+<li class=form__options>Ho Chi Minh</li>
+<li class=form__options>Da Nang</li>
+<li class=form__options>Hai Phong</li>
+<li class=form__options>Ho Chi Minh</li>
+<li class=form__options>Da Nang</li>
+<li class=form__options>Hai Phong</li>
+</ul>
+</div>
+</div>
+<p class="form__error form__error--confirm">Phone must be at least 2 characters</p>
+</div>
+<div class="form__group form__group--inline">
+<label class=form__checkbox>
+<input type=checkbox name="" class=form__checkbox--input>
+<span class=form__checkbox--lable>Set as default address </span>
+</label>
+</div>
+<p class="form__error form__error--throw">Name must be at least 2 characters</p>
+</form>
+</div>
+<div class=modal__bottom>
+<button class="btn btn--text modal__btn jsClose btn--no-margin">Cancle</button>
+<button class="btn btn--primary buttonSubmit modal__btn btn--no-margin">Create</button>
+</div>
+</div>
+<div class=modal__overlay></div>
+</div>
+</body>
+</html>
+HTML Minifier Tool Documentation
+The API has changed, to see more please click here
+To minify/compress your HTML, perform a POST request to
+
+API https://www.toptal.com/developers/html-minifier/api/raw
+with the input parameter set to the HTML you want to minify.
+
+Hire World Class Talent with Toptal
+HTML5 Developers
+Web Developers
+Front-end Developers
+Shopify Developers
+JavaScript Developers
+Salesforce Consultants
+Webflow Designers
+Hyperledger Developers
+PrestaShop Developers
+OpenCart Developers
+WPF Developers
+Umbraco Developers
+VBA Developers
+Freelance Coders
+Hive Developers
+Hire the top 3% of freelance talent
+Join the Toptal Network
+Copyright 2010 - 2024 Toptal, LLC
+
+Privacy Policy
+Website terms
+By continuing to use this site you agree to our Cookie Policy Privacy Policy, and Terms of Use.
+
+Got it

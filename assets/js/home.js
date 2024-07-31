@@ -1,171 +1,137 @@
-import { toggleShow } from "./toggleShowOverlay.js";
-import { filterSlide } from "./filterSlide.js";
+import { toggleShow as t } from "./toggleShowOverlay.js";
+import { filterSlide as e } from "./filterSlide.js";
 window.addEventListener("DOMContentLoaded", () => {
   fetch("./assets/json/category.json")
-    .then((response) => response.json())
-    .then((json) => {
-      productsDom.categories = json.map((category) => {
-        return new Category(category.imageUrl, category.brand, category.description);
-      });
-      productsDom.showCategoryButton();
+    .then((t) => t.json())
+    .then((t) => {
+      (c.categories = t.map((t) => new a(t.imageUrl, t.brand, t.description))), c.showCategoryButton();
     })
-    .catch((error) => console.log("error", error));
-
-  fetch("./assets/json/product.json")
-    .then((response) => response.json())
-    .then((data) => {
-      productsDom.products = data.map((product) => {
-        return new Product(
-          product.id,
-          product.link,
-          product.name,
-          product.brand,
-          product.price,
-          product.rating,
-          product.weight
-        );
-      });
-      productsDom.showProduct();
-      productsDom.changeFilterProduct();
-    })
-    .catch((error) => console.error("Call Fail Api", error));
-  class Product {
-    constructor(id, link, name, brand, price, rating, weight) {
-      this.id = id;
-      this.link = link;
-      this.name = name;
-      this.brand = brand;
-      this.price = price;
-      this.rating = rating;
-      this.weight = weight;
+    .catch((t) => console.log("error", t)),
+    fetch("./assets/json/product.json")
+      .then((t) => t.json())
+      .then((t) => {
+        (c.products = t.map((t) => new r(t.id, t.link, t.name, t.brand, t.price, t.rating, t.weight))),
+          c.showProduct(),
+          c.changeFilterProduct();
+      })
+      .catch((t) => console.error("Call Fail Api", t));
+  class r {
+    constructor(t, e, r, a, s, c, i) {
+      (this.id = t),
+        (this.link = e),
+        (this.name = r),
+        (this.brand = a),
+        (this.price = s),
+        (this.rating = c),
+        (this.weight = i);
     }
     formatPrice() {
-      const formatter = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 0,
-      });
-      return formatter.format(this.price);
+      let t = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 });
+      return t.format(this.price);
     }
   }
-  class Category {
-    constructor(imageUrl, brand, description) {
-      this.imageUrl = imageUrl;
-      this.brand = brand;
-      this.description = description;
+  class a {
+    constructor(t, e, r) {
+      (this.imageUrl = t), (this.brand = e), (this.description = r);
     }
   }
-
-  class ProductsDOM {
+  class s {
     products = [];
     categories = [];
     constructor() {
-      this.categoryContainerDom = document.querySelector(".js-productCategoryContainer");
-      this.productContainerDom = document.querySelector(".js-productContainer");
+      (this.categoryContainerDom = document.querySelector(".js-productCategoryContainer")),
+        (this.productContainerDom = document.querySelector(".js-productContainer"));
     }
     showProduct() {
-      const productHTML = this.products
-        .map((product) => {
-          return `<div class="col">
-            <article class="product-card js-productItem" data-weight="${product.weight}" data-category ='${
-            product.brand
-          }' data-id='${product.id}'>
-             
-              <div class="product-card__img-wrap js-saveChangeIdProduct">
-              
-                <div>
-                  <img src="${product.link}" alt="${product.name}" class="product-card__thumb js-productThumbs">
-                </div>
-                <a href="./sign-in.html" class="like-btn product-card__like--btn js-HeartClick">
-                  <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon ">
-                </a>
-              </div>
-              <a href="#!">
-                <h3 class="product-card__title line-clamp">${product.name}</h3>
-              </a>
-              <p class="product-card__brand">${product.brand}</p>
-              <div class="product-card__row">
-                <span class="product-card__price">${product.formatPrice()}</span>
-                <img src="./assets/icons/star.svg" alt="star" class="product-card__star">
-                <span class="product-card__score">${product.rating}</span>
-              </div>
-            </article>
-          </div>`;
-        })
+      let t = this.products
+        .map(
+          (t) => `<div class="col">
+  <article class="product-card js-productItem" data-weight="${t.weight}" data-category ='${t.brand}' data-id='${t.id}'>
+   
+    <div class="product-card__img-wrap js-saveChangeIdProduct">
+    
+      <div>
+        <img src="${t.link}" alt="${t.name}" class="product-card__thumb js-productThumbs">
+      </div>
+      <a href="./sign-in.html" class="like-btn product-card__like--btn js-HeartClick">
+        <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon ">
+      </a>
+    </div>
+    <a href="#!">
+      <h3 class="product-card__title line-clamp">${t.name}</h3>
+    </a>
+    <p class="product-card__brand">${t.brand}</p>
+    <div class="product-card__row">
+      <span class="product-card__price">${t.formatPrice()}</span>
+      <img src="./assets/icons/star.svg" alt="star" class="product-card__star">
+      <span class="product-card__score">${t.rating}</span>
+    </div>
+  </article>
+</div>`
+        )
         .join("");
-      this.productContainerDom.innerHTML = productHTML;
-      this.showFilter();
+      (this.productContainerDom.innerHTML = t), this.showFilter();
     }
     showFilter() {
-      toggleShow();
-      this.filterSlide();
+      t(), this.filterSlide();
     }
     filterSlide() {
-      filterSlide();
+      e();
     }
     showCategoryButton() {
-      const categoryButtonHTML = this.categories
-        .map((category) => {
-          return `<div class="col ">
-            <a href="#!"  class='js-productCategory' data-name="${category.brand}">
-              <article class="cate-item">
-                <img src="${category.imageUrl}" alt="item1" class="cate-item__thumb" />
-                <div class="cate-item__infor">
-                  <h3 class="cate-item__title">${category.brand}</h3>
-                  <p class="cate-item__desc line-clamp">${category.description}</p>
-                </div>
-              </article>
-            </a>
-          </div>`;
-        })
+      let t = this.categories
+        .map(
+          (t) => `<div class="col ">
+  <a href="#!"  class='js-productCategory' data-name="${t.brand}">
+    <article class="cate-item">
+      <img src="${t.imageUrl}" alt="item1" class="cate-item__thumb" />
+      <div class="cate-item__infor">
+        <h3 class="cate-item__title">${t.brand}</h3>
+        <p class="cate-item__desc line-clamp">${t.description}</p>
+      </div>
+    </article>
+  </a>
+</div>`
+        )
         .join("");
-      this.categoryContainerDom.innerHTML = categoryButtonHTML;
-      this.setCategoryButtonClickEvent();
+      (this.categoryContainerDom.innerHTML = t), this.setCategoryButtonClickEvent();
     }
     setCategoryButtonClickEvent() {
-      const productCategoryDoms = this.categoryContainerDom.querySelectorAll(".js-productCategory");
-      productCategoryDoms.forEach((dom) => {
-        dom.addEventListener("click", (event) => {
-          this.changeCategoryActive(productCategoryDoms, event);
+      let t = this.categoryContainerDom.querySelectorAll(".js-productCategory");
+      t.forEach((e) => {
+        e.addEventListener("click", (e) => {
+          this.changeCategoryActive(t, e);
         });
       });
     }
-    changeCategoryActive(productCategoryDoms, event) {
-      productCategoryDoms.forEach((dom) => {
-        if (dom === event.currentTarget) {
-          dom.classList.add("is-active");
-        } else {
-          dom.classList.remove("is-active");
-        }
+    changeCategoryActive(t, e) {
+      t.forEach((t) => {
+        t === e.currentTarget ? t.classList.add("is-active") : t.classList.remove("is-active");
       });
     }
     changeFilterProduct() {
-      const fromTags = document.querySelectorAll(".js-formTags");
-      fromTags.forEach((element) => {
-        element.addEventListener("click", () => {
-          let text = element.textContent;
-          const input = document.querySelector(".form__brand-input");
-          input.value = text;
-          const productDoms = document.querySelectorAll(".js-productItem");
-          const filterShow = document.querySelector(".filter__submit");
-          filterShow.addEventListener("click", () => {
-            const weight = document.querySelector(".js-filterWeight").value;
-            productDoms.forEach((product) => {
-              const filterSelected = input.value.toLowerCase();
-              const productBrand = product.dataset.category.toLowerCase();
-              const productWeight = product.dataset.weight;
-              if (productBrand.includes(filterSelected) && productWeight === weight) {
-                product.closest(".col").style.display = "block";
-                product.style.display = "block";
-              } else {
-                product.closest(".col").style.display = "none";
-                product.style.display = "none";
-              }
+      let t = document.querySelectorAll(".js-formTags");
+      t.forEach((t) => {
+        t.addEventListener("click", () => {
+          let e = t.textContent,
+            r = document.querySelector(".form__brand-input");
+          r.value = e;
+          let a = document.querySelectorAll(".js-productItem"),
+            s = document.querySelector(".filter__submit");
+          s.addEventListener("click", () => {
+            let t = document.querySelector(".js-filterWeight").value;
+            a.forEach((e) => {
+              let a = r.value.toLowerCase(),
+                s = e.dataset.category.toLowerCase(),
+                c = e.dataset.weight;
+              s.includes(a) && c === t
+                ? ((e.closest(".col").style.display = "block"), (e.style.display = "block"))
+                : ((e.closest(".col").style.display = "none"), (e.style.display = "none"));
             });
           });
         });
       });
     }
   }
-  const productsDom = new ProductsDOM();
+  let c = new s();
 });
