@@ -1,5 +1,6 @@
 import { toggleShow } from "./toggleShowOverlay.js";
 import { filterSlide } from "./filterSlide.js";
+import { fqa } from "./faq.js";
 window.addEventListener("DOMContentLoaded", () => {
   fetch("./assets/json/category.json")
     .then((response) => response.json())
@@ -95,6 +96,10 @@ window.addEventListener("DOMContentLoaded", () => {
         .join("");
       this.productContainerDom.innerHTML = productHTML;
       this.showFilter();
+      this.showFqa();
+    }
+    showFqa() {
+      fqa();
     }
     showFilter() {
       toggleShow();

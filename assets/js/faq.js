@@ -1,5 +1,7 @@
-const fqaWrappers = document.querySelectorAll(".js__wraper");
-window.addEventListener("DOMContentLoaded", () => {
+export const fqa = () => {
+  console.log("Run");
+  const fqaWrappers = document.querySelectorAll(".js__wraper");
+  console.log(fqaWrappers);
   fqaWrappers.forEach((question) => {
     const faqQuestion = question.querySelector(".js_faqQuestion");
     faqQuestion.addEventListener("click", () => {
@@ -8,4 +10,4 @@ window.addEventListener("DOMContentLoaded", () => {
       faqBottom.classList.toggle("js_show");
     });
   });
-});
+};
