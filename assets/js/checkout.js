@@ -75,18 +75,24 @@ window.addEventListener("DOMContentLoaded", () => {
       return uniqueItems;
     }
     showCart() {
-      const productHTML = this.cartItems.map((cart) => {
-        return `<div class="col">
-                  <article class="cart-preview-item">
-                    <div class="cart-preview-item__img-wrap">
-                      <img src="${cart.link}" alt="" class="cart-preview-item__thumb">
-                    </div>
-                    <h3 class="cart-preview-item__title">${cart.name}</h3>
-                    <p class="cart-preview-item__price">${cart.formatPrice()}</p>
-                  </article>
-                </div>`;
-      });
-      this.cartContainerDom.innerHTML = productHTML;
+      if (JSON.stringify(this.cartItems) === JSON.stringify([])) {
+        const cartHTML = `<div class='cart__notice--cart'>You don't have item in cart !!!</div>`;
+        this.cartContainerDom.innerHTML = cartHTML;
+      } else {
+        const cartHTML = this.cartItems.map((cart) => {
+          return `<div class="col">
+                    <article class="cart-preview-item">
+                      <div class="cart-preview-item__img-wrap">
+                        <img src="${cart.link}" alt="" class="cart-preview-item__thumb">
+                      </div>
+                      <h3 class="cart-preview-item__title">${cart.name}</h3>
+                      <p class="cart-preview-item__price">${cart.formatPrice()}</p>
+                    </article>
+                  </div>`;
+        });
+        this.cartContainerDom.innerHTML = cartHTML;
+      }
+
       this.showPriceToCartFromLocalStorage();
     }
     showPriceToCartFromLocalStorage() {
@@ -103,9 +109,15 @@ window.addEventListener("DOMContentLoaded", () => {
       totalPrice.innerText = `${formatter.format(getTotal)}`;
     }
     showProduct() {
-      const productHTML = this.cartItems
-        .map((cartItem) => {
-          return `<article class="cart-item js-productItemWrap" data-id="${cartItem.id}"}>
+      const arr = [];
+      let productHTML;
+      if (JSON.stringify(arr) === JSON.stringify(this.cartItems)) {
+        const productHTML = `<div class='cart__notice'>You don't have item in cart !!!</div>`;
+        this.ProductContainerDom.innerHTML = productHTML;
+      } else {
+        productHTML = this.cartItems
+          .map((cartItem) => {
+            return `<article class="cart-item js-productItemWrap" data-id="${cartItem.id}"}>
                       <a href="./Product-detail.html">
                         <img src="${cartItem.link}" alt="item" class="cart-item__thumb" />
                       </a>
@@ -149,10 +161,11 @@ window.addEventListener("DOMContentLoaded", () => {
                         </div>
                       </div>
                     </article>`;
-        })
-        .join("");
+          })
+          .join("");
+        this.ProductContainerDom.innerHTML = productHTML;
+      }
 
-      this.ProductContainerDom.innerHTML = productHTML;
       const quantityIncreaseButtonDoms = this.ProductContainerDom.querySelectorAll(".js-quantityIncreaseButton");
       const quantityDecreaseButtonDoms = this.ProductContainerDom.querySelectorAll(".js-quantityDecreaseButton");
       quantityIncreaseButtonDoms.forEach((quantityIncreaseButtonDom) => {
