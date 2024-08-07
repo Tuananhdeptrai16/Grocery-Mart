@@ -2,12 +2,9 @@ export const zoomItem = () => {
   const itemThumbs = document.querySelectorAll(".product-preview__thumbs--img");
   const itemList = document.querySelector(".product-preview__list");
   const overlay = document.querySelector(".product-ovelay ");
-  console.log(itemList);
   const productZoom = document.querySelector(".product__zoom");
-  console.log(itemThumbs);
   itemThumbs.forEach((element, index) => {
     element.onmousemove = () => {
-      console.log("dang di chuyen");
       const imgWidth = itemList.offsetWidth;
       itemList.style.transform = `translateX(${-imgWidth * index}px)`;
     };

@@ -108,4 +108,3 @@ class Slider {
   }
 }
 const slider = new Slider(slides);
-console.log(slider.init());

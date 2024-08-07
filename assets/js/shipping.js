@@ -205,7 +205,6 @@ window.addEventListener("DOMContentLoaded", () => {
     removeProductFromCart(DeleteButton) {
       const DivItem = DeleteButton.closest(".js-productItemWrap");
       const ItemIndex = DivItem.dataset.id;
-      console.log(ItemIndex);
       const productCartIndex = this.cartItems.findIndex((cartItem) => cartItem.id === parseInt(ItemIndex));
       if (productCartIndex !== -1) {
         this.cartItems.splice(productCartIndex, 1);
@@ -222,7 +221,6 @@ window.addEventListener("DOMContentLoaded", () => {
         this.setQuantity(productDiv, currenQuantity + 1);
         this.subTotalPrice(productDiv);
         this.totalPrice();
-        console.log(this.cartItems.length);
       });
     }
     totalQuantity(productDiv) {

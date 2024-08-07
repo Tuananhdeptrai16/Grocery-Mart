@@ -1,6 +1,6 @@
 window.document.addEventListener("DOMContentLoaded", () => {
   const userHandle = $(".js__action-user");
-  const userAction = $(".user__action");
+    const userAction = $(".user__action");
   const lightModeHandle = $(".user__lightmode");
   const textLightMode = $(".user__lightmode--text-active");
   const htmlElement = document.documentElement;

@@ -1,4 +1,6 @@
 import { zoomItem } from "./product-detail.js";
+import { toggleShow } from "./toggleShowOverlay.js";
+
 window.addEventListener("DOMContentLoaded", () => {
   fetch("./assets/json/product.json")
     .then((response) => response.json())
@@ -133,7 +135,7 @@ window.addEventListener("DOMContentLoaded", () => {
                           </div>
                           <span class="prod-infor__total--price">${productDom.formatPrice()}</span>
                           <div class="prod-infor__row prod-infor__btn-wrap">
-                            <button class="btn btn--primary prod-infor__btn js-productItemButton">Add to cart</button>
+                            <button class="btn btn--primary prod-infor__btn js-productItemButton js__toast">Add to cart</button>
                             <button class="like-btn prod-infor__like--btn">
                               <img src="./assets/icons/heart.svg" alt="heart" class="like-btn__icons icon">
                             </button>
@@ -150,7 +152,12 @@ window.addEventListener("DOMContentLoaded", () => {
       product.domInstance = new ProductDom(product, buttonAddtoCart); // Đổi tên thành ProductDom
       product.domInstance.addEventClick(); // Sử dụng domInstance
       this.showZoomProduct();
+      this.showPersonal();
     }
+    showPersonal() {
+      toggleShow();
+    }
+
     showZoomProduct() {
       zoomItem();
     }
@@ -164,7 +171,58 @@ window.addEventListener("DOMContentLoaded", () => {
     addEventClick() {
       this.buttonDom.addEventListener("click", () => {
         this.addToCart();
+        this.showToast();
       });
+    }
+    showToast() {
+      const toasts = [
+        {
+          title: "Success!",
+          message: "Added the product to your cart, please check your cart!!!",
+          type: "success",
+        },
+      ];
+      const duration = 5000;
+      const main = document.getElementById("toast");
+      if (main) {
+        const toast = document.createElement("div");
+
+        // Auto remove toast
+        const autoRemoveId = setTimeout(function () {
+          main.removeChild(toast);
+        }, duration + 1000);
+
+        // Remove toast when clicked
+        toast.onclick = function (e) {
+          if (e.target.closest(".toast__close")) {
+            main.removeChild(toast);
+            clearTimeout(autoRemoveId);
+          }
+        };
+
+        const delay = (duration / 1000).toFixed(2);
+
+        toast.classList.add("toast", `toast--success`);
+        toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+
+        toast.innerHTML = toasts
+          .map((item) => {
+            return `
+                <div class="toast__icon">
+                    <i class=""></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">${item.title}</h3>
+                    <p class="toast__msg">${item.message}</p>
+                </div>
+                <div class="toast__close">
+                    <i class="fas fa-times"></i>
+                </div>
+            `;
+          })
+          .join("");
+        main.appendChild(toast);
+      }
     }
     addToCart() {
       cart.addProduct(this.product);
