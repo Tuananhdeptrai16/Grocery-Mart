@@ -1,0 +1,108 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  &__wrap {
+    display: flex;
+    gap: 60px;
+    height: 90px;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    &-text {
+      font-weight: 900;
+      font-size: 3.2rem;
+      font-style: italic;
+    }
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    &-wrap {
+      display: flex;
+      gap: 50px;
+    }
+  }
+  &__link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__action {
+    display: flex;
+    gap: 17px;
+    align-items: center;
+  }
+  &__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #f5f1ee;
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    &-notice {
+      background: #eeeff8;
+    }
+    &:hover {
+      scale: 1.1;
+    }
+  }
+  &__user {
+    display: flex;
+    gap: 14px;
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    &-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+    &-name {
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 19.36px;
+    }
+  }
+  &__greeting {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #c0c3c6;
+  }
+  &__cart--number {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #1d364d;
+    color: var(--primary--white-main);
+  }
+  &__dot-active {
+    position: absolute;
+    top: 4px;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    background: #d75951;
+    border-radius: 50%;
+  }
+}
+.separate {
+  width: 100%;
+  height: 1px;
+  background: #eee;
+}

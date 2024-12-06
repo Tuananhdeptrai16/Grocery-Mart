@@ -1,0 +1,13 @@
+.footer {
+  margin-top: 85px;
+  height: 466px;
+  background: linear-gradient(75.04deg, #f4e8f3 0%, #f3eff6 52.07%, #eee0f9 102.02%);
+  &__content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 4.2rem;
+  }
+}
